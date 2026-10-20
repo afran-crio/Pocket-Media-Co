@@ -20,8 +20,35 @@
     if (e.key === "Escape") setNav(false);
   });
 
-  // ---------- Portfolio videos: play only while on screen ----------
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---------- About: "There's more to our story" ----------
+  var story = document.getElementById("our-story");
+  var storyToggle = document.querySelector(".story-toggle[aria-expanded]");
+  var storyLabel = storyToggle && storyToggle.querySelector(".story-toggle-label");
+  var storyIcon = storyToggle && storyToggle.querySelector(".story-toggle-icon");
+
+  function setStory(open) {
+    storyToggle.setAttribute("aria-expanded", String(open));
+    storyLabel.textContent = open ? "Show less" : "There's more to our story";
+    storyIcon.textContent = open ? "↑" : "↗";
+    story.classList.toggle("is-open", open);
+    if (open) story.removeAttribute("inert");
+    else story.setAttribute("inert", "");
+  }
+
+  if (story && storyToggle) {
+    storyToggle.addEventListener("click", function () {
+      setStory(storyToggle.getAttribute("aria-expanded") !== "true");
+    });
+    story.querySelector(".story-toggle-close").addEventListener("click", function () {
+      setStory(false);
+      storyToggle.focus({ preventScroll: true });
+      document.getElementById("about").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  }
+
+  // ---------- Portfolio videos: play only while on screen ----------
   var videos = document.querySelectorAll(".project-media video");
 
   if (reduceMotion) {

@@ -858,3 +858,142 @@ a { color: inherit; }
   .hero { padding-bottom: clamp(56px, 9vw, 128px); }
   .bolt-hero { display: none; }
 }
+
+/* =========================================================
+   About: expandable story, family tree, collective portfolio
+   ========================================================= */
+.about .wide-heading { font-size: clamp(1.7rem, 4.4vw, 3.6rem); }
+.about .serif-lg { margin-bottom: 20px; }
+.about .body-lg + .body-lg { margin-top: 0; }
+
+.story-toggle-wrap { margin-top: 32px; }
+.story-toggle {
+  font: inherit;
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  color: var(--black);
+  background: none;
+  border: 0;
+  padding: 4px 2px;
+  cursor: pointer;
+  text-decoration: underline wavy var(--red) 2px;
+  text-underline-offset: 8px;
+}
+.story-toggle:hover { color: var(--red); }
+.story-toggle-icon { display: inline-block; transition: transform 0.3s ease; }
+
+/* Smooth height transition without measuring in JS */
+.story {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.55s ease, opacity 0.4s ease;
+}
+.story.is-open { grid-template-rows: 1fr; opacity: 1; }
+.story-inner { overflow: hidden; min-height: 0; }
+
+.story-block {
+  padding-top: clamp(56px, 8vw, 104px);
+}
+.story-block + .story-block { border-top: 0; }
+.story-block > .wide-heading { margin-bottom: 28px; }
+.story-block.narrow { text-align: center; }
+.story-block p + p { margin-top: 14px; }
+.story-copy { margin: 0 auto; }
+.story-copy p + p { margin-top: 14px; }
+.story-pull {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1;
+  color: var(--red);
+  margin-block: 28px !important;
+}
+.story-enter {
+  display: inline-block;
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2.6vw, 2rem);
+  background: var(--red);
+  color: var(--black);
+  border: var(--stroke);
+  border-radius: 999px;
+  padding: 10px 24px;
+  margin-block: 28px 16px !important;
+  transform: rotate(-2deg);
+}
+.story-block .brand-line { margin-top: 32px !important; }
+
+/* Logo tiles */
+.eco-grid,
+.client-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(12px, 1.6vw, 20px);
+}
+.eco-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1000px; margin: 20px auto 0; }
+.eco-grid-lg { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: clamp(32px, 4vw, 48px); }
+.eco-logo,
+.client-logo {
+  display: grid;
+  place-items: center;
+  background: var(--white);
+  border: var(--stroke);
+  border-radius: var(--radius-sm);
+  aspect-ratio: 3 / 2;
+  padding: 18px;
+}
+.eco-logo-lg { aspect-ratio: 2 / 1; background: var(--yellow); border-radius: var(--radius); }
+.eco-logo img,
+.client-logo img { max-height: 70%; max-width: 80%; width: auto; height: auto; object-fit: contain; }
+.eco-logo-lg img { max-height: 60%; }
+
+.logo-placeholder {
+  display: grid;
+  gap: 4px;
+  text-align: center;
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(0.72rem, 1.2vw, 0.9rem);
+  line-height: 1.1;
+}
+.eco-logo-lg .logo-placeholder { font-size: clamp(1rem, 2.2vw, 1.6rem); }
+.logo-placeholder small {
+  font-family: var(--font-text);
+  font-stretch: 100%;
+  font-weight: 500;
+  text-transform: none;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+.client-label {
+  margin: clamp(32px, 4vw, 44px) 0 16px;
+  text-align: center;
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+.client-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1000px; margin: 0 auto; }
+.client-logo { border-width: 1.5px; border-color: #d4d4d4; }
+.client-logo .logo-placeholder { font-family: var(--font-text); font-stretch: 100%; font-weight: 500; text-transform: none; color: #8a8a8a; }
+
+.story-toggle-close { margin-top: clamp(40px, 6vw, 64px); }
+
+@media (max-width: 700px) {
+  .eco-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .eco-grid-lg { grid-template-columns: 1fr; }
+  .client-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.about .story p + p { margin-top: 16px; }
+.about .story .body-lg { margin-bottom: 0; }
