@@ -1034,3 +1034,7 @@ a { color: inherit; }
   max-width: 76%;
   max-height: 58%;
 }
+
+/* Crio Connect tile in its own brand blue */
+.eco-crio { background: #0300fd; }
+.eco-crio img { max-width: 72%; max-height: none; }
