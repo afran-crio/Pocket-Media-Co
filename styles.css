@@ -1309,3 +1309,44 @@ p, li, summary { text-wrap: pretty; }
   .party-body { margin-right: auto; margin-left: 0; }
 }
 
+
+/* Who-it's-for: locked copy additions */
+.who-intro p + p { margin-top: 12px; }
+.who-intro .body-lg { color: var(--black); max-width: 52ch; margin-inline: auto; }
+.who-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: 100%;
+  text-transform: none;
+  margin-right: 4px;
+}
+.who-outro {
+  max-width: 760px;
+  margin: clamp(36px, 5vw, 52px) auto 0;
+  text-align: center;
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.15;
+  text-wrap: balance;
+  position: relative;
+  z-index: 1;
+}
+.who-outro span {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: 100%;
+  text-transform: none;
+  font-size: 1.35em;
+}
+.who-intro { max-width: 640px; }
+.who-intro .serif-md { max-width: none; }
+@media (min-width: 861px) {
+  .who-card:nth-child(-n+3) .who-tag { min-height: 3.2em; }
+}
