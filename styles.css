@@ -89,14 +89,13 @@ a { color: inherit; }
 .mega,
 .wide-heading,
 .project h3,
-.service h3,
 .step h3,
 .form-title {
   font-family: var(--font-wide);
   font-stretch: 125%;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 .wide-heading {
@@ -434,9 +433,9 @@ a { color: inherit; }
 }
 .step h3 {
   font-size: 1.2rem;
-  line-height: 1.02;
-  margin: auto 0 12px;
-  padding-top: 32px;
+  line-height: 1.05;
+  margin: 40px 0 12px;
+  min-height: 2.1em; /* two lines, so every step's text starts at the same height */
 }
 .step p { font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.2; }
 
@@ -679,7 +678,6 @@ a { color: inherit; }
    ========================================================= */
 .about .wide-heading { font-size: clamp(1.7rem, 4.4vw, 3.6rem); }
 .about .serif-lg { margin-bottom: 20px; }
-.about .body-lg + .body-lg { margin-top: 0; }
 
 .story-toggle-wrap { margin-top: 32px; }
 .story-toggle {
@@ -788,8 +786,6 @@ a { color: inherit; }
   .eco-grid-lg { grid-template-columns: 1fr; }
   .client-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-.about .story p + p { margin-top: 16px; }
-.about .story .body-lg { margin-bottom: 0; }
 
 /* Client logo wall */
 .client-grid {
@@ -1192,4 +1188,52 @@ a { color: inherit; }
 .who-intro { max-width: 48ch; }
 @media (max-width: 860px) {
   .svc-secondary { margin-top: 18px; }
+}
+
+/* =========================================================
+   Text alignment & rhythm
+   ========================================================= */
+/* No stranded single words in headings, statements and badges */
+.mega, .wide-heading, .kicker, .work-sub, .client-label, .serif-lg, .serif-md,
+.brand-line, .story-pull, .story-enter, .work-soon-title, .svc-title, .who-tag,
+.not-for-title, .form-title, .step h3, .footer-script, .one-size-lines p {
+  text-wrap: balance;
+}
+p, li, summary { text-wrap: pretty; }
+
+/* One consistent paragraph rhythm in the About section and story */
+.about .body-lg { margin-inline: auto; margin-bottom: 0; max-width: 58ch; }
+.about .container > p + p,
+.about .story-block > p + p,
+.about .story-copy > p + p { margin-top: 16px; }
+.about .serif-lg { margin-bottom: 0; }
+.about .story-block > .serif-md + .body-lg { margin-top: 20px; }
+.about .story-pull,
+.about .story-enter { margin-block: 32px !important; }
+.about .brand-line,
+.about .story-block .brand-line { margin-top: 32px !important; }
+.story-copy { max-width: 760px; }
+.story-copy .serif-md + .body-lg { margin-top: 20px; }
+
+/* "Enter Pocket Media Co." stays on one line */
+.story-enter { white-space: nowrap; font-size: clamp(0.95rem, 4.4vw, 2rem); }
+
+/* Same paragraph rhythm inside cards */
+.work-soon .serif-md + .body-lg,
+.services-intro .serif-md + .serif-md { margin-top: 14px; }
+
+@media (max-width: 860px) {
+  /* Contact matches the centred sections around it once it stacks */
+  .contact-copy { text-align: center; }
+  .contact-copy .wide-heading.left { text-align: center; }
+}
+@media (max-width: 560px) {
+  .footer-cols { align-items: flex-start; }
+}
+.about .container > p + p.story-toggle-wrap { margin-top: 28px; }
+/* Archivo tucks the full stop under the W in "KNOW." */
+#faq-title { letter-spacing: 0.02em; }
+@media (min-width: 861px) {
+  /* Two-line title slot so the lines in each row of cards start level */
+  .who-tag { min-height: 2.1em; }
 }
