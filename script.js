@@ -95,17 +95,9 @@
     name: "Contact Name",
     contact: "Contact Details",
     link: "Instagram / Website",
-    package: "Looking for",
+    looking_for: "Looking for",
     about: "About the business"
   };
-
-  // "Choose" buttons pre-select the package in the form
-  document.querySelectorAll("[data-plan]").forEach(function (link) {
-    link.addEventListener("click", function () {
-      var radio = form.querySelector('input[name=package][value="' + link.dataset.plan + '"]');
-      if (radio) radio.checked = true;
-    });
-  });
 
   function setStatus(msg, type) {
     status.textContent = msg;
@@ -119,8 +111,8 @@
       input.setAttribute("aria-invalid", bad ? "true" : "false");
       if (bad && !firstInvalid) firstInvalid = input;
     });
-    var picked = form.querySelector("input[name=package]:checked");
-    if (!picked && !firstInvalid) firstInvalid = form.querySelector("input[name=package]");
+    var picked = form.querySelector("input[name=looking_for]:checked");
+    if (!picked && !firstInvalid) firstInvalid = form.querySelector("input[name=looking_for]");
     return firstInvalid;
   }
 
@@ -153,7 +145,7 @@
           if (!res.ok) throw new Error(res.status);
           form.reset();
           track("generate_lead", { method: "form" });
-          setStatus("Thanks! We've got your enquiry. We'll be in touch to learn about your business and recommend the right package.", "success");
+          setStatus("Thanks! We've got your enquiry. We'll be in touch to learn about your business and talk through the right scope.", "success");
         })
         .catch(function () {
           setStatus("Something went wrong sending that. Please try again in a moment.", "error");
