@@ -31,7 +31,7 @@
   function setStory(open) {
     storyToggle.setAttribute("aria-expanded", String(open));
     storyLabel.textContent = open ? "Show less" : "There's more to our story";
-    storyIcon.textContent = open ? "↑" : "↗";
+    storyIcon.textContent = open ? "↑" : "↓";
     story.classList.toggle("is-open", open);
     if (open) story.removeAttribute("inert");
     else story.setAttribute("inert", "");
@@ -106,48 +106,120 @@
   var labels = {
     brand: "Business / Brand Name",
     name: "Contact Name",
-    contact: "Contact Details",
+    email: "Email",
+    phone: "Phone / WhatsApp",
     link: "Instagram / Website",
-    looking_for: "Looking for",
+    service: "Help with",
+    budget_type: "Budget type",
+    budget_monthly: "Monthly budget",
+    budget_project: "Project budget",
+    start: "Looking to start",
     about: "About the business"
   };
+
+  // Budget questions depend on the service picked. Hidden fieldsets are also
+  // disabled, so their answers are never validated or sent.
+  var budgetType = document.getElementById("f-budget-type");
+  var budgetMonthly = document.getElementById("f-budget-monthly");
+  var budgetProject = document.getElementById("f-budget-project");
+
+  function showFieldset(fs, on) {
+    if (fs.hidden === !on) return;
+    fs.hidden = !on;
+    fs.disabled = !on;
+    if (!on) fs.querySelectorAll("input").forEach(function (i) { i.checked = false; });
+  }
+
+  function updateBudget() {
+    var service = (form.querySelector("input[name=service]:checked") || {}).value;
+    var both = service === "Both / Not Sure Yet";
+    var type = both && (form.querySelector("input[name=budget_type]:checked") || {}).value;
+    showFieldset(budgetType, both);
+    showFieldset(budgetMonthly, service === "Social Media Management" || type === "Monthly");
+    showFieldset(budgetProject, service === "Content Creation / Video Production" || type === "Project-based");
+  }
+
+  form.addEventListener("change", function (e) {
+    if (e.target.name === "service" || e.target.name === "budget_type") updateBudget();
+  });
+
+  // Service CTAs pre-select the matching enquiry category
+  document.querySelectorAll("[data-service]").forEach(function (link) {
+    link.addEventListener("click", function () {
+      var radio = form.querySelector('input[name=service][value="' + link.dataset.service + '"]');
+      if (radio) { radio.checked = true; updateBudget(); }
+    });
+  });
 
   function setStatus(msg, type) {
     status.textContent = msg;
     status.className = "form-status" + (type ? " is-" + type : "");
   }
 
+  function markInvalid(el, bad) {
+    el.setAttribute("aria-invalid", bad ? "true" : "false");
+  }
+
   function validate() {
-    var firstInvalid = null;
-    form.querySelectorAll("input[type=text][required]").forEach(function (input) {
+    var problems = [];
+    var first = null;
+    function fail(el, msg) {
+      if (!first) first = el;
+      if (msg && problems.indexOf(msg) === -1) problems.push(msg);
+    }
+
+    ["f-brand", "f-name"].forEach(function (id) {
+      var input = document.getElementById(id);
       var bad = !input.value.trim();
-      input.setAttribute("aria-invalid", bad ? "true" : "false");
-      if (bad && !firstInvalid) firstInvalid = input;
+      markInvalid(input, bad);
+      if (bad) fail(input, "your brand and name");
     });
-    var picked = form.querySelector("input[name=looking_for]:checked");
-    if (!picked && !firstInvalid) firstInvalid = form.querySelector("input[name=looking_for]");
-    return firstInvalid;
+
+    var email = document.getElementById("f-email");
+    var phone = document.getElementById("f-phone");
+    var hasEmail = !!email.value.trim();
+    var hasPhone = !!phone.value.trim();
+    var emailBad = hasEmail && !email.checkValidity();
+    markInvalid(email, emailBad || (!hasEmail && !hasPhone));
+    markInvalid(phone, !hasEmail && !hasPhone);
+    if (!hasEmail && !hasPhone) fail(email, "an email or phone number");
+    else if (emailBad) fail(email, "a valid email address");
+
+    // Every visible required radio group needs an answer
+    form.querySelectorAll("fieldset:not([disabled])").forEach(function (fs) {
+      var req = fs.querySelector("input[type=radio][required]");
+      if (req && !fs.querySelector("input[type=radio]:checked")) {
+        fail(req, fs.id === "f-service" ? "what we can help with" : "a budget (or \"Need guidance\")");
+      }
+    });
+
+    return { first: first, problems: problems };
   }
 
   form.addEventListener("input", function (e) {
     if (e.target.getAttribute("aria-invalid") === "true" && e.target.value.trim()) {
-      e.target.setAttribute("aria-invalid", "false");
+      markInvalid(e.target, false);
+      if (e.target.id === "f-email" || e.target.id === "f-phone") {
+        markInvalid(document.getElementById("f-email"), false);
+        markInvalid(document.getElementById("f-phone"), false);
+      }
     }
   });
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    var invalid = validate();
-    if (invalid) {
-      setStatus("Please fill in your brand, name, contact details and what you're looking for.", "error");
-      invalid.focus();
+    var check = validate();
+    if (check.first) {
+      setStatus("Almost there! We just need " + check.problems.join(", ") + ".", "error");
+      check.first.focus();
       return;
     }
 
     var data = new FormData(form);
     var endpoint = form.dataset.endpoint;
     var email = form.dataset.email;
+    var service = data.get("service");
 
     if (endpoint) {
       var btn = form.querySelector("button[type=submit]");
@@ -157,8 +229,9 @@
         .then(function (res) {
           if (!res.ok) throw new Error(res.status);
           form.reset();
-          track("generate_lead", { method: "form" });
-          setStatus("Thanks! We've got your enquiry. We'll be in touch to learn about your business and talk through the right scope.", "success");
+          updateBudget();
+          track("generate_lead", { method: "form", service: service });
+          setStatus("And it's in! We'll take a look and get back to you soon.", "success");
         })
         .catch(function () {
           setStatus("Something went wrong sending that. Please try again in a moment.", "error");
@@ -170,10 +243,10 @@
     if (email) {
       var lines = [];
       data.forEach(function (value, key) {
-        if (String(value).trim()) lines.push(labels[key] + ": " + value);
+        if (String(value).trim()) lines.push((labels[key] || key) + ": " + value);
       });
-      var subject = "Website enquiry: " + data.get("brand");
-      track("generate_lead", { method: "email" });
+      var subject = "Website enquiry: " + data.get("brand") + " (" + service + ")";
+      track("generate_lead", { method: "email", service: service });
       window.location.href = "mailto:" + email +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(lines.join("\n\n"));
@@ -183,28 +256,6 @@
 
     setStatus("Our enquiry form isn't connected yet. Please reach out to Pocket directly for now.", "error");
   });
-
-  // ---------- Sticky mobile CTA ----------
-  // Shows once the hero is out of view; hides again while the contact form is on screen.
-  var bar = document.querySelector(".mobile-cta");
-  var hero = document.querySelector(".hero");
-  var contact = document.getElementById("contact");
-  if (bar && "IntersectionObserver" in window) {
-    var heroVisible = true, contactVisible = false;
-    var update = function () { bar.classList.toggle("is-visible", !heroVisible && !contactVisible); };
-    new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.target === hero) heroVisible = entry.isIntersecting;
-        if (entry.target === contact) contactVisible = entry.isIntersecting;
-      });
-      update();
-    }).observe(hero);
-    var io2 = new IntersectionObserver(function (entries) {
-      contactVisible = entries[0].isIntersecting;
-      update();
-    });
-    io2.observe(contact);
-  }
 
   // ---------- Footer year ----------
   var year = document.getElementById("year");

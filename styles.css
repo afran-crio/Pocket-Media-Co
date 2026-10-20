@@ -139,7 +139,6 @@ a { color: inherit; }
 .pill:hover { background: var(--yellow); transform: rotate(-2deg); }
 .pill-solid { background: var(--yellow); }
 .pill-solid:hover { background: var(--white); }
-.pill-sm { min-height: 40px; padding: 8px 18px; }
 .pill-block { width: 100%; }
 
 .arrow {
@@ -350,42 +349,6 @@ a { color: inherit; }
   padding-block: var(--section-y);
 }
 .services .wide-heading { color: var(--black); }
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(20px, 3vw, 36px);
-  max-width: 1040px;
-  margin: 0 auto;
-}
-.service {
-  background: var(--white);
-  border: var(--stroke);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.service-art {
-  aspect-ratio: 16 / 9;
-  background: var(--black);
-  display: grid;
-  place-items: center;
-  border-bottom: var(--stroke);
-}
-.service-art img { width: 18%; }
-.service-art-yellow { background: var(--yellow); }
-.service-body { padding: clamp(24px, 3vw, 36px); text-align: center; }
-.service h3 {
-  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
-  line-height: 1;
-  margin-bottom: 14px;
-}
-.service p { font-family: var(--font-serif); font-size: 1.35rem; line-height: 1.25; }
-.services .on-red { margin-top: clamp(40px, 6vw, 72px); }
-
-@media (max-width: 700px) {
-  .service-grid { grid-template-columns: 1fr; }
-}
 
 /* ---------- Our Work ---------- */
 .work {
@@ -428,7 +391,6 @@ a { color: inherit; }
 .project h3 { font-size: clamp(1.15rem, 1.8vw, 1.5rem); line-height: 1; margin-bottom: 10px; }
 .project p { font-family: var(--font-serif); font-size: 1.2rem; line-height: 1.2; margin-bottom: 20px; }
 .project .pill { margin-top: auto; }
-
 
 @media (max-width: 1000px) {
   .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -523,6 +485,8 @@ a { color: inherit; }
   padding: 0;
 }
 .field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
 .field textarea {
   width: 100%;
   font: inherit;
@@ -622,18 +586,6 @@ a { color: inherit; }
    Conversion: hero CTAs, plan buttons, FAQ, sticky mobile bar
    ========================================================= */
 .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: clamp(32px, 4vw, 48px); }
-.hero-price {
-  margin-top: 18px;
-  font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
-}
-.hero-price strong { font-family: var(--font-text); font-weight: 800; }
-.hero-price a {
-  color: var(--black);
-  text-decoration: underline wavy var(--yellow) 2px;
-  text-underline-offset: 6px;
-}
-.hero-price a:hover { color: var(--white); }
 
 .work .btn-row { margin-top: 0; }
 
@@ -686,35 +638,6 @@ a { color: inherit; }
 }
 .form-next strong { color: var(--black); }
 
-.mobile-cta { display: none; }
-@media (max-width: 800px) {
-  .mobile-cta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    position: fixed;
-    left: 12px; right: 12px; bottom: 12px;
-    z-index: 60;
-    padding: 8px 8px 8px 20px;
-    background: var(--black);
-    color: var(--white);
-    border-radius: 999px;
-    transform: translateY(140%);
-    transition: transform 0.25s ease;
-  }
-  .mobile-cta.is-visible { transform: none; }
-  .mobile-cta-text { font-family: var(--font-serif); font-size: 1.2rem; }
-  .mobile-cta-text strong { font-family: var(--font-text); font-weight: 800; color: var(--yellow); }
-  .mobile-cta .pill { border-color: var(--yellow); white-space: nowrap; }
-  .site-footer { padding-bottom: 96px; }
-}
-
-@media (max-width: 560px) {
-  .mobile-cta-text { white-space: nowrap; font-size: 1.05rem; }
-  .mobile-cta .arrow { width: 26px; }
-}
-
 /* ---------- Copy refresh ---------- */
 .hero-lede {
   margin-top: clamp(24px, 3vw, 36px);
@@ -746,7 +669,6 @@ a { color: inherit; }
   text-transform: none;
   font-size: 1.35em;
 }
-.lead-in { font-weight: 400; font-style: italic; }
 @media (max-width: 800px) {
   .hero { padding-bottom: clamp(56px, 9vw, 128px); }
   .bolt-hero { display: none; }
@@ -845,7 +767,6 @@ a { color: inherit; }
 .client-logo img { max-height: 70%; max-width: 80%; width: auto; height: auto; object-fit: contain; }
 .eco-logo-lg img { max-height: 60%; }
 
-
 .client-label {
   margin: clamp(32px, 4vw, 44px) 0 16px;
   text-align: center;
@@ -910,71 +831,10 @@ a { color: inherit; }
 /* Crio Connect tile in its own brand blue */
 .eco-crio { background: #0300fd; }
 .eco-crio img { max-width: 72%; max-height: none; }
-
 /* =========================================================
    Pricing: one "starts at" card instead of a package table
    ========================================================= */
-.pricing {
-  --grain-from: var(--yellow);
-  padding-block: var(--section-y);
-}
-.kicker-dark { color: var(--red-dark); margin-bottom: 16px; }
-.pricing .serif-md { max-width: 34ch; margin: 0 auto; }
-.price-card {
-  margin: clamp(36px, 5vw, 56px) auto clamp(28px, 4vw, 40px);
-  max-width: 640px;
-  background: var(--yellow);
-  border: var(--stroke);
-  border-radius: var(--radius);
-  padding: clamp(28px, 4vw, 44px) clamp(22px, 4vw, 48px);
-  transform: rotate(-1deg);
-}
-.price-label {
-  font-family: var(--font-wide);
-  font-stretch: 125%;
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: clamp(0.72rem, 1.2vw, 0.85rem);
-  letter-spacing: 0.06em;
-}
-.price-big {
-  font-family: var(--font-wide);
-  font-stretch: 125%;
-  font-weight: 900;
-  font-size: clamp(3rem, 9vw, 6rem);
-  line-height: 1;
-  margin: 10px 0 18px;
-}
-.price-big span {
-  font-family: var(--font-serif);
-  font-stretch: 100%;
-  font-weight: 400;
-  font-style: italic;
-  font-size: 0.32em;
-  vertical-align: 0.9em;
-}
-.price-includes {
-  font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
-  line-height: 1.25;
-  max-width: 36ch;
-  margin: 0 auto;
-}
-.price-terms {
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 2px solid var(--black);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-.price-big { white-space: nowrap; font-size: clamp(2.6rem, 8vw, 5.2rem); }
 .field .choice { border-radius: 18px; }
-.price-month {
-  margin: 14px auto 0;
-  max-width: 40ch;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
 
 /* =========================================================
    Pre-launch polish
@@ -1042,4 +902,154 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .work-soon-bolt { width: 40px; right: 14px; top: 14px; }
   .work-soon-title { padding-inline: 24px; }
+}
+
+/* =========================================================
+   Final update: service hierarchy, "one size", conditional form
+   ========================================================= */
+.services-intro { max-width: 760px; margin: 0 auto clamp(36px, 5vw, 56px); }
+.services-intro .serif-md + .serif-md { margin-top: 10px; }
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: clamp(20px, 3vw, 36px);
+  align-items: start;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.svc {
+  position: relative;
+  border: var(--stroke);
+  border-radius: var(--radius);
+  padding: clamp(28px, 4vw, 52px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.svc-primary { background: var(--white); }
+.svc-secondary { background: var(--yellow); margin-top: clamp(0px, 6vw, 72px); }
+.svc-bolt {
+  position: absolute;
+  width: clamp(44px, 5vw, 72px);
+  right: clamp(18px, 3vw, 36px);
+  top: clamp(18px, 3vw, 32px);
+  transform: rotate(12deg);
+}
+.svc-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 18px;
+}
+.svc-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.svc-primary .svc-label { background: var(--red); border: 2px solid var(--black); border-radius: 999px; padding: 6px 16px 6px 12px; }
+.svc-title {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.98;
+  margin-bottom: 18px;
+}
+.svc-primary .svc-title { font-size: clamp(1.7rem, 3.6vw, 3rem); padding-right: clamp(48px, 6vw, 80px); }
+.svc-secondary .svc-title { font-size: clamp(1.35rem, 2.4vw, 1.9rem); }
+.svc .serif-md { margin-bottom: 14px; }
+.svc-secondary .serif-md { font-size: clamp(1.2rem, 1.8vw, 1.45rem); }
+.svc-copy { font-size: 1.02rem; }
+.svc-copy + .svc-copy { margin-top: 8px; }
+.svc-caps {
+  list-style: none;
+  margin: 24px 0 28px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.svc-caps li {
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: var(--white);
+}
+.svc-primary .svc-caps li { background: var(--yellow); }
+.svc .pill { margin-top: auto; }
+
+@media (max-width: 860px) {
+  .svc-grid { grid-template-columns: 1fr; }
+  .svc-secondary { margin-top: 0; }
+}
+
+/* Made by Pocket subheading */
+.work-sub {
+  text-align: center;
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  letter-spacing: 0.04em;
+  margin: -12px 0 14px;
+}
+
+/* Good ideas don't come in one size */
+.one-size {
+  --grain-from: var(--yellow);
+  padding-block: var(--section-y);
+}
+.one-size-lines {
+  display: grid;
+  gap: 14px;
+  margin: 8px auto 24px;
+}
+.one-size-lines p { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 6px 14px; }
+.one-size-yes {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  background: var(--yellow);
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  padding: 4px 16px;
+  transform: rotate(-2deg);
+}
+.one-size-lines p + p .one-size-yes { background: var(--red); transform: rotate(2deg); }
+.one-size .body-lg { margin-bottom: 32px; }
+
+/* Enquiry form additions */
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+.field-row .field { margin-bottom: 6px; }
+.field-hint { font-size: 0.82rem; color: var(--ink-muted); margin: 0 0 18px; }
+.choices-grid { grid-template-columns: 1fr 1fr; }
+.choices-inline { grid-template-columns: 1fr 1fr; }
+.field[hidden] { display: none; }
+.budget-wrap .field:not([hidden]) { animation: budget-in 0.3s ease; }
+@keyframes budget-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (max-width: 560px) {
+  .field-row,
+  .choices-grid { grid-template-columns: 1fr; }
+}
+
+.footer-id { margin-top: 12px; }
+.hero-lede { max-width: 46ch; }
+@media (max-width: 560px) {
+  .svc-bolt { display: none; }
+  .svc-primary .svc-title { padding-right: 0; }
 }

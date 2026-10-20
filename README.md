@@ -12,10 +12,14 @@ assets/work/ portfolio images and videos go here
 
 To preview it locally, run `python3 -m http.server` in this folder and open http://localhost:8000.
 
+## Pricing
+
+No prices appear on the public page. Packages, onboarding fees and add-on rates live in Pocket's internal quotation system; the site sells the work and the two ways to work with Pocket (Social Media Management first, Content Creation second).
+
 ## Before going live
 
 1. **Add the portfolio (Made by Pocket).** Until real work is ready, the section shows a "Fresh work dropping soon" panel. To launch it, add 3 real projects: put each reel or image in `assets/work/`, then follow the comment above the panel (delete the panel, uncomment the project grid, fill in the brand name and one honest line on Pocket's role).
-2. **Connect the enquiry form.** Set `data-endpoint` (a form service URL such as Formspree) or `data-email` (opens the visitor's email app) on the `<form>`. Until then, a submitted form shows a "not connected yet" message.
+2. **Connect the enquiry form.** Set `data-endpoint` (a form service URL such as Formspree) or `data-email` (opens the visitor's email app) on the `<form>`. Until then, a submitted form shows a "not connected yet" message; the "And it's in!" confirmation only appears when the endpoint answers OK. Fields sent: `brand`, `name`, `email`, `phone`, `link`, `service`, `budget_type` (only for "Both / Not Sure Yet"), `budget_monthly` or `budget_project`, `start`, `about`. Budget ranges are for lead qualification only.
 3. **Ecosystem logos.** Crio Connect and the 23 client logos are in. Kaun Creative, Off The Menu, Scene Here and Node Experiences currently show their names in type. Put the real files in `assets/logos/` (SVG, or WebP around 600px wide) and swap each name for the `<img>` shown in the comment next to it. Only add verified clients to `assets/logos/clients/`.
 4. **Social preview image.** `assets/img/og-image.jpg` is what WhatsApp, Instagram and LinkedIn show when the link is shared. Once the domain is live, make the `og:image` URL in `index.html` absolute (for example `https://yourdomain/assets/img/og-image.jpg`), as some apps ignore relative ones.
 5. **Analytics.** Paste in the Google Analytics, Plausible or Meta Pixel snippet. Button clicks (`data-track` names) and form sends (`generate_lead`) are reported to whichever one is installed. Until then nothing is tracked.
