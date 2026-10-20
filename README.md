@@ -16,4 +16,5 @@ To preview it locally, run `python3 -m http.server` in this folder and open http
 
 1. **Add the portfolio (Made by Pocket).** The six tiles in `index.html` are placeholders. Use 3–6 real projects. Each one needs a reel or image in `assets/work/`, the brand name, the type of work, and one honest line about Pocket's role. The comment above the grid has copy-paste examples. Remove any tile you don't use.
 2. **Connect the enquiry form.** Set `data-endpoint` (a form service URL such as Formspree) or `data-email` (opens the visitor's email app) on the `<form>`. Until then, a submitted form shows a "not connected yet" message.
-3. **Hosting.** Upload the folder to any static host, such as Netlify, Vercel, Cloudflare Pages or GitHub Pages. The original brand files in the repo root aren't used by the page.
+3. **Analytics.** Paste in the Google Analytics, Plausible or Meta Pixel snippet. Button clicks (`data-track` names) and form sends (`generate_lead`) are reported to whichever one is installed. Until then nothing is tracked.
+4. **Hosting.** Upload the folder to any static host, such as Netlify, Vercel, Cloudflare Pages or GitHub Pages. The original brand files in the repo root aren't used by the page.

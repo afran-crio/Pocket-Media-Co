@@ -75,16 +75,17 @@
           Great social media.<br>
           <em class="accent">Consistently.</em>
         </h1>
+        <div class="hero-cta">
+          <a class="pill pill-solid" href="#contact" data-track="cta_hero_work_with_us">Work With Us <span class="arrow" aria-hidden="true"></span></a>
+          <a class="pill" href="#work" data-track="cta_hero_explore_work">Explore Our Work <span class="arrow" aria-hidden="true"></span></a>
+        </div>
+        <p class="hero-price">Monthly packages from <strong>₹60,000</strong>. <a href="#packages" data-track="cta_hero_see_packages">See packages</a></p>
       </div>
     </section>
 
     <section class="statement" aria-label="Introduction">
       <div class="container">
         <p class="serif-lg">We create content and manage social media for businesses that want to stand out online.</p>
-        <div class="btn-row">
-          <a class="pill" href="#work">Explore Our Work <span class="arrow" aria-hidden="true"></span></a>
-          <a class="pill pill-solid" href="#contact">Work With Us <span class="arrow" aria-hidden="true"></span></a>
-        </div>
       </div>
     </section>
 
@@ -219,8 +220,9 @@
           </article>
         </div>
 
-        <div class="center">
+        <div class="btn-row">
           <a class="pill" href="#work-grid">View Our Work <span class="arrow" aria-hidden="true"></span></a>
+          <a class="pill pill-solid" href="#contact" data-track="cta_work_work_with_us">Work With Us <span class="arrow" aria-hidden="true"></span></a>
         </div>
       </div>
     </section>
@@ -258,6 +260,13 @@
               <tr><th scope="row">Community Management</th><td>Basic</td><td class="plan-plus">Basic</td></tr>
               <tr><th scope="row">Monthly Reporting</th><td>Included</td><td class="plan-plus">Included</td></tr>
             </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td><a class="pill pill-sm pill-solid" href="#contact" data-plan="Pocket Social (₹60K/month)" data-track="cta_choose_social">Choose<span class="visually-hidden"> Pocket Social</span> <span class="arrow" aria-hidden="true"></span></a></td>
+                <td class="plan-plus"><a class="pill pill-sm pill-solid" href="#contact" data-plan="Pocket Social Plus (₹80K/month)" data-track="cta_choose_plus">Choose<span class="visually-hidden"> Pocket Social Plus</span> <span class="arrow" aria-hidden="true"></span></a></td>
+              </tr>
+            </tfoot>
           </table>
         </div>
 
@@ -269,7 +278,10 @@
           </div>
           <p class="fine-print">Minimum engagement: 3 months. Prices exclude GST.</p>
           <p class="serif-md">Need something extra? We can customise your scope.</p>
-          <a class="pill pill-solid" href="#contact">Get Started <span class="arrow" aria-hidden="true"></span></a>
+          <div class="btn-row">
+            <a class="pill pill-solid" href="#contact" data-track="cta_packages_get_started">Get Started <span class="arrow" aria-hidden="true"></span></a>
+            <a class="pill" href="#contact" data-plan="Help me choose" data-track="cta_help_me_choose">Help Me Choose <span class="arrow" aria-hidden="true"></span></a>
+          </div>
         </div>
       </div>
     </section>
@@ -301,10 +313,46 @@
           <p>We publish, manage and review your social media.</p>
         </li>
       </ol>
+      <div class="container btn-row process-cta">
+        <a class="pill pill-solid" href="#contact" data-track="cta_process_lets_talk">Let's Talk <span class="arrow" aria-hidden="true"></span></a>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq grain-top" id="faq" aria-labelledby="faq-title">
+      <div class="container narrow">
+        <h2 id="faq-title" class="wide-heading">Good to know</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Is there a minimum commitment?</summary>
+            <p>Yes. The minimum engagement is 3 months.</p>
+          </details>
+          <details>
+            <summary>Is there a setup fee?</summary>
+            <p>There's a one-time setup fee of ₹25,000. Pay for 3 months upfront and we'll waive it.</p>
+          </details>
+          <details>
+            <summary>Which platforms do you manage?</summary>
+            <p>Both packages include one primary social media platform. Need more than that? We can customise your scope.</p>
+          </details>
+          <details>
+            <summary>What about revisions and reviews?</summary>
+            <p>Both packages include a monthly review meeting and two consolidated revision rounds.</p>
+          </details>
+          <details>
+            <summary>Do your prices include GST?</summary>
+            <p>No. All prices exclude GST.</p>
+          </details>
+          <details>
+            <summary>I'm not sure which package is right for me.</summary>
+            <p>That's what we're here for. Choose "Help me choose" in the form and we'll recommend the right fit for your business.</p>
+          </details>
+        </div>
+      </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
-    <section class="contact grain-top" style="--grain-from: var(--yellow)" id="contact" aria-labelledby="contact-title">
+    <section class="contact grain-top" id="contact" aria-labelledby="contact-title">
       <div class="container contact-grid">
         <div class="contact-copy">
           <h2 id="contact-title" class="wide-heading left">Let's make your socials better.</h2>
@@ -367,6 +415,7 @@
 
           <button class="pill pill-solid pill-block" type="submit">Work With Pocket <span class="arrow" aria-hidden="true"></span></button>
           <p class="form-status" role="status" aria-live="polite"></p>
+          <p class="form-next"><strong>What happens next?</strong> We'll get in touch to learn about your business and recommend the right package. No obligation.</p>
         </form>
       </div>
     </section>
@@ -398,6 +447,11 @@
       <p class="footer-base">© <span id="year">2026</span> Pocket Media Co.</p>
     </div>
   </footer>
+
+  <div class="mobile-cta" aria-hidden="true">
+    <span class="mobile-cta-text">From <strong>₹60K</strong>/month</span>
+    <a class="pill pill-solid pill-sm" href="#contact" tabindex="-1" data-track="cta_sticky_work_with_us">Work With Us <span class="arrow"></span></a>
+  </div>
 
   <script src="script.js" defer></script>
 </body>
