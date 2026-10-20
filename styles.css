@@ -1097,3 +1097,9 @@ a { color: inherit; }
 }
 .price-big { white-space: nowrap; font-size: clamp(2.6rem, 8vw, 5.2rem); }
 .field .choice { border-radius: 18px; }
+.price-month {
+  margin: 14px auto 0;
+  max-width: 40ch;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
