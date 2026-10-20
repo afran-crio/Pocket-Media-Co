@@ -61,6 +61,88 @@
     });
   }
 
+  // ---------- Scroll reveals ----------
+  // Tags elements with data-reveal; CSS hides them only when JS runs and motion is allowed.
+  var revealGroups = [
+    [".wide-heading:not(.hero *), .services-intro, .who-intro, .work-sub, .work > .container > .serif-md, .who-outro, .not-for, .work-soon, .party-body, .party-close, .party-line-1, .one-size-title, .one-size-lines p, .contact-copy, .enquiry, .story-copy, .client-label", ""],
+    [".svc", ""],
+    [".svc-sticker, .one-size-yes", "slap"],
+    [".who-card", "slap"],
+    [".svc-caps li, .eco-logo, .client-logo", "pop"],
+    [".step", "right"],
+    [".faq-list details", ""],
+    [".party-line-2, .story-pull", "punch"]
+  ];
+
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    revealGroups.forEach(function (g) {
+      document.querySelectorAll(g[0]).forEach(function (el) {
+        if (el.hasAttribute("data-reveal")) return;
+        el.setAttribute("data-reveal", g[1]);
+        var siblings = Array.prototype.filter.call(el.parentElement.children, function (c) {
+          return c.matches(g[0]);
+        });
+        var i = siblings.indexOf(el);
+        var step = g[1] === "pop" ? 0.03 : 0.09;
+        el.style.setProperty("--d", Math.min(i * step, 0.6) + "s");
+        if (g[1] === "slap") el.style.setProperty("--tilt", (i % 2 ? 5 : -5) + "deg");
+      });
+    });
+    document.querySelectorAll(".party-line-2").forEach(function (el) { el.style.setProperty("--d", "0.35s"); });
+
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          revealIO.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+    document.querySelectorAll("[data-reveal]").forEach(function (el) { revealIO.observe(el); });
+  }
+
+  // ---------- Scroll-progress bolt in the header ----------
+  var boltFill = document.querySelector(".scroll-bolt-fill");
+  if (boltFill) {
+    var ticking = false;
+    var paintProgress = function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+      boltFill.style.setProperty("--progress", pct.toFixed(1) + "%");
+      ticking = false;
+    };
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(paintProgress); }
+    }, { passive: true });
+    window.addEventListener("resize", paintProgress);
+    paintProgress();
+  }
+
+  // ---------- FAQ: smooth open and close ----------
+  if (!reduceMotion && Element.prototype.animate) {
+    document.querySelectorAll(".faq details").forEach(function (d) {
+      var summary = d.querySelector("summary");
+      var body = d.querySelector("p");
+      summary.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (d.dataset.animating) return;
+        d.dataset.animating = "1";
+        var done = function () { delete d.dataset.animating; body.style.overflow = ""; };
+        body.style.overflow = "hidden";
+        if (d.open) {
+          var h = body.offsetHeight;
+          body.animate([{ height: h + "px", opacity: 1 }, { height: "0px", opacity: 0 }], { duration: 260, easing: "ease" })
+            .onfinish = function () { d.open = false; done(); };
+        } else {
+          d.open = true;
+          var h2 = body.offsetHeight;
+          body.animate([{ height: "0px", opacity: 0 }, { height: h2 + "px", opacity: 1 }], { duration: 320, easing: "cubic-bezier(.2,.9,.3,1)" })
+            .onfinish = done;
+        }
+      });
+    });
+  }
+
   // ---------- Portfolio videos: play only while on screen ----------
   var videos = document.querySelectorAll(".project-media video");
 
@@ -151,6 +233,18 @@
     });
   });
 
+  // A bolt strikes across the form when an enquiry really lands
+  function strike() {
+    if (reduceMotion) return;
+    var bolt = document.createElement("img");
+    bolt.src = "assets/img/bolt-6.webp";
+    bolt.alt = "";
+    bolt.className = "form-strike";
+    bolt.style.setProperty("--strike-x", (form.offsetWidth - 40) + "px");
+    bolt.addEventListener("animationend", function () { bolt.remove(); });
+    form.appendChild(bolt);
+  }
+
   function setStatus(msg, type) {
     status.textContent = msg;
     status.className = "form-status" + (type ? " is-" + type : "");
@@ -232,6 +326,7 @@
           updateBudget();
           track("generate_lead", { method: "form", service: service });
           setStatus("And it's in! We'll take a look and get back to you soon.", "success");
+          strike();
         })
         .catch(function () {
           setStatus("Something went wrong sending that. Please try again in a moment.", "error");

@@ -313,9 +313,18 @@ a { color: inherit; }
   font-size: 1.22em;
   color: var(--yellow);
   -webkit-text-stroke: 1.5px var(--black);
-  text-decoration: underline wavy var(--yellow);
-  text-decoration-thickness: 0.04em;
-  text-underline-offset: 0.12em;
+  position: relative;
+  display: inline-block;
+}
+/* Hand-drawn wavy underline that draws itself in (see "Motion" below) */
+.accent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.04em;
+  height: 0.16em;
+  width: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='8' viewBox='0 0 24 8'%3E%3Cpath d='M0 4 Q6 0 12 4 T24 4' fill='none' stroke='%23f4f11f' stroke-width='2.4'/%3E%3C/svg%3E") repeat-x left center / auto 100%;
 }
 .bolt-hero {
   width: clamp(80px, 9vw, 130px);
@@ -352,7 +361,7 @@ a { color: inherit; }
 /* ---------- Our Work ---------- */
 .work {
   padding-block: var(--section-y);
-  background: linear-gradient(to bottom, var(--white) 0%, var(--yellow-soft) 35%, var(--yellow) 100%);
+  background: var(--white);
 }
 .work > .container > .serif-md { margin-bottom: clamp(40px, 6vw, 72px); }
 
@@ -536,8 +545,8 @@ a { color: inherit; }
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background: var(--red);
-  border-top: var(--stroke);
+  background: var(--black);
+  color: var(--white);
   padding: clamp(56px, 8vw, 96px) 0 28px;
 }
 .footer-sign {
@@ -1005,8 +1014,19 @@ a { color: inherit; }
 
 /* Good ideas don't come in one size */
 .one-size {
-  --grain-from: var(--yellow);
-  padding-block: var(--section-y);
+  margin-top: clamp(64px, 9vw, 112px);
+  padding-top: clamp(48px, 6vw, 72px);
+  border-top: var(--stroke);
+}
+.one-size-title {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  line-height: 0.98;
+  margin-bottom: 24px;
+  text-wrap: balance;
 }
 .one-size-lines {
   display: grid;
@@ -1350,3 +1370,161 @@ p, li, summary { text-wrap: pretty; }
 @media (min-width: 861px) {
   .who-card:nth-child(-n+3) .who-tag { min-height: 3.2em; }
 }
+
+/* =========================================================
+   v-next: section breakers, footer, philosophy layout
+   Rule: grainy fades only between white and red/yellow;
+   black and colour-to-colour edges are hard cuts.
+   ========================================================= */
+.about { --grain-from: var(--red); }
+.process { padding-bottom: clamp(72px, 10vw, 120px); }
+.one-size-lines p + p .one-size-yes { background: var(--white); }
+
+/* Footer on black so the page ends with a full stop */
+.site-footer .footer-script { color: var(--yellow); }
+.site-footer .footer-cols { border-top-color: #333; }
+.site-footer .footer-muted { color: #bdbdbd; }
+.site-footer .footer-base { color: #9a9a9a; }
+.site-footer .footer-nav a:hover { color: var(--yellow); }
+
+/* Philosophy: lead line left, supporting copy right (no empty half) */
+@media (min-width: 761px) {
+  .party-body {
+    max-width: none;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: start;
+  }
+  .party-body .party-lead { margin-bottom: 0; }
+}
+.party-copy p + p { margin-top: 18px; }
+.party-copy p { font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.55; color: #d9d9d9; }
+
+/* =========================================================
+   Bolts
+   ========================================================= */
+/* Scroll-progress bolt in the header: fills with yellow as you scroll */
+.scroll-bolt {
+  margin-left: auto;
+  margin-right: clamp(14px, 2.4vw, 32px);
+  width: 20px;
+  height: 32px;
+  flex: none;
+  filter: drop-shadow(1.5px 1.5px 0 var(--black));
+}
+.scroll-bolt-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, var(--yellow) var(--progress, 0%), #e3e3e3 var(--progress, 0%));
+  -webkit-mask: url("assets/img/bolt-3.webp") center / contain no-repeat;
+          mask: url("assets/img/bolt-3.webp") center / contain no-repeat;
+}
+.site-nav { margin-left: 0; }
+
+/* FAQ: the "+" becomes a bolt that flips when an answer opens */
+.faq summary::after {
+  content: "";
+  width: 18px;
+  height: 28px;
+  background: url("assets/img/bolt-3.webp") center / contain no-repeat;
+  transform: translateY(-50%) rotate(-12deg);
+  transition: transform 0.35s cubic-bezier(.3,1.6,.5,1);
+}
+.faq details[open] summary::after { transform: translateY(-50%) rotate(168deg); }
+
+/* Phone hero gets a short bolt beside the buttons (the tall one is desktop only) */
+.bolt-hero-m { display: none; }
+@media (max-width: 800px) {
+  .bolt-hero-m {
+    display: block;
+    bottom: 34px;
+    right: 9%;
+    width: 52px;
+    transform: rotate(14deg);
+  }
+}
+@media (max-width: 800px) and (prefers-reduced-motion: no-preference) {
+  .hero:has(.hero-cta a:hover) .bolt-hero-m { animation: zap-shake 0.45s ease; }
+}
+
+/* Success: a bolt strikes across the form */
+.form-strike {
+  position: absolute;
+  width: 90px;
+  top: -40px;
+  left: -40px;
+  pointer-events: none;
+  z-index: 3;
+  animation: strike 0.9s cubic-bezier(.2,.8,.2,1) forwards;
+}
+@keyframes strike {
+  0%   { transform: translate(0, 0) rotate(-30deg) scale(.6); opacity: 0; }
+  20%  { opacity: 1; }
+  70%  { transform: translate(var(--strike-x, 400px), 140px) rotate(20deg) scale(1.1); opacity: 1; }
+  100% { transform: translate(var(--strike-x, 400px), 160px) rotate(14deg) scale(1); opacity: 0; }
+}
+.enquiry { position: relative; }
+
+/* =========================================================
+   Motion (all disabled under prefers-reduced-motion)
+   ========================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  /* Ticker pauses on hover */
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+
+  /* Hero: headline drops in line by line, underline draws itself */
+  .hero .hl { display: inline-block; animation: drop-in 0.7s cubic-bezier(.2,1.4,.4,1) both; }
+  .hero .hl:nth-of-type(2) { animation-delay: 0.12s; }
+  .hero .hl:nth-of-type(3) { animation-delay: 0.26s; }
+  .hero .kicker { animation: fade-up 0.6s ease both; }
+  .hero-lede { animation: fade-up 0.6s ease 0.45s both; }
+  .hero-cta { animation: fade-up 0.6s ease 0.6s both; }
+  .accent::after { animation: draw 0.8s ease 0.75s both; clip-path: inset(0 100% 0 0); }
+  @keyframes drop-in { from { opacity: 0; transform: translateY(-0.5em) rotate(-2deg); } to { opacity: 1; transform: none; } }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+
+  /* Scroll reveals (classes added by script.js; content stays visible without JS) */
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.7s cubic-bezier(.2,.9,.3,1);
+    transition-delay: var(--d, 0s);
+  }
+  .js [data-reveal="slap"] { transform: scale(1.12) rotate(var(--tilt, -4deg)); }
+  .js [data-reveal="right"] { transform: translateX(60px); }
+  .js [data-reveal="pop"] { transform: scale(0.6); }
+  .js [data-reveal="punch"] { transform: translateX(-40px) skewX(-8deg); }
+  .js [data-reveal].is-in { opacity: 1; transform: none; }
+  /* Cards that keep a resting tilt */
+  .js .who-card[data-reveal].is-in:nth-child(odd) { transform: rotate(-0.8deg); }
+  .js .who-card[data-reveal].is-in:nth-child(even) { transform: rotate(0.8deg); }
+  .js .who-card[data-reveal].is-in:hover { transform: rotate(0) translateY(-4px); }
+  .js .svc-sticker[data-reveal].is-in { transform: rotate(-4deg); }
+  .js .svc-sticker-alt[data-reveal].is-in { transform: rotate(3deg); }
+  .js .one-size-yes[data-reveal].is-in { transform: rotate(-2deg); }
+  .js .one-size-lines p + p .one-size-yes[data-reveal].is-in { transform: rotate(2deg); }
+
+  /* Bolt zaps: hover a CTA or service card */
+  @keyframes zap-shake {
+    0%, 100% { translate: 0 0; rotate: 0deg; }
+    20% { translate: -2px 1px; rotate: -8deg; }
+    40% { translate: 2px -1px; rotate: 7deg; }
+    60% { translate: -1px 0; rotate: -5deg; }
+    80% { translate: 1px 0; rotate: 3deg; }
+  }
+  .svc:hover .svc-bolt,
+  .hero:has(.hero-cta a:hover) .bolt-hero,
+  .work-soon:hover .work-soon-bolt,
+  .site-footer:hover .footer-bolt,
+  body:has(.pill:hover) .scroll-bolt { animation: zap-shake 0.45s ease; }
+
+  /* FAQ answers open smoothly (height animated in script.js) */
+  .faq details p { transition: opacity 0.3s ease; }
+}
+
+/* Reveal transforms (scale/slide) must never cause sideways scrolling */
+main > section { overflow-x: clip; }

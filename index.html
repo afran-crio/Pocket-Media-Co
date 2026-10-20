@@ -44,6 +44,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -77,6 +78,8 @@
         <img src="assets/img/logo.webp" alt="Pocket Media Co." width="1200" height="468">
       </a>
 
+      <span class="scroll-bolt" aria-hidden="true"><span class="scroll-bolt-fill"></span></span>
+
       <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
         <span class="nav-toggle-bar"></span>
         <span class="visually-hidden">Menu</span>
@@ -98,12 +101,13 @@
     <!-- ============ HOME ============ -->
     <section class="hero" aria-labelledby="hero-title">
       <img class="bolt bolt-hero" src="assets/img/bolt-6.webp" alt="" aria-hidden="true">
+      <img class="bolt bolt-hero-m" src="assets/img/bolt-3.webp" alt="" aria-hidden="true">
       <div class="container">
         <p class="kicker">Pocket Media Co. · A Social Media Studio.</p>
         <h1 id="hero-title" class="mega">
-          Your business<br>
-          deserves better<br>
-          <em class="accent">Socials.</em>
+          <span class="hl">Your business</span><br>
+          <span class="hl">deserves better</span><br>
+          <span class="hl"><em class="accent">Socials.</em></span>
         </h1>
         <p class="hero-lede">Good ideas. Great content. Socials worth showing off.<br>From the first idea to the final post, we've got the whole thing covered.</p>
         <div class="hero-cta">
@@ -114,7 +118,7 @@
     </section>
 
     <!-- ============ ABOUT ============ -->
-    <section class="about" id="about" aria-labelledby="about-title">
+    <section class="about grain-top" id="about" aria-labelledby="about-title">
       <div class="container narrow center">
         <h2 id="about-title" class="wide-heading">Your business is doing its thing. Your socials should be too.</h2>
         <p class="serif-lg">Pocket Media Co. is a social media studio built for businesses that want to show up better online.</p>
@@ -340,27 +344,6 @@
       </div>
     </section>
 
-    <!-- ============ PHILOSOPHY ============ -->
-    <!-- Brand philosophy: organic social builds visibility and presence; conversions depend on the wider business.
-         It doesn't say social can't drive sales, only that organic management alone can't guarantee them. -->
-    <section class="party" id="philosophy" aria-labelledby="party-title">
-      <div class="container">
-        <h2 id="party-title" class="party-title">
-          <span class="party-line-1">Social media is the invite.</span>
-          <span class="party-line-2">Not the whole party.</span>
-        </h2>
-
-        <div class="party-body">
-          <p class="party-lead">We can get people looking, talking and paying attention.</p>
-          <p>But turning that attention into bookings, orders and actual business? That takes more than a good Instagram feed.</p>
-          <p>Your product, pricing, customer experience, sales process and paid campaigns all play their part.</p>
-          <p>We handle the content, creativity and consistency that help your brand show up.</p>
-        </div>
-
-        <p class="party-close">We'll help get you in the room. <span>The rest is a team effort.</span></p>
-      </div>
-    </section>
-
     <!-- ============ WHO IT'S FOR ============ -->
     <section class="who" id="who" aria-labelledby="who-title">
       <div class="container">
@@ -469,22 +452,31 @@
       </div>
     </section>
 
-    <!-- ============ WORK WITH POCKET ============ -->
-    <!-- No public prices: rates and packages live in Pocket's internal quotation system. -->
-    <section class="one-size grain-top" id="work-with-us" aria-labelledby="one-size-title">
-      <div class="container narrow center">
-        <h2 id="one-size-title" class="wide-heading">Good ideas don't come in one size.</h2>
-        <div class="one-size-lines">
-          <p><span class="serif-md">Need us to handle your socials every month?</span> <strong class="one-size-yes">We're in.</strong></p>
-          <p><span class="serif-md">Just need one really good video?</span> <strong class="one-size-yes">Also in.</strong></p>
+    <!-- ============ PHILOSOPHY ============ -->
+    <!-- Brand philosophy: organic social builds visibility and presence; conversions depend on the wider business.
+         It doesn't say social can't drive sales, only that organic management alone can't guarantee them. -->
+    <section class="party" id="philosophy" aria-labelledby="party-title">
+      <div class="container">
+        <h2 id="party-title" class="party-title">
+          <span class="party-line-1">Social media is the invite.</span>
+          <span class="party-line-2">Not the whole party.</span>
+        </h2>
+
+        <div class="party-body">
+          <p class="party-lead">We can get people looking, talking and paying attention.</p>
+          <div class="party-copy">
+          <p>But turning that attention into bookings, orders and actual business? That takes more than a good Instagram feed.</p>
+          <p>Your product, pricing, customer experience, sales process and paid campaigns all play their part.</p>
+          <p>We handle the content, creativity and consistency that help your brand show up.</p>
+          </div>
         </div>
-        <p class="body-lg">Tell us what you've got in mind, and we'll figure out the rest.</p>
-        <a class="pill pill-solid" href="#contact" data-track="cta_one_size_work_with_pocket">Work With Pocket <span aria-hidden="true">↗</span></a>
+
+        <p class="party-close">We'll help get you in the room. <span>The rest is a team effort.</span></p>
       </div>
     </section>
 
     <!-- ============ HOW WE WORK ============ -->
-    <section class="process grain-top grain-yellow" id="process" aria-labelledby="process-title">
+    <section class="process" id="process" aria-labelledby="process-title">
       <div class="container">
         <h2 id="process-title" class="wide-heading">How we work.</h2>
       </div>
@@ -510,8 +502,15 @@
           <p>For ongoing social clients, we publish, manage, report and keep the good stuff coming. For content projects, we hand over the finished work.</p>
         </li>
       </ol>
-      <div class="container btn-row process-cta">
-        <a class="pill pill-solid" href="#contact" data-track="cta_process_lets_talk">Let's Talk <span class="arrow" aria-hidden="true"></span></a>
+      <!-- No public prices: rates and packages live in Pocket's internal quotation system. -->
+      <div class="container narrow center one-size" id="work-with-us">
+        <h3 class="one-size-title">Good ideas don't come in one size.</h3>
+        <div class="one-size-lines">
+          <p><span class="serif-md">Need us to handle your socials every month?</span> <strong class="one-size-yes">We're in.</strong></p>
+          <p><span class="serif-md">Just need one really good video?</span> <strong class="one-size-yes">Also in.</strong></p>
+        </div>
+        <p class="body-lg">Tell us what you've got in mind, and we'll figure out the rest.</p>
+        <a class="pill pill-solid" href="#contact" data-track="cta_one_size_work_with_pocket">Work With Pocket <span aria-hidden="true">↗</span></a>
       </div>
     </section>
 
