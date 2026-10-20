@@ -17,12 +17,28 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ TICKER ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>A Social Media Studio</span><img src="assets/img/bolt-3.webp" alt="">
+      <span>Content Creation</span><img src="assets/img/bolt-3.webp" alt="">
+      <span>Social Media Management</span><img src="assets/img/bolt-3.webp" alt="">
+      <span>Reels · Photography · Graphics</span><img src="assets/img/bolt-3.webp" alt="">
+      <span>Part of the Kaun Creative ecosystem</span><img src="assets/img/bolt-3.webp" alt="">
+      <span>A Social Media Studio</span><img src="assets/img/bolt-3.webp" alt="">
+      <span>Content Creation</span><img src="assets/img/bolt-3.webp" alt="">
+      <span>Social Media Management</span><img src="assets/img/bolt-3.webp" alt="">
+      <span>Reels · Photography · Graphics</span><img src="assets/img/bolt-3.webp" alt="">
+      <span>Part of the Kaun Creative ecosystem</span><img src="assets/img/bolt-3.webp" alt="">
+    </div>
+  </div>
 
   <!-- ============ HEADER / NAV ============ -->
   <header class="site-header" id="top">
@@ -41,7 +57,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#work">Our Work</a></li>
           <li><a href="#packages">Packages</a></li>
-          <li><a class="btn btn-yellow btn-sm" href="#contact">Work With Us</a></li>
+          <li><a class="pill pill-solid" href="#contact">Work With Us</a></li>
         </ul>
       </nav>
     </div>
@@ -50,82 +66,77 @@
   <main id="main">
 
     <!-- ============ HOME ============ -->
-    <section class="hero section-red" aria-labelledby="hero-title">
-      <img class="bolt bolt-hero-a" src="assets/img/bolt-6.webp" alt="" aria-hidden="true">
-      <img class="bolt bolt-hero-b" src="assets/img/bolt-3.webp" alt="" aria-hidden="true">
-
-      <div class="container hero-inner">
-        <h1 id="hero-title" class="hero-logo">
-          <img src="assets/img/logo.webp" alt="Pocket Media Co." width="1200" height="468">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="bolt bolt-hero" src="assets/img/bolt-6.webp" alt="" aria-hidden="true">
+      <div class="container">
+        <p class="kicker">Pocket Media Co. · A Social Media Studio.</p>
+        <h1 id="hero-title" class="mega">
+          Good content.<br>
+          Great social media.<br>
+          <em class="accent">Consistently.</em>
         </h1>
-        <p class="eyebrow eyebrow-yellow">A Social Media Studio.</p>
-        <p class="hero-tagline">Good content. Great social media. Consistently.</p>
-        <p class="hero-lede">We create content and manage social media for businesses that want to stand out online.</p>
+      </div>
+    </section>
+
+    <section class="statement" aria-label="Introduction">
+      <div class="container">
+        <p class="serif-lg">We create content and manage social media for businesses that want to stand out online.</p>
         <div class="btn-row">
-          <a class="btn btn-yellow" href="#work">Explore Our Work</a>
-          <a class="btn btn-white" href="#contact">Work With Us</a>
+          <a class="pill" href="#work">Explore Our Work <span class="arrow" aria-hidden="true"></span></a>
+          <a class="pill pill-solid" href="#contact">Work With Us <span class="arrow" aria-hidden="true"></span></a>
         </div>
       </div>
     </section>
 
     <!-- ============ ABOUT ============ -->
-    <section class="section section-white" id="about" aria-labelledby="about-title">
-      <div class="container narrow">
-        <p class="eyebrow">About</p>
-        <h2 id="about-title" class="display">Social media, done right.</h2>
-        <div class="prose">
-          <p class="lead">Good social media is more than just posting regularly.</p>
-          <p>It's about knowing what to say, how to show up and creating content people actually want to see.</p>
-          <p>At Pocket, we bring content creation, creative thinking and social media management together to help businesses build a stronger online presence.</p>
-        </div>
-        <p class="callout">From the first idea to the final post, we've got it covered.</p>
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="container narrow center">
+        <h2 id="about-title" class="wide-heading">Social media, done right.</h2>
+        <p class="serif-lg">Good social media is more than just posting regularly.</p>
+        <p class="body-lg">It's about knowing what to say, how to show up and creating content people actually want to see.</p>
+        <p class="body-lg">At Pocket, we bring content creation, creative thinking and social media management together to help businesses build a stronger online presence.</p>
+        <p class="serif-md"><em>From the first idea to the final post, we've got it covered.</em></p>
       </div>
     </section>
 
     <!-- ============ WHAT WE DO ============ -->
-    <section class="section section-red" id="services" aria-labelledby="services-title">
-      <img class="bolt bolt-services" src="assets/img/bolt-4.webp" alt="" aria-hidden="true">
+    <section class="services grain-top" id="services" aria-labelledby="services-title">
       <div class="container">
-        <h2 id="services-title" class="display display-white">What we do.</h2>
+        <h2 id="services-title" class="wide-heading">What we do</h2>
 
         <div class="service-grid">
-          <article class="card card-yellow">
-            <span class="card-num">01</span>
-            <h3>Content Creation</h3>
-            <p>Reels, photography, graphics and content ideas designed around your brand.</p>
+          <article class="service">
+            <div class="service-art"><img src="assets/img/bolt-3.webp" alt=""></div>
+            <div class="service-body">
+              <h3>Content Creation</h3>
+              <p>Reels, photography, graphics and content ideas designed around your brand.</p>
+            </div>
           </article>
-          <article class="card card-black">
-            <span class="card-num">02</span>
-            <h3>Social Media Management</h3>
-            <p>Content planning, copywriting, publishing, community management and performance reporting.</p>
+          <article class="service">
+            <div class="service-art service-art-yellow"><img src="assets/img/bolt-5.webp" alt=""></div>
+            <div class="service-body">
+              <h3>Social Media Management</h3>
+              <p>Content planning, copywriting, publishing, community management and performance reporting.</p>
+            </div>
           </article>
         </div>
 
-        <p class="banner banner-yellow">One studio. Your social media, taken care of.</p>
+        <p class="serif-lg center on-red">One studio. Your social media, taken care of.</p>
       </div>
     </section>
 
     <!-- ============ OUR WORK ============ -->
-    <section class="section section-white work" id="work" aria-labelledby="work-title">
+    <section class="work" id="work" aria-labelledby="work-title">
       <div class="container">
-        <div class="work-head">
-          <div>
-            <p class="eyebrow">Our Work</p>
-            <h2 id="work-title" class="display">Made by Pocket.</h2>
-          </div>
-          <div class="work-intro">
-            <p class="lead">A little less talking. A lot more showing.</p>
-            <p>Explore the content, ideas and brands we've worked on.</p>
-            <a class="btn btn-red" href="#work-grid">View Our Work</a>
-          </div>
-        </div>
+        <h2 id="work-title" class="wide-heading">Made by Pocket</h2>
+        <p class="serif-md center">A little less talking. A lot more showing.<br>Explore the content, ideas and brands we've worked on.</p>
 
         <!--
           PORTFOLIO
           Feature 3–6 real projects. For each project, copy one <article class="project"> block and:
             - put the file in assets/work/
             - use a <video> for reels (muted, loop, playsinline + a poster image) or an <img> for stills
-            - fill in the brand name, the type of work, and one line on Pocket's actual role
+            - fill in the brand name and one line on Pocket's actual role
           Remove the "project-placeholder" class and the placeholder <div> once real media is in.
           Leave out any project that isn't ready; the grid works with 3, 4, 5 or 6 items.
 
@@ -143,83 +154,82 @@
         <div class="work-grid" id="work-grid">
           <article class="project project-placeholder">
             <div class="project-media">
-              <div class="placeholder" aria-hidden="true"><img src="assets/img/bolt-3.webp" alt=""><span>01</span></div>
+              <div class="placeholder" aria-hidden="true"><img src="assets/img/bolt-3.webp" alt=""></div>
             </div>
-            <div class="project-info">
-              <p class="project-tag">Reels · Photography</p>
+            <div class="project-body">
               <h3>Brand Name</h3>
-              <p class="project-role"><strong>Pocket's role:</strong> Content shoot, reel edits and monthly social media management.</p>
+              <p>Pocket's role: content shoot, reel edits and monthly social media management.</p>
+              <span class="pill pill-sm" aria-hidden="true"><span class="arrow"></span></span>
+            </div>
+          </article>
+
+          <article class="project project-placeholder panel-white">
+            <div class="project-media">
+              <div class="placeholder placeholder-black" aria-hidden="true"><img src="assets/img/bolt-4.webp" alt=""></div>
+            </div>
+            <div class="project-body">
+              <h3>Brand Name</h3>
+              <p>Pocket's role: content planning, copywriting and publishing.</p>
+              <span class="pill pill-sm" aria-hidden="true"><span class="arrow"></span></span>
             </div>
           </article>
 
           <article class="project project-placeholder">
             <div class="project-media">
-              <div class="placeholder placeholder-yellow" aria-hidden="true"><img src="assets/img/bolt-4.webp" alt=""><span>02</span></div>
+              <div class="placeholder" aria-hidden="true"><img src="assets/img/bolt-5.webp" alt=""></div>
             </div>
-            <div class="project-info">
-              <p class="project-tag">Social Media Management</p>
+            <div class="project-body">
               <h3>Brand Name</h3>
-              <p class="project-role"><strong>Pocket's role:</strong> Content planning, copywriting and publishing.</p>
+              <p>Pocket's role: campaign idea, design and launch content.</p>
+              <span class="pill pill-sm" aria-hidden="true"><span class="arrow"></span></span>
+            </div>
+          </article>
+
+          <article class="project project-placeholder panel-white">
+            <div class="project-media">
+              <div class="placeholder placeholder-black" aria-hidden="true"><img src="assets/img/bolt-6.webp" alt=""></div>
+            </div>
+            <div class="project-body">
+              <h3>Brand Name</h3>
+              <p>Pocket's role: one line on what Pocket actually did.</p>
+              <span class="pill pill-sm" aria-hidden="true"><span class="arrow"></span></span>
             </div>
           </article>
 
           <article class="project project-placeholder">
             <div class="project-media">
-              <div class="placeholder placeholder-black" aria-hidden="true"><img src="assets/img/bolt-5.webp" alt=""><span>03</span></div>
+              <div class="placeholder" aria-hidden="true"><img src="assets/img/bolt-3.webp" alt=""></div>
             </div>
-            <div class="project-info">
-              <p class="project-tag">Graphics · Campaign</p>
+            <div class="project-body">
               <h3>Brand Name</h3>
-              <p class="project-role"><strong>Pocket's role:</strong> Campaign idea, design and launch content.</p>
+              <p>Pocket's role: one line on what Pocket actually did.</p>
+              <span class="pill pill-sm" aria-hidden="true"><span class="arrow"></span></span>
             </div>
           </article>
 
-          <article class="project project-placeholder">
+          <article class="project project-placeholder panel-white">
             <div class="project-media">
-              <div class="placeholder placeholder-yellow" aria-hidden="true"><img src="assets/img/bolt-6.webp" alt=""><span>04</span></div>
+              <div class="placeholder placeholder-black" aria-hidden="true"><img src="assets/img/bolt-4.webp" alt=""></div>
             </div>
-            <div class="project-info">
-              <p class="project-tag">Reels</p>
+            <div class="project-body">
               <h3>Brand Name</h3>
-              <p class="project-role"><strong>Pocket's role:</strong> One line on what Pocket actually did.</p>
+              <p>Pocket's role: one line on what Pocket actually did.</p>
+              <span class="pill pill-sm" aria-hidden="true"><span class="arrow"></span></span>
             </div>
           </article>
+        </div>
 
-          <article class="project project-placeholder">
-            <div class="project-media">
-              <div class="placeholder placeholder-black" aria-hidden="true"><img src="assets/img/bolt-3.webp" alt=""><span>05</span></div>
-            </div>
-            <div class="project-info">
-              <p class="project-tag">Photography</p>
-              <h3>Brand Name</h3>
-              <p class="project-role"><strong>Pocket's role:</strong> One line on what Pocket actually did.</p>
-            </div>
-          </article>
-
-          <article class="project project-placeholder">
-            <div class="project-media">
-              <div class="placeholder" aria-hidden="true"><img src="assets/img/bolt-4.webp" alt=""><span>06</span></div>
-            </div>
-            <div class="project-info">
-              <p class="project-tag">Content Creation</p>
-              <h3>Brand Name</h3>
-              <p class="project-role"><strong>Pocket's role:</strong> One line on what Pocket actually did.</p>
-            </div>
-          </article>
+        <div class="center">
+          <a class="pill" href="#work-grid">View Our Work <span class="arrow" aria-hidden="true"></span></a>
         </div>
       </div>
     </section>
 
     <!-- ============ PACKAGES ============ -->
-    <section class="section section-yellow" id="packages" aria-labelledby="packages-title">
-      <img class="bolt bolt-packages" src="assets/img/bolt-5.webp" alt="" aria-hidden="true">
+    <section class="packages grain-top" id="packages" aria-labelledby="packages-title">
       <div class="container">
-        <div class="packages-head">
-          <p class="eyebrow">Packages</p>
-          <h2 id="packages-title" class="display">Work with Pocket.</h2>
-          <p class="lead">Good social media deserves a good plan.</p>
-          <p>Two packages. The same creative standards. Different levels of monthly content.</p>
-        </div>
+        <h2 id="packages-title" class="wide-heading">Work with Pocket</h2>
+        <p class="serif-md center">Good social media deserves a good plan.<br>Two packages. The same creative standards. Different levels of monthly content.</p>
 
         <div class="table-wrap">
           <table class="price-table">
@@ -227,12 +237,8 @@
             <thead>
               <tr>
                 <td></td>
-                <th scope="col">
-                  <span class="plan-name">Pocket Social</span>
-                </th>
-                <th scope="col" class="plan-plus">
-                  <span class="plan-name">Pocket Social Plus</span>
-                </th>
+                <th scope="col">Pocket Social</th>
+                <th scope="col" class="plan-plus">Pocket Social Plus</th>
               </tr>
             </thead>
             <tbody>
@@ -259,55 +265,51 @@
           <p>Both packages include one primary social media platform, a monthly review meeting and two consolidated revision rounds.</p>
           <div class="setup-box">
             <p><strong>One-time setup:</strong> ₹25,000.</p>
-            <p class="setup-offer">Pay for 3 months upfront and we'll waive your setup fee.</p>
+            <p class="serif-sm"><em>Pay for 3 months upfront and we'll waive your setup fee.</em></p>
           </div>
           <p class="fine-print">Minimum engagement: 3 months. Prices exclude GST.</p>
-          <p class="extra">Need something extra? We can customise your scope.</p>
-          <a class="btn btn-red" href="#contact">Get Started</a>
+          <p class="serif-md">Need something extra? We can customise your scope.</p>
+          <a class="pill pill-solid" href="#contact">Get Started <span class="arrow" aria-hidden="true"></span></a>
         </div>
       </div>
     </section>
 
     <!-- ============ HOW WE WORK ============ -->
-    <section class="section section-red" id="process" aria-labelledby="process-title">
-      <img class="bolt bolt-process" src="assets/img/bolt-3.webp" alt="" aria-hidden="true">
+    <section class="process grain-top grain-yellow" id="process" aria-labelledby="process-title">
       <div class="container">
-        <h2 id="process-title" class="display display-white">How we work.</h2>
-
-        <ol class="steps">
-          <li class="step">
-            <span class="step-num">01.</span>
-            <h3>Let's Talk</h3>
-            <p>Tell us about your business and what you're looking for.</p>
-          </li>
-          <li class="step step-yellow">
-            <span class="step-num">02.</span>
-            <h3>Let's Plan</h3>
-            <p>We understand your brand and build a content direction around it.</p>
-          </li>
-          <li class="step">
-            <span class="step-num">03.</span>
-            <h3>Let's Create</h3>
-            <p>We plan, shoot, edit and design your monthly content.</p>
-          </li>
-          <li class="step step-yellow">
-            <span class="step-num">04.</span>
-            <h3>We Take It From Here</h3>
-            <p>We publish, manage and review your social media.</p>
-          </li>
-        </ol>
+        <h2 id="process-title" class="wide-heading">How we work</h2>
       </div>
+      <ol class="steps" tabindex="0" aria-label="Four steps, scroll sideways on small screens">
+        <li class="step">
+          <span class="step-num">01</span>
+          <h3>Let's Talk</h3>
+          <p>Tell us about your business and what you're looking for.</p>
+        </li>
+        <li class="step step-red">
+          <span class="step-num">02</span>
+          <h3>Let's Plan</h3>
+          <p>We understand your brand and build a content direction around it.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">03</span>
+          <h3>Let's Create</h3>
+          <p>We plan, shoot, edit and design your monthly content.</p>
+        </li>
+        <li class="step step-red">
+          <span class="step-num">04</span>
+          <h3>We Take It From Here</h3>
+          <p>We publish, manage and review your social media.</p>
+        </li>
+      </ol>
     </section>
 
     <!-- ============ CONTACT ============ -->
-    <section class="section section-black" id="contact" aria-labelledby="contact-title">
-      <img class="bolt bolt-contact" src="assets/img/bolt-6.webp" alt="" aria-hidden="true">
+    <section class="contact grain-top" style="--grain-from: var(--yellow)" id="contact" aria-labelledby="contact-title">
       <div class="container contact-grid">
         <div class="contact-copy">
-          <p class="eyebrow eyebrow-yellow">Contact</p>
-          <h2 id="contact-title" class="display display-white">Let's make your socials better.</h2>
-          <p class="lead">Great businesses deserve great social media.</p>
-          <p>Tell us what you're building. We'd love to hear about it.</p>
+          <h2 id="contact-title" class="wide-heading left">Let's make your socials better.</h2>
+          <p class="serif-lg">Great businesses deserve great social media.</p>
+          <p class="body-lg">Tell us what you're building. We'd love to hear about it.</p>
         </div>
 
         <!--
@@ -363,7 +365,7 @@
             <textarea id="f-about" name="about" rows="4"></textarea>
           </div>
 
-          <button class="btn btn-yellow btn-block" type="submit">Work With Pocket</button>
+          <button class="pill pill-solid pill-block" type="submit">Work With Pocket <span class="arrow" aria-hidden="true"></span></button>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -372,23 +374,28 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <a class="brand" href="#top" aria-label="Back to top">
-        <img src="assets/img/logo.webp" alt="Pocket Media Co." width="1200" height="468" loading="lazy">
-      </a>
-      <div class="footer-text">
-        <p><strong>Pocket Media Co.</strong><br>A Social Media Studio.</p>
-        <p class="footer-muted">Part of the Kaun Creative ecosystem.</p>
+    <div class="container">
+      <div class="footer-sign">
+        <img class="footer-bolt" src="assets/img/bolt-6.webp" alt="" aria-hidden="true">
+        <p class="footer-script">A Social Media Studio.</p>
       </div>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="#about">About</a>
-        <a href="#work">Our Work</a>
-        <a href="#packages">Packages</a>
-        <a href="#contact">Work With Us</a>
-      </nav>
-    </div>
-    <div class="container footer-base">
-      <p>© <span id="year">2026</span> Pocket Media Co.</p>
+
+      <div class="footer-cols">
+        <div>
+          <a class="footer-logo" href="#top" aria-label="Back to top">
+            <img src="assets/img/logo.webp" alt="Pocket Media Co." width="1200" height="468" loading="lazy">
+          </a>
+          <p class="footer-muted">Part of the Kaun Creative ecosystem.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#about">About</a>
+          <a href="#work">Our Work</a>
+          <a href="#packages">Packages</a>
+          <a href="#contact">Work With Us</a>
+        </nav>
+      </div>
+
+      <p class="footer-base">© <span id="year">2026</span> Pocket Media Co.</p>
     </div>
   </footer>
 
