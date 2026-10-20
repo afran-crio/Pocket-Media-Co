@@ -10,7 +10,32 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Pocket Media Co. | Social Media Studio in Goa">
   <meta property="og:description" content="Good content. Great social media. Consistently.">
-  <meta property="og:image" content="assets/img/logo.webp">
+  <!-- Social previews need an absolute image URL: once the domain is live, prefix this with it,
+       e.g. https://pocketmedia.example/assets/img/og-image.jpg -->
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pocket Media Co. Good content. Great social media. Consistently.">
+  <meta property="og:site_name" content="Pocket Media Co.">
+  <meta property="og:locale" content="en_IN">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Pocket Media Co.",
+    "slogan": "Good content. Great social media. Consistently.",
+    "description": "A Goa-based social media studio creating content and managing social media for businesses that want to stand out online.",
+    "logo": "assets/img/logo.webp",
+    "image": "assets/img/og-image.jpg",
+    "areaServed": { "@type": "State", "name": "Goa" },
+    "address": { "@type": "PostalAddress", "addressRegion": "Goa", "addressCountry": "IN" },
+    "priceRange": "From ₹60,000 per month",
+    "parentOrganization": { "@type": "Organization", "name": "Kaun Creative" },
+    "knowsAbout": ["Social media management", "Content creation", "Reels", "Photography", "Content strategy"]
+  }
+  </script>
 
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -133,8 +158,8 @@
             -->
             <ul class="eco-grid eco-grid-lg" aria-label="Kaun Creative ecosystem">
               <li class="eco-logo eco-logo-lg">
-                <!-- LOGO: replace this placeholder with <img src="assets/logos/kaun-creative.svg" alt="Kaun Creative" loading="lazy"> -->
-                <span class="logo-placeholder">Kaun Creative<small>Logo coming soon</small></span>
+                <!-- LOGO: when the real file arrives, replace the name below with <img src="assets/logos/kaun-creative.svg" alt="Kaun Creative" loading="lazy"> -->
+                <span class="eco-name">Kaun Creative</span>
               </li>
               <li class="eco-logo eco-logo-lg eco-crio">
                 <img src="assets/logos/crio-connect.webp" alt="Crio Connect" width="800" height="148" loading="lazy">
@@ -145,23 +170,23 @@
                 <img src="assets/img/logo.webp" alt="Pocket Media Co." width="1200" height="468" loading="lazy">
               </li>
               <li class="eco-logo">
-                <!-- LOGO: replace this placeholder with <img src="assets/logos/off-the-menu.svg" alt="Off The Menu" loading="lazy"> -->
-                <span class="logo-placeholder">Off The Menu<small>Logo coming soon</small></span>
+                <!-- LOGO: when the real file arrives, replace the name below with <img src="assets/logos/off-the-menu.svg" alt="Off The Menu" loading="lazy"> -->
+                <span class="eco-name">Off The Menu</span>
               </li>
               <li class="eco-logo">
-                <!-- LOGO: replace this placeholder with <img src="assets/logos/scene-here.svg" alt="Scene Here" loading="lazy"> -->
-                <span class="logo-placeholder">Scene Here<small>Logo coming soon</small></span>
+                <!-- LOGO: when the real file arrives, replace the name below with <img src="assets/logos/scene-here.svg" alt="Scene Here" loading="lazy"> -->
+                <span class="eco-name">Scene Here</span>
               </li>
               <li class="eco-logo">
-                <!-- LOGO: replace this placeholder with <img src="assets/logos/node-experiences.svg" alt="Node Experiences" loading="lazy"> -->
-                <span class="logo-placeholder">Node Experiences<small>Logo coming soon</small></span>
+                <!-- LOGO: when the real file arrives, replace the name below with <img src="assets/logos/node-experiences.svg" alt="Node Experiences" loading="lazy"> -->
+                <span class="eco-name">Node Experiences</span>
               </li>
             </ul>
           </div>
 
           <!-- Collective portfolio -->
           <div class="container story-block">
-            <h3 class="wide-heading">We've made some noise.</h3>
+            <h3 class="wide-heading" id="clients">We've made some noise.</h3>
             <div class="narrow center story-copy">
               <p class="serif-md"><em>And met some pretty cool brands along the way.</em></p>
               <p class="body-lg">Before Pocket came into the picture, we were already working with brands across culture, experiences and creative projects through Crio Connect and the wider Kaun Creative ecosystem.</p>
@@ -244,61 +269,52 @@
 
         <!--
           PORTFOLIO
-          Launch with 3 genuinely strong projects rather than 6 average ones (add more later, up to 6). For each project, copy one <article class="project"> block and:
+          Until real Pocket projects are ready, a "Fresh work dropping soon" panel shows instead of the grid.
+          To launch the portfolio: delete the work-soon panel below, then uncomment the grid.
+
+          Launch with 3 genuinely strong projects. For each project:
             - put the file in assets/work/
             - use a <video> for reels (muted, loop, playsinline + a poster image) or an <img> for stills
             - fill in the brand name and one line on Pocket's actual role
-          Remove the "project-placeholder" class and the placeholder <div> once real media is in.
-          The grid works with 3, 4, 5 or 6 items.
 
-          Video example:
-            <div class="project-media">
-              <video src="assets/work/brand-reel.mp4" poster="assets/work/brand-reel.jpg"
-                     muted loop playsinline preload="metadata"></video>
-            </div>
+          <div class="work-grid" id="work-grid">
+            <article class="project">
+              <div class="project-media">
+                <video src="assets/work/brand-reel.mp4" poster="assets/work/brand-reel.jpg"
+                       muted loop playsinline preload="metadata"></video>
+              </div>
+              <div class="project-body">
+                <h3>Brand Name</h3>
+                <p>Pocket's role: one line on what Pocket actually delivered.</p>
+              </div>
+            </article>
 
-          Image example:
-            <div class="project-media">
-              <img src="assets/work/brand-post.jpg" alt="Describe what's in the image" loading="lazy">
-            </div>
+            <article class="project panel-white">
+              <div class="project-media">
+                <img src="assets/work/brand-post.jpg" alt="Describe what's in the image" loading="lazy">
+              </div>
+              <div class="project-body">
+                <h3>Brand Name</h3>
+                <p>Pocket's role: one line on what Pocket actually delivered.</p>
+              </div>
+            </article>
+
+            (third project: copy either block above)
+          </div>
+
+          And swap the first button in the row below back to:
+            <a class="pill" href="#work-grid">See What We've Made <span aria-hidden="true">↗</span></a>
         -->
-        <div class="work-grid" id="work-grid">
-          <article class="project project-placeholder">
-            <div class="project-media">
-              <div class="placeholder" aria-hidden="true"><img src="assets/img/bolt-3.webp" alt=""></div>
-            </div>
-            <div class="project-body">
-              <h3>Brand Name</h3>
-              <p>Pocket's role: content shoot, reel edits and monthly social media management.</p>
-              <span class="pill pill-sm" aria-hidden="true"><span class="arrow"></span></span>
-            </div>
-          </article>
-
-          <article class="project project-placeholder panel-white">
-            <div class="project-media">
-              <div class="placeholder placeholder-black" aria-hidden="true"><img src="assets/img/bolt-4.webp" alt=""></div>
-            </div>
-            <div class="project-body">
-              <h3>Brand Name</h3>
-              <p>Pocket's role: content planning, copywriting and publishing.</p>
-              <span class="pill pill-sm" aria-hidden="true"><span class="arrow"></span></span>
-            </div>
-          </article>
-
-          <article class="project project-placeholder">
-            <div class="project-media">
-              <div class="placeholder" aria-hidden="true"><img src="assets/img/bolt-5.webp" alt=""></div>
-            </div>
-            <div class="project-body">
-              <h3>Brand Name</h3>
-              <p>Pocket's role: campaign idea, design and launch content.</p>
-              <span class="pill pill-sm" aria-hidden="true"><span class="arrow"></span></span>
-            </div>
-          </article>
+        <div class="work-soon">
+          <img class="work-soon-bolt" src="assets/img/bolt-5.webp" alt="" aria-hidden="true">
+          <p class="work-soon-tag">In the edit</p>
+          <h3 class="work-soon-title">Fresh work dropping soon.</h3>
+          <p class="serif-md">We're curating the first projects made by Pocket. Good things take a little time (and a few more edits).</p>
+          <p class="body-lg">While you wait, meet some of the brands our team has worked with across the Kaun Creative ecosystem.</p>
         </div>
 
         <div class="btn-row">
-          <a class="pill" href="#work-grid">See What We've Made <span aria-hidden="true">↗</span></a>
+          <a class="pill" href="#clients" data-open-story data-track="cta_work_see_brands">See Brands We've Worked With <span class="arrow" aria-hidden="true"></span></a>
           <a class="pill pill-solid" href="#contact" data-track="cta_work_work_with_pocket">Work With Pocket <span class="arrow" aria-hidden="true"></span></a>
         </div>
       </div>

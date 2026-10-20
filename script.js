@@ -46,6 +46,19 @@
       storyToggle.focus({ preventScroll: true });
       document.getElementById("about").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
     });
+
+    // Links elsewhere on the page that point into the story open it first
+    document.querySelectorAll("[data-open-story]").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        var target = document.querySelector(link.getAttribute("href"));
+        if (!target) return;
+        e.preventDefault();
+        setStory(true);
+        setTimeout(function () {
+          target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+        }, reduceMotion ? 0 : 560);
+      });
+    });
   }
 
   // ---------- Portfolio videos: play only while on screen ----------
