@@ -1053,3 +1053,143 @@ a { color: inherit; }
   .svc-bolt { display: none; }
   .svc-primary .svc-title { padding-right: 0; }
 }
+
+/* =========================================================
+   Fun pass: grouped capabilities, stickers, who-it's-for
+   ========================================================= */
+.svc-sticker {
+  position: absolute;
+  top: -16px;
+  left: clamp(22px, 3vw, 40px);
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  background: var(--yellow);
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  padding: 6px 14px;
+  transform: rotate(-4deg);
+}
+.svc-sticker-alt { background: var(--white); transform: rotate(3deg); }
+
+.cap-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 24px;
+  margin: 24px 0 28px;
+  width: 100%;
+}
+.svc-secondary .cap-groups { grid-template-columns: 1fr; }
+.cap-label {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+.cap-group .svc-caps { margin: 0; }
+@media (max-width: 560px) {
+  .cap-groups { grid-template-columns: 1fr; }
+}
+
+/* Who exactly is Pocket for? */
+.who {
+  --grain-from: var(--red);
+  background: var(--yellow);
+  padding-block: var(--section-y);
+}
+.who-intro { margin: 0 auto clamp(36px, 5vw, 56px); max-width: 40ch; }
+.who-grid {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+  position: relative;
+  z-index: 1;
+}
+.who-card {
+  grid-column: span 2;
+  background: var(--white);
+  border: var(--stroke);
+  border-radius: var(--radius);
+  padding: clamp(22px, 3vw, 32px);
+  transition: transform 0.2s ease;
+}
+.who-card:nth-child(4),
+.who-card:nth-child(5) { grid-column: span 3; }
+.who-card:nth-child(odd) { transform: rotate(-0.8deg); }
+.who-card:nth-child(even) { transform: rotate(0.8deg); }
+.who-card:hover { transform: rotate(0) translateY(-4px); }
+.who-card-red { background: var(--red); }
+.who-card-black { background: var(--black); color: var(--white); }
+.who-tag {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+.who-line { font-family: var(--font-serif); font-size: clamp(1.25rem, 1.9vw, 1.55rem); line-height: 1.2; }
+@media (max-width: 860px) {
+  .who-grid { grid-template-columns: 1fr 1fr; }
+  .who-card,
+  .who-card:nth-child(4),
+  .who-card:nth-child(5) { grid-column: span 1; }
+  .who-card:nth-child(5) { grid-column: span 2; }
+}
+@media (max-width: 560px) {
+  .who-grid { grid-template-columns: 1fr; }
+  .who-card:nth-child(5) { grid-column: span 1; }
+}
+
+.not-for {
+  max-width: 860px;
+  margin: clamp(40px, 6vw, 64px) auto 0;
+  background: var(--black);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: clamp(28px, 4vw, 44px);
+  position: relative;
+  z-index: 1;
+}
+.not-for-title {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.not-for-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.not-for-list li {
+  position: relative;
+  padding-left: 40px;
+  color: #d9d9d9;
+}
+.not-for-list li strong { color: var(--white); display: block; }
+.not-for-list li::before {
+  content: "✕";
+  position: absolute; left: 0; top: 0;
+  width: 26px; height: 26px;
+  display: grid; place-items: center;
+  font-size: 0.8rem; font-weight: 900;
+  background: var(--red); color: var(--black);
+  border-radius: 50%;
+}
+.not-for-foot { margin-top: 22px; font-family: var(--font-serif); font-size: 1.35rem; }
+.not-for-foot a { color: var(--yellow); text-decoration: underline wavy var(--yellow) 1.5px; text-underline-offset: 5px; }
+.not-for-foot a:hover { color: var(--white); }
+
+.work { --grain-from: var(--yellow); }
+.who-intro { max-width: 48ch; }
+@media (max-width: 860px) {
+  .svc-secondary { margin-top: 18px; }
+}
