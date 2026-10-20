@@ -1237,3 +1237,75 @@ p, li, summary { text-wrap: pretty; }
   /* Two-line title slot so the lines in each row of cards start level */
   .who-tag { min-height: 2.1em; }
 }
+
+/* =========================================================
+   Philosophy: "Social media is the invite. Not the whole party."
+   Bold editorial statement on black (typography only, no images)
+   ========================================================= */
+.party {
+  background: var(--black);
+  color: var(--white);
+  padding-block: clamp(96px, 13vw, 176px);
+}
+.party-title {
+  margin: 0 0 clamp(40px, 6vw, 72px);
+  line-height: 0.9;
+  text-wrap: balance;
+}
+.party-line-1 {
+  display: block;
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(2.2rem, 7.6vw, 7rem);
+  letter-spacing: 0;
+}
+.party-line-2 {
+  display: block;
+  margin-top: 0.12em;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 8.6vw, 8rem);
+  line-height: 1;
+  color: var(--yellow);
+  text-decoration: underline wavy var(--red);
+  text-decoration-thickness: 0.035em;
+  text-underline-offset: 0.14em;
+}
+.party-body {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: clamp(0px, 6vw, 96px);
+}
+.party-body p {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.55;
+  color: #d9d9d9;
+  text-wrap: pretty;
+}
+.party-body p + p { margin-top: 18px; }
+.party-body .party-lead {
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+  line-height: 1.12;
+  color: var(--white);
+  margin-bottom: 26px;
+}
+.party-close {
+  margin-top: clamp(56px, 8vw, 104px);
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.4rem, 3.6vw, 3.2rem);
+  line-height: 1;
+  text-wrap: balance;
+}
+.party-close span { display: block; color: var(--yellow); margin-top: 0.15em; }
+
+@media (max-width: 760px) {
+  .party-body { margin-right: auto; margin-left: 0; }
+}
+
