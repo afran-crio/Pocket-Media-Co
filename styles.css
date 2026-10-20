@@ -821,3 +821,40 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .price-table tbody th { padding-left: 12px; }
 }
+
+/* ---------- Copy refresh ---------- */
+.hero-lede {
+  margin-top: clamp(24px, 3vw, 36px);
+  max-width: 34ch;
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+  line-height: 1.2;
+}
+.hero-cta { margin-top: clamp(24px, 3vw, 36px); }
+.about { padding-top: var(--section-y); }
+.brand-line {
+  margin-top: 36px;
+  display: inline-block;
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(0.95rem, 1.7vw, 1.3rem);
+  line-height: 1.2;
+  background: var(--yellow);
+  border: var(--stroke);
+  border-radius: 999px;
+  padding: 14px 26px;
+}
+.brand-line em {
+  font-family: var(--font-serif);
+  font-stretch: 100%;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 1.35em;
+}
+.lead-in { font-weight: 400; font-style: italic; }
+@media (max-width: 800px) {
+  .hero { padding-bottom: clamp(56px, 9vw, 128px); }
+  .bolt-hero { display: none; }
+}
