@@ -376,9 +376,12 @@
     // How many y's fit on the line without wrapping at this screen width
     var measureVery = function () {
       var room = veryHead.clientWidth;
+      veryLine.style.minWidth = "";
       veryMax = MAX_Y;
       showY(MAX_Y);
       while (veryMax > 1 && veryLine.getBoundingClientRect().width > room) showY(--veryMax);
+      // Reserve the full stretched width so "We're" stays put and only the y's grow
+      veryLine.style.minWidth = Math.ceil(veryLine.getBoundingClientRect().width) + "px";
       veryShown = -1;
     };
     var updateVery = function () {
