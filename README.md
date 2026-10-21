@@ -20,9 +20,9 @@ To preview it locally, run `python3 -m http.server` in this folder and open http
 
 **Navigation:** About · What We Do · Work · Foundation (page) · Beyond the Feed (page) · Let's Talk.
 
-**Homepage:** Hero (philosophy engraved at its base) → About (expandable Crio / Kaun Creative story) → What we do → Made by Pocket → Foundation teaser → Who → Good to know → Contact.
+**Homepage:** Hero (philosophy engraved at its base) → About (intro + "The internet has enough content" panel + expandable Crio / Kaun Creative story) → What we do → Made by Pocket → Foundation teaser → Who → Good to know → Contact.
 
-**Foundation:** journey overview (Talk → Foundation → Monthly) → "Where are we starting from?" explorer → six stages from the Social Media Foundation deck → pricing → CTA.
+**Foundation:** journey overview (Talk → Foundation → Monthly) → "Where are we starting from?" explorer → seven deck-style slides (review, communication foundation, pillars, mood board, content references, profile set-up, into the monthly plan) → pricing → CTA.
 
 **Beyond the Feed:** specialist support, always separately scoped and never part of the retainer. Only describe a capability once a delivery relationship is in place.
 

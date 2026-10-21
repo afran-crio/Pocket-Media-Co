@@ -65,9 +65,9 @@
   // Tags elements with data-reveal; CSS hides them only when JS runs and motion is allowed.
   var revealGroups = [
     [".head, .statement, .also, .soon, .show-text, .contact-copy, .enquiry, .story-copy, .client-label, .client-note, .explorer, .fine", ""],
-    [".stickers li, .eco-logo, .client-logo", "pop"],
-    [".journey li, .price-card, .card, .show-media", "slap"],
-    [".faq-list details, .stage", ""]
+    [".stickers li, .eco-logo, .client-logo, .numlist li", "pop"],
+    [".journey li, .price-card, .card, .show-media, .slide-visual > *", "slap"],
+    [".faq-list details, .slide-copy, .belief", ""]
   ];
 
   if (!reduceMotion && "IntersectionObserver" in window) {
