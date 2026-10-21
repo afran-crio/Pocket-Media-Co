@@ -1323,3 +1323,109 @@ main > section { overflow-x: clip; }
 @media (prefers-reduced-motion: no-preference) {
   .js .about-who[data-reveal].is-in { transform: rotate(-1deg); }
 }
+
+/* =========================================================
+   Louder, more interactive (Pocket's own take, not a copy)
+   ========================================================= */
+
+/* 1. Near full-screen hero, "Sorted." as an oversized stamp */
+.hero {
+  min-height: calc(100svh - 36px - var(--header-h));
+  display: flex;
+  align-items: center;
+}
+.hero > .container { width: 100%; }
+.hero .mega { font-size: clamp(2.8rem, 11vw, 10.5rem); line-height: 0.88; }
+.hero .accent {
+  font-size: 1.35em;
+  transform: rotate(-4deg);
+  transform-origin: left center;
+  text-shadow: 0.04em 0.04em 0 var(--black);
+  margin-top: 0.04em;
+}
+@media (max-width: 800px) {
+  .hero { min-height: calc(88svh - 36px - var(--header-h)); }
+}
+
+/* 2. Full-width work: edge-to-edge media with the story laid over it */
+.showcase { gap: clamp(20px, 3vw, 32px); }
+.show {
+  position: relative;
+  display: block;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+.show .show-media {
+  aspect-ratio: 16 / 8;
+  max-height: none;
+  border: 0;
+  border-block: var(--stroke);
+  border-radius: 0;
+}
+.show-flip .show-media { order: 0; }
+.show .show-text {
+  position: absolute;
+  left: max(var(--gutter), calc((100vw - 1280px) / 2 + var(--gutter)));
+  bottom: clamp(20px, 4vw, 48px);
+  max-width: min(560px, 80vw);
+  background: var(--white);
+  border: var(--stroke);
+  border-radius: var(--radius);
+  padding: clamp(18px, 2.6vw, 30px);
+  pointer-events: none;
+}
+.show-flip .show-text { left: auto; right: max(var(--gutter), calc((100vw - 1280px) / 2 + var(--gutter))); }
+.show .show-num { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 8px; }
+.show .show-title { font-size: clamp(1.4rem, 3vw, 2.6rem); }
+@media (max-width: 760px) {
+  .show .show-media { aspect-ratio: 4 / 5; }
+  .show .show-text { position: relative; left: auto; right: auto; bottom: auto; margin: -48px var(--gutter) 0; max-width: none; }
+  .show-flip .show-text { right: auto; }
+}
+
+/* 3. Playful interaction */
+@media (pointer: fine) {
+  body { cursor: url("assets/img/cursor-bolt.png") 15 1, auto; }
+  a, button, summary, label, input, textarea, .story-toggle { cursor: pointer; }
+  input[type="text"], textarea { cursor: text; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .wide-heading, .party-line-1, .party-line-2, .about-who-title, .show-title {
+    transition: rotate 0.25s cubic-bezier(.3,1.6,.5,1), scale 0.25s cubic-bezier(.3,1.6,.5,1);
+  }
+  .wide-heading:hover, .about-who-title:hover, .show-title:hover { rotate: -1.2deg; scale: 1.02; }
+  .party-line-2:hover { rotate: 1.5deg; }
+  .hero .hl { transition: translate 0.2s ease; }
+  .hero .hl:hover { translate: 8px 0; }
+}
+
+/* 4. Personality touches */
+.brand { position: relative; display: inline-block; }
+.brand-note {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-left: 10px;
+  white-space: nowrap;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  background: var(--yellow);
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  padding: 2px 12px;
+  opacity: 0;
+  transform: translate(-6px, -50%) rotate(-4deg);
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(.3,1.6,.5,1);
+  pointer-events: none;
+}
+.brand:hover .brand-note,
+.brand:focus-visible .brand-note { opacity: 1; transform: translate(0, -50%) rotate(-4deg); }
+@media (max-width: 800px) { .brand-note { display: none; } }
+.footer-wink { font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; color: var(--yellow); margin-left: 6px; }
+/* Hero headline scales with screen height too, so the buttons stay above the fold */
+.hero { padding-block: clamp(32px, 5vh, 72px); }
+.hero .mega { font-size: clamp(2.8rem, min(10.5vw, 13vh), 10.5rem); }
+.hero .kicker { margin-bottom: clamp(12px, 2vh, 24px); }
+.hero-lede { margin-top: clamp(16px, 2.6vh, 32px); }
+.hero-cta { margin-top: clamp(18px, 3vh, 32px); }
