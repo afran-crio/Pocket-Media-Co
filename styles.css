@@ -600,3 +600,4 @@ main > section { overflow-x: clip; }
 .belief-copy p:last-child { padding-bottom: 0; }
 @media (max-width: 760px) { .belief-copy { padding-top: 20px; } }
 .belief .nope .lead { font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.05; max-width: none; color: var(--white); }
+@media (min-width: 761px) { .nope { display: flex; flex-direction: column; align-items: flex-start; } .nope .lead { margin-top: auto; } }
