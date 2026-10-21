@@ -604,3 +604,4 @@ main > section { overflow-x: clip; }
 /* Philosophy body copy: solid white, medium weight, yellow for the payoff */
 .belief-copy p:not(:first-child) { color: var(--white); font-weight: 500; }
 .belief-copy .hl { background: none; color: var(--yellow); }
+.squiggle--yellow { text-decoration-color: var(--yellow); }
