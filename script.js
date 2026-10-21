@@ -354,6 +354,53 @@
     });
   }
 
+  // ---------- "Veryyyyy": stretches as the heading reaches the middle of the screen, shrinks as it leaves ----------
+  var very = document.querySelector(".very");
+  if (very) {
+    var veryLine = very.parentNode;
+    var veryY = very.querySelector(".very-y");
+    var veryHead = veryLine.parentNode;
+    var MAX_Y = 8, veryMax = 0, veryShown = -1;
+    for (var vi = 0; vi < MAX_Y; vi++) {
+      var ys = document.createElement("span");
+      ys.textContent = "y";
+      ys.style.fontSize = (0.92 - vi * 0.07) + "em";
+      veryY.appendChild(ys);
+    }
+    var showY = function (n) {
+      if (n === veryShown) return;
+      veryShown = n;
+      for (var i = 0; i < MAX_Y; i++) veryY.children[i].hidden = i >= n;
+      very.classList.toggle("is-stretched", n > 0);
+    };
+    // How many y's fit on the line without wrapping at this screen width
+    var measureVery = function () {
+      var room = veryHead.clientWidth;
+      veryMax = MAX_Y;
+      showY(MAX_Y);
+      while (veryMax > 1 && veryLine.getBoundingClientRect().width > room) showY(--veryMax);
+      veryShown = -1;
+    };
+    var updateVery = function () {
+      if (reduceMotion) { showY(Math.min(3, veryMax)); return; }
+      var r = veryHead.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var p = 1 - Math.abs(r.top - vh * 0.3) / (vh * 0.6);
+      p = Math.max(0, Math.min(1, p * 1.5));
+      showY(Math.round(p * veryMax));
+    };
+    measureVery();
+    updateVery();
+    var veryTick = false;
+    window.addEventListener("scroll", function () {
+      if (veryTick) return;
+      veryTick = true;
+      requestAnimationFrame(function () { veryTick = false; updateVery(); });
+    }, { passive: true });
+    window.addEventListener("resize", function () { measureVery(); updateVery(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { measureVery(); updateVery(); });
+  }
+
   // ---------- Footer year ----------
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();

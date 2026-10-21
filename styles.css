@@ -606,3 +606,9 @@ main > section { overflow-x: clip; }
 .belief-copy .hl { background: none; color: var(--yellow); }
 .squiggle--yellow { text-decoration-color: var(--yellow); }
 #services-title .accent { display: block; color: var(--red); font-size: 1.12em; }
+/* "Veryyyyy" scroll stretch */
+.very-line { white-space: nowrap; }
+.very { transition: color 0.2s ease; }
+.very.is-stretched { color: var(--red); }
+.very-y span { display: inline-block; }
+.very-y span[hidden] { display: none; }
