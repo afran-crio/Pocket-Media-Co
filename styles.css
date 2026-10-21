@@ -590,3 +590,12 @@ main > section { overflow-x: clip; }
   .js .nope-stamp[data-reveal].is-in { transform: rotate(-6deg); }
 }
 .hero-phone { aspect-ratio: 9 / 17.5; } .hp-grid i:nth-child(7n) { background-color: var(--yellow); }
+
+/* Philosophy: spread the right-hand copy across the full height of the box */
+.belief-body { align-items: stretch; }
+.belief-copy { display: flex; flex-direction: column; justify-content: space-between; gap: 0; height: 100%; }
+.belief-copy p { font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.5; color: #e2e2e2; padding-block: clamp(14px, 2vw, 22px); border-top: 1.5px solid #333; }
+.belief-copy p + p { margin-top: 0; }
+.belief-copy p:first-child { border-top: 0; padding-top: 0; font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.15; color: var(--white); }
+.belief-copy p:last-child { padding-bottom: 0; }
+@media (max-width: 760px) { .belief-copy { border-top: 1.5px solid #333; padding-top: 24px; } }
