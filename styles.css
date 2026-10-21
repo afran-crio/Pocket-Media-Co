@@ -219,7 +219,7 @@ a { color: inherit; }
 .nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { transform: translateY(8px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { transform: translateY(-8px) rotate(-45deg); }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   :root { --header-h: 60px; }
   .brand img { height: 36px; }
   .nav-toggle { display: block; }
@@ -1429,3 +1429,247 @@ main > section { overflow-x: clip; }
 .hero .kicker { margin-bottom: clamp(12px, 2vh, 24px); }
 .hero-lede { margin-top: clamp(16px, 2.6vh, 32px); }
 .hero-cta { margin-top: clamp(18px, 3vh, 32px); }
+
+/* =========================================================
+   Interim flow (until Pocket projects exist)
+   red hero | yellow what-we-do (+ who card) | black philosophy |
+   red proof | white about (fade) | yellow good-to-know (fade) |
+   red contact | black footer
+   ========================================================= */
+.work { background: var(--red); }
+.work .work-sub { color: var(--black); }
+.work .work-soon { margin-top: clamp(36px, 5vw, 56px); }
+.about { --grain-from: var(--red); }
+.services .about-who { margin-top: clamp(44px, 6vw, 72px); }
+.party-cta { margin-top: clamp(32px, 4vw, 48px); }
+
+/* Proof: scrolling band of ecosystem client logos */
+.logo-strip { margin-top: clamp(28px, 4vw, 44px); }
+.logo-strip-label {
+  text-align: center;
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  margin-bottom: 16px;
+}
+.logo-marquee {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: var(--white);
+  border-block: var(--stroke);
+  overflow: hidden;
+}
+.logo-track {
+  list-style: none;
+  margin: 0;
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+  gap: clamp(36px, 5vw, 64px);
+  width: max-content;
+}
+.logo-track li { flex: none; }
+.logo-track img { height: clamp(36px, 4.4vw, 54px); width: auto; max-width: 150px; object-fit: contain; }
+@media (prefers-reduced-motion: no-preference) {
+  .logo-track { animation: logos 55s linear infinite; }
+  .logo-marquee:hover .logo-track { animation-play-state: paused; }
+  @keyframes logos { to { transform: translateX(calc(-50% - clamp(36px, 5vw, 64px) / 2)); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-track { flex-wrap: wrap; justify-content: center; width: auto; padding-inline: var(--gutter); }
+  .logo-track li[aria-hidden="true"] { display: none; }
+}
+
+/* =========================================================
+   So, how does this work? (yellow, between proof and About)
+   ========================================================= */
+.how { background: var(--yellow); padding-block: var(--section-y); }
+.about { --grain-from: var(--yellow); }
+.kicker-ink { color: var(--red-dark); text-align: center; }
+.how-intro {
+  max-width: 52ch;
+  margin: 0 auto clamp(36px, 5vw, 56px);
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  line-height: 1.25;
+}
+.how-steps {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 2.4vw, 28px);
+}
+.how-step {
+  background: var(--white);
+  border: var(--stroke);
+  border-radius: var(--radius);
+  padding: clamp(24px, 3.4vw, 40px);
+}
+.how-step:nth-child(2), .how-step:nth-child(3) { background: var(--black); color: var(--white); }
+.how-num {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(2.6rem, 4.4vw, 3.6rem);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.how-step:nth-child(2) .how-num, .how-step:nth-child(3) .how-num { color: var(--yellow); }
+.how-title {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+  line-height: 1.02;
+  text-wrap: balance;
+  margin-bottom: 14px;
+}
+.how-lead { font-family: var(--font-serif); font-size: clamp(1.2rem, 1.8vw, 1.45rem); line-height: 1.22; margin-bottom: 12px; }
+.how-more p { font-size: 1rem; line-height: 1.55; opacity: 0.85; }
+.how-more p + p { margin-top: 8px; }
+.how-close {
+  margin: clamp(36px, 5vw, 56px) 0 24px;
+  text-align: center;
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.1rem, 2.4vw, 1.9rem);
+  text-wrap: balance;
+}
+.how-close span { display: block; font-family: var(--font-serif); font-style: italic; font-weight: 400; font-stretch: 100%; text-transform: none; font-size: 1.3em; }
+@media (max-width: 700px) { .how-steps { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   Beyond the Feed (second page)
+   black hero | white | yellow (fade) | white (fade) | red (fade) |
+   black | yellow | black footer
+   ========================================================= */
+.kicker-yellow { color: var(--yellow); }
+.btf-hero { padding-block: clamp(96px, 14vw, 200px); }
+.btf-hero .party-line-1 { font-size: clamp(2.2rem, 8vw, 7.4rem); }
+.btf-hero .party-line-2 { font-size: clamp(2.6rem, 9vw, 8.6rem); }
+
+.btf-intro, .btf-ours { background: var(--white); padding-block: var(--section-y); }
+.btf-chosen { --grain-from: var(--white); background: var(--yellow); padding-block: var(--section-y); }
+.btf-ours { --grain-from: var(--yellow); }
+.btf-extra { --grain-from: var(--white); background: var(--red); padding-block: var(--section-y); }
+.btf-plans { background: var(--yellow); padding-block: var(--section-y); }
+
+.btf-intro .container > * + *,
+.btf-chosen .container > * + *,
+.btf-ours .container > * + *,
+.btf-plans .container > * + * { margin-top: 18px; }
+.btf-intro .body-lg, .btf-chosen .body-lg, .btf-ours .body-lg, .btf-plans .body-lg { max-width: 56ch; margin-inline: auto; color: var(--black); }
+
+.btf-pull {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1;
+  color: var(--red);
+  margin-block: 32px !important;
+}
+.btf-big {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 6vw, 4.6rem);
+  line-height: 0.95;
+  text-wrap: balance;
+  margin-top: clamp(36px, 5vw, 56px) !important;
+}
+.btf-big-sm { font-size: clamp(1.4rem, 3.6vw, 2.6rem); }
+.btf-chosen .brand-line { margin-top: clamp(32px, 4vw, 44px) !important; }
+
+.btf-verbs {
+  list-style: none;
+  margin: 28px auto 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.btf-verbs li {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(0.95rem, 1.8vw, 1.3rem);
+  background: var(--yellow);
+  border: var(--stroke);
+  border-radius: 999px;
+  padding: 8px 18px;
+}
+.btf-verbs li:nth-child(even) { background: var(--red); transform: rotate(2deg); }
+.btf-verbs li:nth-child(odd) { transform: rotate(-2deg); }
+
+.btf-cards {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1120px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(16px, 2.4vw, 28px);
+}
+.btf-card {
+  grid-column: span 2;
+  background: var(--white);
+  border: var(--stroke);
+  border-radius: var(--radius);
+  padding: clamp(22px, 3vw, 36px);
+}
+.btf-card:nth-child(4), .btf-card:nth-child(5) { grid-column: span 3; }
+.btf-card:nth-child(2), .btf-card:nth-child(4) { background: var(--black); color: var(--white); }
+.btf-card-title {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  line-height: 1.05;
+  text-wrap: balance;
+  margin-bottom: 14px;
+}
+.btf-card-lead { font-family: var(--font-serif); font-size: clamp(1.25rem, 1.9vw, 1.6rem); line-height: 1.18; margin-bottom: 12px; }
+.btf-card:nth-child(2) .btf-card-lead, .btf-card:nth-child(4) .btf-card-lead { color: var(--yellow); }
+.btf-card-body p { font-size: 1rem; line-height: 1.55; opacity: 0.85; }
+.btf-card-body p + p { margin-top: 8px; }
+@media (max-width: 900px) {
+  .btf-cards { grid-template-columns: 1fr 1fr; }
+  .btf-card, .btf-card:nth-child(4), .btf-card:nth-child(5) { grid-column: span 1; }
+  .btf-card:nth-child(5) { grid-column: span 2; }
+}
+@media (max-width: 600px) {
+  .btf-cards { grid-template-columns: 1fr; }
+  .btf-card:nth-child(5) { grid-column: span 1; }
+}
+
+.btf-not .party-line-1 { font-size: clamp(1.9rem, 5.6vw, 5rem); }
+.btf-not .party-line-2 { font-size: clamp(2rem, 6vw, 5.4rem); }
+.btf-not-copy { max-width: 60ch; }
+.btf-not-copy p { font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.55; color: #d9d9d9; }
+.btf-not-copy p + p { margin-top: 14px; }
+.btf-cta { margin-top: 32px !important; }
+.site-nav a[aria-current="page"] { text-decoration: underline wavy var(--red) 2px; text-underline-offset: 6px; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .btf-verbs li[data-reveal].is-in:nth-child(odd) { transform: rotate(-2deg); }
+  .js .btf-verbs li[data-reveal].is-in:nth-child(even) { transform: rotate(2deg); }
+}
+.btf-chosen .wide-heading { font-size: clamp(1.8rem, 4.4vw, 3.6rem); }
+.btf-chosen .container { max-width: 980px; }
+@media (min-width: 761px) {
+  .btf-not-copy { columns: 2; column-gap: clamp(32px, 6vw, 96px); max-width: none; }
+  .btf-not-copy p { break-inside: avoid; }
+}

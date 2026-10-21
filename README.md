@@ -3,7 +3,8 @@
 A single-page static site for Pocket Media Co. It has no build step and no dependencies.
 
 ```
-index.html   page content and copy
+index.html            homepage
+beyond-the-feed.html  second page (philosophy and specialist network)
 styles.css   all styling (brand colours and type at the top)
 script.js    mobile menu, portfolio video playback, enquiry form
 assets/img/  web-ready logo, lightning bolts and favicon
@@ -12,16 +13,15 @@ assets/work/ portfolio images and videos go here
 
 To preview it locally, run `python3 -m http.server` in this folder and open http://localhost:8000.
 
-## Locked structure (work-first)
+## Structure
 
-1. Hero: "Your socials? Sorted." (See Our Work first, Let's Talk Socials second)
-2. Selected work (Made by Pocket): "Okay, enough talking." Large editorial project rows; hidden until real projects are added (see the comment in index.html)
-3. What we do: "Social media is our thing." (one offer; standalone content is a one-line mention)
-4. Philosophy: "The internet has enough content."
-5. About: "A little about us." with "Got a business? Got socials? We should talk." folded in, and the expandable Crio / Kaun Creative story
-6. Good to know (FAQs) + Contact: "Let's get your socials together."
+**Homepage (interim, until Pocket projects exist):** Hero → What we do (+ "Got a business? Got socials?") → Philosophy ("The internet has enough content") → The proof (ecosystem logo strip + "Fresh Pocket work dropping soon") → So, how does this work? → About → Good to know → Contact.
 
-One button label everywhere: "Let's Talk Socials". Work and "Beyond the Feed" pages wait until there are 3+ projects and the specialist-network content is defined.
+When the first Pocket project is ready, switch back to work-first: hero leads with "See Our Work", the work section moves straight after the hero, eyebrow back to "Made by Pocket" (see the comment in the work section).
+
+**Beyond the Feed:** "Social media is the invite. Not the whole party." Partner capabilities (ads, SEO, creators, brand strategy, experiences) should only be described as available once suitable delivery relationships are in place.
+
+One button label everywhere: "Let's Talk Socials".
 
 ## Pricing
 

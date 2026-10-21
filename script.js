@@ -64,9 +64,9 @@
   // ---------- Scroll reveals ----------
   // Tags elements with data-reveal; CSS hides them only when JS runs and motion is allowed.
   var revealGroups = [
-    [".wide-heading, .svc-kicker, .svc-card, .svc-also, .work-sub, .work-intro, .show-text, .work-soon, .party-body, .party-close, .party-line-1, .contact-copy, .enquiry, .story-copy, .client-label", ""],
+    [".wide-heading, .svc-kicker, .svc-card, .svc-also, .work-sub, .work-intro, .show-text, .work-soon, .how-intro, .how-close, .btf-big, .btf-not-copy, .party-body, .party-close, .party-line-1, .contact-copy, .enquiry, .story-copy, .client-label", ""],
     [".eco-logo, .client-logo", "pop"],
-    [".about-who, .show-media", "slap"],
+    [".about-who, .show-media, .how-step, .btf-card, .btf-verbs li", "slap"],
     [".faq-list details", ""],
     [".party-line-2, .story-pull", "punch"]
   ];
@@ -142,7 +142,7 @@
 
   // ---------- Cards tilt toward the mouse (desktop only) ----------
   if (!reduceMotion && window.matchMedia("(pointer: fine)").matches) {
-    document.querySelectorAll(".show-media, .svc-card, .about-who, .work-soon").forEach(function (card) {
+    document.querySelectorAll(".show-media, .svc-card, .about-who, .work-soon, .btf-card").forEach(function (card) {
       card.addEventListener("mousemove", function (e) {
         var r = card.getBoundingClientRect();
         var x = (e.clientX - r.left) / r.width - 0.5;
@@ -197,114 +197,117 @@
   });
 
   // ---------- Enquiry form ----------
+  // (Only on pages that have the enquiry form.)
   var form = document.getElementById("enquiry-form");
-  var status = form.querySelector(".form-status");
-  var labels = {
-    name: "Name",
-    business: "Business / Instagram",
-    contact: "Email / WhatsApp",
-    looking_for: "Looking for",
-    about: "Anything else"
-  };
+  if (form) {
+    var status = form.querySelector(".form-status");
+    var labels = {
+      name: "Name",
+      business: "Business / Instagram",
+      contact: "Email / WhatsApp",
+      looking_for: "Looking for",
+      about: "Anything else"
+    };
 
-  // "Psst" link and the main CTA pre-select what the visitor is after
-  document.querySelectorAll("[data-service]").forEach(function (link) {
-    link.addEventListener("click", function () {
-      var radio = form.querySelector('input[name=looking_for][value="' + link.dataset.service + '"]');
-      if (radio) radio.checked = true;
-    });
-  });
-
-  // A bolt strikes across the form when an enquiry really lands
-  function strike() {
-    if (reduceMotion) return;
-    var bolt = document.createElement("img");
-    bolt.src = "assets/img/bolt-6.webp";
-    bolt.alt = "";
-    bolt.className = "form-strike";
-    bolt.style.setProperty("--strike-x", (form.offsetWidth - 40) + "px");
-    bolt.addEventListener("animationend", function () { bolt.remove(); });
-    form.appendChild(bolt);
-  }
-
-  function setStatus(msg, type) {
-    status.textContent = msg;
-    status.className = "form-status" + (type ? " is-" + type : "");
-  }
-
-  function markInvalid(el, bad) {
-    el.setAttribute("aria-invalid", bad ? "true" : "false");
-  }
-
-  function validate() {
-    var first = null;
-    ["f-name", "f-brand", "f-contact"].forEach(function (id) {
-      var input = document.getElementById(id);
-      var bad = !input.value.trim();
-      markInvalid(input, bad);
-      if (bad && !first) first = input;
-    });
-    if (!first && !form.querySelector("input[name=looking_for]:checked")) {
-      first = form.querySelector("input[name=looking_for]");
-    }
-    return first;
-  }
-
-  form.addEventListener("input", function (e) {
-    if (e.target.getAttribute("aria-invalid") === "true" && e.target.value.trim()) {
-      markInvalid(e.target, false);
-    }
-  });
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    var invalid = validate();
-    if (invalid) {
-      setStatus("Almost there! We just need your name, where to find you, how to reach you and what you're looking for.", "error");
-      invalid.focus();
-      return;
-    }
-
-    var data = new FormData(form);
-    var endpoint = form.dataset.endpoint;
-    var email = form.dataset.email;
-
-    if (endpoint) {
-      var btn = form.querySelector("button[type=submit]");
-      btn.disabled = true;
-      setStatus("Sending…");
-      fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
-        .then(function (res) {
-          if (!res.ok) throw new Error(res.status);
-          form.reset();
-          track("generate_lead", { method: "form" });
-          setStatus("And it's in! We'll take a look and get back to you soon.", "success");
-          strike();
-        })
-        .catch(function () {
-          setStatus("Something went wrong sending that. Please try again in a moment.", "error");
-        })
-        .finally(function () { btn.disabled = false; });
-      return;
-    }
-
-    if (email) {
-      var lines = [];
-      data.forEach(function (value, key) {
-        if (String(value).trim()) lines.push((labels[key] || key) + ": " + value);
+    // "Psst" link and the main CTA pre-select what the visitor is after
+    document.querySelectorAll("[data-service]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var radio = form.querySelector('input[name=looking_for][value="' + link.dataset.service + '"]');
+        if (radio) radio.checked = true;
       });
-      var subject = "Website enquiry: " + data.get("business");
-      track("generate_lead", { method: "email" });
-      window.location.href = "mailto:" + email +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(lines.join("\n\n"));
-      setStatus("Your email app should open with your enquiry ready to send.", "success");
-      return;
+    });
+
+    // A bolt strikes across the form when an enquiry really lands
+    function strike() {
+      if (reduceMotion) return;
+      var bolt = document.createElement("img");
+      bolt.src = "assets/img/bolt-6.webp";
+      bolt.alt = "";
+      bolt.className = "form-strike";
+      bolt.style.setProperty("--strike-x", (form.offsetWidth - 40) + "px");
+      bolt.addEventListener("animationend", function () { bolt.remove(); });
+      form.appendChild(bolt);
     }
 
-    setStatus("Our enquiry form isn't connected yet. Please reach out to Pocket directly for now.", "error");
-  });
+    function setStatus(msg, type) {
+      status.textContent = msg;
+      status.className = "form-status" + (type ? " is-" + type : "");
+    }
+
+    function markInvalid(el, bad) {
+      el.setAttribute("aria-invalid", bad ? "true" : "false");
+    }
+
+    function validate() {
+      var first = null;
+      ["f-name", "f-brand", "f-contact"].forEach(function (id) {
+        var input = document.getElementById(id);
+        var bad = !input.value.trim();
+        markInvalid(input, bad);
+        if (bad && !first) first = input;
+      });
+      if (!first && !form.querySelector("input[name=looking_for]:checked")) {
+        first = form.querySelector("input[name=looking_for]");
+      }
+      return first;
+    }
+
+    form.addEventListener("input", function (e) {
+      if (e.target.getAttribute("aria-invalid") === "true" && e.target.value.trim()) {
+        markInvalid(e.target, false);
+      }
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var invalid = validate();
+      if (invalid) {
+        setStatus("Almost there! We just need your name, where to find you, how to reach you and what you're looking for.", "error");
+        invalid.focus();
+        return;
+      }
+
+      var data = new FormData(form);
+      var endpoint = form.dataset.endpoint;
+      var email = form.dataset.email;
+
+      if (endpoint) {
+        var btn = form.querySelector("button[type=submit]");
+        btn.disabled = true;
+        setStatus("Sending…");
+        fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
+          .then(function (res) {
+            if (!res.ok) throw new Error(res.status);
+            form.reset();
+            track("generate_lead", { method: "form" });
+            setStatus("And it's in! We'll take a look and get back to you soon.", "success");
+            strike();
+          })
+          .catch(function () {
+            setStatus("Something went wrong sending that. Please try again in a moment.", "error");
+          })
+          .finally(function () { btn.disabled = false; });
+        return;
+      }
+
+      if (email) {
+        var lines = [];
+        data.forEach(function (value, key) {
+          if (String(value).trim()) lines.push((labels[key] || key) + ": " + value);
+        });
+        var subject = "Website enquiry: " + data.get("business");
+        track("generate_lead", { method: "email" });
+        window.location.href = "mailto:" + email +
+          "?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(lines.join("\n\n"));
+        setStatus("Your email app should open with your enquiry ready to send.", "success");
+        return;
+      }
+
+      setStatus("Our enquiry form isn't connected yet. Please reach out to Pocket directly for now.", "error");
+    });
+  }
 
   // ---------- Footer year ----------
   var year = document.getElementById("year");
