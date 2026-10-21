@@ -64,11 +64,8 @@
   // ---------- Scroll reveals ----------
   // Tags elements with data-reveal; CSS hides them only when JS runs and motion is allowed.
   var revealGroups = [
-    [".wide-heading, .who-intro, .work-sub, .who-outro, .work-soon, .party-close, .party-line-1, .contact-copy, .enquiry, .story-copy, .client-label", ""],
-    [".svc", ""],
-    [".who-card", "slap"],
-    [".svc-caps li, .eco-logo, .client-logo", "pop"],
-    [".step", "right"],
+    [".wide-heading, .svc-kicker, .svc-card, .svc-also, .work-sub, .work-intro, .who-list, .who-outro, .work-soon, .party-body, .party-close, .party-line-1, .contact-copy, .enquiry, .story-copy, .client-label", ""],
+    [".eco-logo, .client-logo", "pop"],
     [".faq-list details", ""],
     [".party-line-2, .story-pull", "punch"]
   ];
@@ -121,7 +118,7 @@
   if (!reduceMotion && Element.prototype.animate) {
     document.querySelectorAll(".faq details").forEach(function (d) {
       var summary = d.querySelector("summary");
-      var body = d.querySelector("p");
+      var body = d.querySelector(".faq-answer");
       summary.addEventListener("click", function (e) {
         e.preventDefault();
         if (d.dataset.animating) return;
@@ -186,11 +183,19 @@
   var status = form.querySelector(".form-status");
   var labels = {
     name: "Name",
-    brand: "Brand",
-    contact: "WhatsApp / Email",
-    instagram: "Instagram",
+    business: "Business / Instagram",
+    contact: "Email / WhatsApp",
+    looking_for: "Looking for",
     about: "Anything else"
   };
+
+  // "Psst" link and the main CTA pre-select what the visitor is after
+  document.querySelectorAll("[data-service]").forEach(function (link) {
+    link.addEventListener("click", function () {
+      var radio = form.querySelector('input[name=looking_for][value="' + link.dataset.service + '"]');
+      if (radio) radio.checked = true;
+    });
+  });
 
   // A bolt strikes across the form when an enquiry really lands
   function strike() {
@@ -221,6 +226,9 @@
       markInvalid(input, bad);
       if (bad && !first) first = input;
     });
+    if (!first && !form.querySelector("input[name=looking_for]:checked")) {
+      first = form.querySelector("input[name=looking_for]");
+    }
     return first;
   }
 
@@ -235,7 +243,7 @@
 
     var invalid = validate();
     if (invalid) {
-      setStatus("Almost there! We just need your name, brand and a way to reach you.", "error");
+      setStatus("Almost there! We just need your name, where to find you, how to reach you and what you're looking for.", "error");
       invalid.focus();
       return;
     }
@@ -268,7 +276,7 @@
       data.forEach(function (value, key) {
         if (String(value).trim()) lines.push((labels[key] || key) + ": " + value);
       });
-      var subject = "Website enquiry: " + data.get("brand");
+      var subject = "Website enquiry: " + data.get("business");
       track("generate_lead", { method: "email" });
       window.location.href = "mailto:" + email +
         "?subject=" + encodeURIComponent(subject) +

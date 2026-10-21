@@ -84,13 +84,11 @@ a { color: inherit; }
 .hero :focus-visible,
 .contact :focus-visible,
 .site-footer :focus-visible { outline-color: var(--yellow); }
-
 /* ---------- Type ---------- */
 .mega,
 .wide-heading,
 .project h3,
-.step h3,
-.form-title {
+.form-title  {
   font-family: var(--font-wide);
   font-stretch: 125%;
   font-weight: 900;
@@ -139,8 +137,6 @@ a { color: inherit; }
 .pill-solid { background: var(--yellow); }
 .pill-solid:hover { background: var(--white); }
 .pill-block { width: 100%; }
-
-.btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 
 /* ---------- Ticker ---------- */
 .ticker {
@@ -394,53 +390,6 @@ a { color: inherit; }
   background: var(--yellow);
   padding-block: var(--section-y);
 }
-.steps {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-  max-width: 1280px;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(16px, 2vw, 24px);
-  position: relative;
-  z-index: 1;
-}
-.step {
-  background: var(--white);
-  border: var(--stroke);
-  border-radius: var(--radius);
-  padding: 28px 24px 32px;
-  min-height: 280px;
-  display: flex;
-  flex-direction: column;
-}
-.step-red { background: var(--red); }
-.step-num {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 3.4rem;
-  line-height: 1;
-}
-.step h3 {
-  font-size: 1.2rem;
-  line-height: 1.05;
-  margin: 40px 0 12px;
-  min-height: 2.1em; /* two lines, so every step's text starts at the same height */
-}
-.step p { font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.2; }
-
-@media (max-width: 1000px) {
-  .steps {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: var(--gutter);
-    padding-bottom: 12px;
-    scrollbar-width: none;
-  }
-  .steps::-webkit-scrollbar { display: none; }
-  .step { flex: 0 0 min(78%, 320px); scroll-snap-align: start; }
-}
 
 /* ---------- Contact ---------- */
 .contact {
@@ -555,10 +504,6 @@ a { color: inherit; }
    Conversion: hero CTAs, plan buttons, FAQ, sticky mobile bar
    ========================================================= */
 .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: clamp(32px, 4vw, 48px); }
-
-.work .btn-row { margin-top: 0; }
-
-.process-cta { margin-top: clamp(32px, 4vw, 48px); }
 
 .faq {
   --grain-from: var(--yellow);
@@ -855,78 +800,6 @@ a { color: inherit; }
    Final update: service hierarchy, "one size", conditional form
    ========================================================= */
 
-.svc-grid {
-  display: grid;
-  grid-template-columns: 1.45fr 1fr;
-  gap: clamp(20px, 3vw, 36px);
-  align-items: start;
-  max-width: 1180px;
-  margin: 0 auto;
-}
-.svc {
-  position: relative;
-  border: var(--stroke);
-  border-radius: var(--radius);
-  padding: clamp(28px, 4vw, 52px);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.svc-primary { background: var(--white); }
-.svc-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-wide);
-  font-stretch: 125%;
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 0.78rem;
-  letter-spacing: 0.05em;
-  margin-bottom: 18px;
-}
-.svc-num {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  font-stretch: 100%;
-  font-size: 1.6rem;
-  line-height: 1;
-}
-.svc-primary .svc-label { background: var(--red); border: 2px solid var(--black); border-radius: 999px; padding: 6px 16px 6px 12px; }
-.svc-title {
-  font-family: var(--font-wide);
-  font-stretch: 125%;
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 0.98;
-  margin-bottom: 18px;
-}
-.svc-primary .svc-title { font-size: clamp(1.7rem, 3.6vw, 3rem); padding-right: clamp(48px, 6vw, 80px); }
-.svc .serif-md { margin-bottom: 14px; }
-.svc-caps {
-  list-style: none;
-  margin: 24px 0 28px;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.svc-caps li {
-  border: 2px solid var(--black);
-  border-radius: 999px;
-  padding: 6px 14px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  background: var(--white);
-}
-.svc-primary .svc-caps li { background: var(--yellow); }
-.svc .pill { margin-top: auto; }
-
-@media (max-width: 860px) {
-  .svc-grid { grid-template-columns: 1fr; }
-}
-
 /* Made by Pocket subheading */
 .work-sub {
   text-align: center;
@@ -945,9 +818,6 @@ a { color: inherit; }
 
 .footer-id { margin-top: 12px; }
 .hero-lede { max-width: 46ch; }
-@media (max-width: 560px) {
-  .svc-primary .svc-title { padding-right: 0; }
-}
 /* =========================================================
    Fun pass: grouped capabilities, stickers, who-it's-for
    ========================================================= */
@@ -958,64 +828,13 @@ a { color: inherit; }
   background: var(--yellow);
   padding-block: var(--section-y);
 }
-.who-intro { margin: 0 auto clamp(36px, 5vw, 56px); max-width: 40ch; }
-.who-grid {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  max-width: 1100px;
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: clamp(14px, 2vw, 22px);
-  position: relative;
-  z-index: 1;
-}
-.who-card {
-  grid-column: span 2;
-  background: var(--white);
-  border: var(--stroke);
-  border-radius: var(--radius);
-  padding: clamp(22px, 3vw, 32px);
-  transition: transform 0.2s ease;
-}
-.who-card:nth-child(4),
-.who-card:nth-child(5) { grid-column: span 3; }
-.who-card:nth-child(odd) { transform: rotate(-0.8deg); }
-.who-card:nth-child(even) { transform: rotate(0.8deg); }
-.who-card:hover { transform: rotate(0) translateY(-4px); }
-.who-card-red { background: var(--red); }
-.who-card-black { background: var(--black); color: var(--white); }
-.who-tag {
-  font-family: var(--font-wide);
-  font-stretch: 125%;
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  line-height: 1.05;
-  margin-bottom: 12px;
-}
-.who-line { font-family: var(--font-serif); font-size: clamp(1.25rem, 1.9vw, 1.55rem); line-height: 1.2; }
-@media (max-width: 860px) {
-  .who-grid { grid-template-columns: 1fr 1fr; }
-  .who-card,
-  .who-card:nth-child(4),
-  .who-card:nth-child(5) { grid-column: span 1; }
-  .who-card:nth-child(5) { grid-column: span 2; }
-}
-@media (max-width: 560px) {
-  .who-grid { grid-template-columns: 1fr; }
-  .who-card:nth-child(5) { grid-column: span 1; }
-}
 
 .work { --grain-from: var(--yellow); }
-.who-intro { max-width: 48ch; }
-
 /* =========================================================
    Text alignment & rhythm
-   ========================================================= */
-/* No stranded single words in headings, statements and badges */
+   ========================================================= *//* No stranded single words in headings, statements and badges */
 .mega, .wide-heading, .kicker, .work-sub, .client-label, .serif-lg, .serif-md,
-.brand-line, .story-pull, .story-enter, .work-soon-title, .svc-title, .who-tag, .form-title, .step h3, .footer-script {
+.brand-line, .story-pull, .story-enter, .work-soon-title, .form-title, .footer-script   {
   text-wrap: balance;
 }
 p, li, summary { text-wrap: pretty; }
@@ -1051,10 +870,6 @@ p, li, summary { text-wrap: pretty; }
 .about .container > p + p.story-toggle-wrap { margin-top: 28px; }
 /* Archivo tucks the full stop under the W in "KNOW." */
 #faq-title { letter-spacing: 0.02em; }
-@media (min-width: 861px) {
-  /* Two-line title slot so the lines in each row of cards start level */
-  .who-tag { min-height: 2.1em; }
-}
 
 /* =========================================================
    Philosophy: "Social media is the invite. Not the whole party."
@@ -1103,18 +918,7 @@ p, li, summary { text-wrap: pretty; }
   text-wrap: balance;
 }
 .party-close span { display: block; color: var(--yellow); margin-top: 0.15em; }
-
 /* Who-it's-for: locked copy additions */
-.who-intro p + p { margin-top: 12px; }
-.who-intro .body-lg { color: var(--black); max-width: 52ch; margin-inline: auto; }
-.who-num {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  font-stretch: 100%;
-  text-transform: none;
-  margin-right: 4px;
-}
 .who-outro {
   max-width: 760px;
   margin: clamp(36px, 5vw, 52px) auto 0;
@@ -1138,11 +942,6 @@ p, li, summary { text-wrap: pretty; }
   font-stretch: 100%;
   text-transform: none;
   font-size: 1.35em;
-}
-.who-intro { max-width: 640px; }
-.who-intro .serif-md { max-width: none; }
-@media (min-width: 861px) {
-  .who-card:nth-child(-n+3) .who-tag { min-height: 3.2em; }
 }
 
 /* =========================================================
@@ -1257,10 +1056,7 @@ p, li, summary { text-wrap: pretty; }
   .js [data-reveal="pop"] { transform: scale(0.6); }
   .js [data-reveal="punch"] { transform: translateX(-40px) skewX(-8deg); }
   .js [data-reveal].is-in { opacity: 1; transform: none; }
-  /* Cards that keep a resting tilt */
-  .js .who-card[data-reveal].is-in:nth-child(odd) { transform: rotate(-0.8deg); }
-  .js .who-card[data-reveal].is-in:nth-child(even) { transform: rotate(0.8deg); }
-  .js .who-card[data-reveal].is-in:hover { transform: rotate(0) translateY(-4px); }
+/* Cards that keep a resting tilt */
 
   /* Bolt zaps: hover a CTA or service card */
   @keyframes zap-shake {
@@ -1280,13 +1076,8 @@ p, li, summary { text-wrap: pretty; }
 
 /* Reveal transforms (scale/slide) must never cause sideways scrolling */
 main > section { overflow-x: clip; }
-
 /* Shorter step copy, shorter cards */
-.step { min-height: 0; }
-.step h3 { margin-top: 28px; }
-
 /* One offer: single service card, content creation as a quiet line */
-.svc-grid-single { grid-template-columns: 1fr; max-width: 860px; }
 .svc-also {
   margin-top: clamp(28px, 4vw, 40px);
   text-align: center;
@@ -1304,3 +1095,136 @@ main > section { overflow-x: clip; }
   font-size: 1.3em;
 }
 .field .optional { font-weight: 400; color: var(--ink-muted); }
+
+/* =========================================================
+   Final direction (7 sections)
+   Colour run: red hero | yellow what-we-do | black philosophy |
+   white work | red who (fade) | white about (fade) |
+   yellow good-to-know (fade) | red contact | black footer
+   ========================================================= */
+
+/* 02 What we do */
+.services { background: var(--yellow); }
+.svc-kicker {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(0.85rem, 1.6vw, 1.1rem);
+  letter-spacing: 0.03em;
+  margin: -8px 0 clamp(28px, 4vw, 40px);
+  text-wrap: balance;
+}
+.svc-card {
+  background: var(--white);
+  border: var(--stroke);
+  border-radius: var(--radius);
+  padding: clamp(28px, 5vw, 56px);
+  text-align: center;
+}
+.svc-card > p + p { margin-top: 16px; }
+.svc-card .serif-md { max-width: 34ch; margin-inline: auto; }
+.svc-card .body-lg { max-width: 54ch; margin-inline: auto; }
+.svc-card .brand-line { margin-top: 28px; }
+.svc-card .pill { margin-top: 12px; }
+.svc-also {
+  margin-top: clamp(24px, 3vw, 32px);
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  text-transform: none;
+  font-weight: 400;
+}
+.svc-also em { font-size: 1em; }
+.svc-also a { text-decoration: underline wavy var(--red) 1.5px; text-underline-offset: 6px; }
+.svc-also a:hover { color: var(--red-dark); }
+
+/* 03 Philosophy */
+.party-copy p { font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.55; color: #d9d9d9; }
+.party-copy p + p { margin-top: 18px; }
+.party-lead {
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+  line-height: 1.12;
+  color: var(--white);
+  margin-bottom: 26px;
+}
+@media (min-width: 761px) {
+  .party-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: start;
+  }
+  .party-lead { margin-bottom: 0; }
+}
+
+/* 04 Made by Pocket */
+.work-sub { margin: 0 0 14px; color: var(--red-dark); }
+.work-intro { max-width: 40ch; margin: 0 auto clamp(36px, 5vw, 56px); }
+
+/* 05 Who */
+.who { --grain-from: var(--white); background: var(--red); }
+.who .container > p + p { margin-top: 16px; }
+.who-list {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2.2vw, 1.5rem);
+  line-height: 1.15;
+  color: var(--white);
+  text-wrap: balance;
+  margin-bottom: 24px;
+}
+.who .body-lg { color: var(--black); max-width: 52ch; margin-inline: auto; }
+.who-outro span { color: var(--yellow); -webkit-text-stroke: 1px var(--black); }
+
+/* 06 About */
+.about .container > .serif-lg { margin-bottom: 20px; }
+.client-note {
+  max-width: 60ch;
+  margin: 20px auto 0;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink-muted);
+}
+
+/* Good to know */
+.faq { --grain-from: var(--white); background: var(--yellow); }
+.faq details .faq-answer { padding: 16px 22px 20px; }
+.faq details .faq-answer p { padding: 0; }
+.faq details .faq-answer p + p { margin-top: 12px; }
+
+/* 07 Contact: two-option question */
+.choices { display: grid; gap: 10px; }
+.field .choice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.98rem;
+  border: 2px solid var(--black);
+  border-radius: 18px;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.choice:hover { background: #fffbd0; }
+.choice input { accent-color: var(--black); width: 18px; height: 18px; margin: 0; flex: none; }
+.choice:has(input:checked) { background: var(--yellow); }
+.choice:has(input:focus-visible) { outline: 3px solid var(--black); outline-offset: 2px; }
+.field legend { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; padding: 0; }
+.contact-copy .body-lg { color: var(--black); margin-top: 14px; }
+
+/* Footer */
+.footer-small { margin-top: 6px; font-size: 0.9rem; color: #bdbdbd; }
+
+/* Hero: two-line headline can run larger */
+.hero .mega { font-size: clamp(2.4rem, 9vw, 8.4rem); }
+.party-line-1 { font-size: clamp(1.9rem, 6.2vw, 5.8rem); text-wrap: balance; }
+.party-line-2 { text-wrap: balance; }
+.who-outro span { color: var(--white); -webkit-text-stroke: 0; }
+.who .wide-heading { font-size: clamp(1.5rem, 5.4vw, 3.6rem); }
