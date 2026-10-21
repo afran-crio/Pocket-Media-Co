@@ -90,7 +90,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#services">What We Do</a></li>
           <li><a href="#work">Our Work</a></li>
-          <li><a class="pill pill-solid" href="#contact" data-track="cta_nav_lets_talk">Let's Talk</a></li>
+          <li><a class="pill pill-solid" href="#contact" data-track="cta_nav_lets_talk">Let's Talk Socials</a></li>
         </ul>
       </nav>
     </div>
@@ -246,9 +246,9 @@
       <div class="container">
         <h2 id="services-title" class="wide-heading">We do socials. And we do them pretty damn well.</h2>
 
-        <div class="svc-grid">
+        <div class="svc-grid svc-grid-single">
           <article class="svc svc-primary" aria-labelledby="svc-smm-title">
-            <p class="svc-label"><span class="svc-num">01</span> Social Media Management</p>
+            <p class="svc-label">Social Media Management</p>
             <h3 class="svc-title" id="svc-smm-title">You do your thing. We'll do your socials.</h3>
             <p class="serif-md">From the first brainstorm to the final upload.</p>
             <ul class="svc-caps" aria-label="Social media management includes">
@@ -260,23 +260,11 @@
               <li>Community</li>
               <li>Reporting</li>
             </ul>
-            <a class="pill pill-solid" href="#contact" data-service="Social Media Management" data-track="cta_service_smm">Let's Talk Socials <span aria-hidden="true">↗</span></a>
-          </article>
-
-          <article class="svc svc-secondary" aria-labelledby="svc-content-title">
-            <p class="svc-label"><span class="svc-num">02</span> Content Creation</p>
-            <h3 class="svc-title" id="svc-content-title">Just need something cool made?</h3>
-            <p class="serif-md">Launches, products, that reel living rent-free in your head.</p>
-            <ul class="svc-caps" aria-label="Content creation includes">
-              <li>Concepts</li>
-              <li>Short-form Video</li>
-              <li>Photography</li>
-              <li>Content Shoots</li>
-              <li>Editing</li>
-            </ul>
-            <a class="pill" href="#contact" data-service="Content Creation / Video Production" data-track="cta_service_content">Let's Make Something <span aria-hidden="true">↗</span></a>
+            <a class="pill pill-solid" href="#contact" data-track="cta_service_smm">Let's Talk Socials <span aria-hidden="true">↗</span></a>
           </article>
         </div>
+
+        <p class="svc-also">Just need content? <em>We do that too.</em></p>
       </div>
     </section>
 
@@ -358,8 +346,7 @@
             (third project: copy either block above)
           </div>
 
-          And swap the first button in the row below for the section CTA:
-            <a class="pill" href="#work-grid" data-track="cta_work_see_what_weve_made">See What We've Made <span aria-hidden="true">↗</span></a>
+          Keep the single "Let's Talk Socials" button below the work.
         -->
         <div class="work-soon">
           <p class="work-soon-tag">In the edit</p>
@@ -367,7 +354,6 @@
         </div>
 
         <div class="btn-row">
-          <a class="pill" href="#clients" data-open-story data-track="cta_work_see_brands">See Brands We've Worked With <span class="arrow" aria-hidden="true"></span></a>
           <a class="pill pill-solid" href="#contact" data-track="cta_work_lets_talk">Let's Talk Socials <span aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -458,152 +444,37 @@
             data-endpoint="https://..."   a form service URL (Formspree, Basin, Google Apps Script, etc.)
                                           that accepts a POST of form fields; success is only shown when it answers OK
             data-email="name@domain.com"  fallback: opens the visitor's email app with the enquiry filled in
-          Budget ranges are for lead qualification only. They are not public prices.
+          Budget and timing are qualified on the first call, not in the form.
         -->
         <form class="enquiry" id="enquiry-form" data-endpoint="" data-email="" novalidate>
           <h3 class="form-title">Slide into our inbox.</h3>
 
           <div class="field">
-            <label for="f-brand">Business / Brand Name</label>
+            <label for="f-name">Your Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="What should we call you?" required>
+          </div>
+
+          <div class="field">
+            <label for="f-brand">Brand</label>
             <input id="f-brand" name="brand" type="text" autocomplete="organization" placeholder="The name on the sign" required>
           </div>
 
           <div class="field">
-            <label for="f-name">Contact Name</label>
-            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="What should we call you?" required>
+            <label for="f-contact">WhatsApp or Email</label>
+            <input id="f-contact" name="contact" type="text" placeholder="Whichever's easier" required>
           </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="f-email">Email Address</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email">
-            </div>
-            <div class="field">
-              <label for="f-phone">Phone / WhatsApp</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
-            </div>
-          </div>
-          <p class="field-hint" id="contact-hint">Email or phone, whichever's easier. We just need one.</p>
 
           <div class="field">
-            <label for="f-link">Instagram / Website</label>
-            <input id="f-link" name="link" type="text" placeholder="@yourbrand or yourbrand.com">
+            <label for="f-link">Instagram</label>
+            <input id="f-link" name="instagram" type="text" placeholder="@yourbrand">
           </div>
-
-          <fieldset class="field" id="f-service">
-            <legend>What can we help you with?</legend>
-            <div class="choices">
-              <label class="choice">
-                <input type="radio" name="service" value="Social Media Management" required>
-                <span>Social Media Management</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="service" value="Content Creation / Video Production">
-                <span>Content Creation / Video Production</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="service" value="Both / Not Sure Yet">
-                <span>Both / Not Sure Yet</span>
-              </label>
-            </div>
-          </fieldset>
-
-          <div class="budget-wrap">
-            <fieldset class="field" id="f-budget-type" hidden disabled>
-              <legend>Is your budget monthly or project-based?</legend>
-              <div class="choices choices-inline">
-              <label class="choice">
-                <input type="radio" name="budget_type" value="Monthly" required>
-                <span>Monthly</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="budget_type" value="Project-based">
-                <span>Project-based</span>
-              </label>
-              </div>
-            </fieldset>
-
-            <fieldset class="field" id="f-budget-monthly" hidden disabled>
-              <legend>What's your approximate monthly budget?</legend>
-              <div class="choices choices-grid">
-              <label class="choice">
-                <input type="radio" name="budget_monthly" value="Below ₹50,000" required>
-                <span>Below ₹50,000</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="budget_monthly" value="₹50,000–₹80,000">
-                <span>₹50,000–₹80,000</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="budget_monthly" value="₹80,000–₹1,20,000">
-                <span>₹80,000–₹1,20,000</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="budget_monthly" value="Above ₹1,20,000">
-                <span>Above ₹1,20,000</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="budget_monthly" value="Need guidance">
-                <span>Need guidance</span>
-              </label>
-              </div>
-            </fieldset>
-
-            <fieldset class="field" id="f-budget-project" hidden disabled>
-              <legend>What's your approximate project budget?</legend>
-              <div class="choices choices-grid">
-              <label class="choice">
-                <input type="radio" name="budget_project" value="Below ₹25,000" required>
-                <span>Below ₹25,000</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="budget_project" value="₹25,000–₹50,000">
-                <span>₹25,000–₹50,000</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="budget_project" value="₹50,000–₹1,00,000">
-                <span>₹50,000–₹1,00,000</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="budget_project" value="Above ₹1,00,000">
-                <span>Above ₹1,00,000</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="budget_project" value="Need guidance">
-                <span>Need guidance</span>
-              </label>
-              </div>
-            </fieldset>
-          </div>
-
-          <fieldset class="field">
-            <legend>When are you looking to start?</legend>
-            <div class="choices choices-grid">
-              <label class="choice">
-                <input type="radio" name="start" value="As soon as possible">
-                <span>As soon as possible</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="start" value="Within a month">
-                <span>Within a month</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="start" value="In 1–3 months">
-                <span>In 1–3 months</span>
-              </label>
-              <label class="choice">
-                <input type="radio" name="start" value="Just exploring">
-                <span>Just exploring</span>
-              </label>
-            </div>
-          </fieldset>
 
           <div class="field">
-            <label for="f-about">Tell us about your business</label>
-            <textarea id="f-about" name="about" rows="4" placeholder="What you do, who it's for, and that idea you can't stop thinking about."></textarea>
+            <label for="f-about">Anything we should know? <span class="optional">(optional)</span></label>
+            <textarea id="f-about" name="about" rows="3"></textarea>
           </div>
 
-          <button class="pill pill-solid pill-block" type="submit">Let's Talk <span aria-hidden="true">↗</span></button>
+          <button class="pill pill-solid pill-block" type="submit">Let's Talk Socials <span aria-hidden="true">↗</span></button>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -630,7 +501,7 @@
           <a href="#about">About</a>
           <a href="#services">What We Do</a>
           <a href="#work">Our Work</a>
-          <a href="#contact">Let's Talk</a>
+          <a href="#contact">Let's Talk Socials</a>
         </nav>
       </div>
 
