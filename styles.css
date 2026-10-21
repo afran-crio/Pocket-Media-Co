@@ -516,3 +516,77 @@ main > section { overflow-x: clip; }
 .phone-tag { max-width: 100%; overflow-wrap: anywhere; }
 @media (max-width: 480px) { .laptop-base { margin: 0 -8px; } }
 .belief--first { margin: 0 auto var(--head-gap); }
+
+/* =========================================================
+   Top of page polish: hero phone + stickers, band, anti-content, likes
+   ========================================================= */
+.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(24px, 4vw, 64px); align-items: center; }
+.hero-text { min-width: 0; }
+.hero .h1 { font-size: clamp(3.2rem, min(9.6vw, 15vh), 9.6rem); }
+.hero-visual { position: relative; justify-self: center; width: min(320px, 100%); --sy: 0; }
+.hero-visual-bolt { position: absolute; width: 58%; right: -30%; top: -8%; transform: rotate(18deg); z-index: 0; }
+.hero-phone {
+  position: relative; z-index: 1; aspect-ratio: 9 / 18.5; background: var(--white);
+  border: 10px solid var(--black); border-radius: 40px; padding: 22px 14px;
+  display: grid; align-content: start; gap: 8px;
+  box-shadow: 10px 10px 0 var(--black); transform: rotate(4deg);
+}
+.hp-top { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 10px; align-items: center; }
+.hp-avatar { grid-row: span 2; width: 48px; height: 48px; border-radius: 50%; border: 3px solid var(--red); background: var(--yellow) url("assets/img/bolt-3.webp") center / 42% no-repeat; }
+.hp-name { font-weight: 900; font-size: 0.85rem; }
+.hp-stats { display: flex; gap: 12px; font-size: 0.75rem; }
+.hp-line { display: block; height: 6px; border-radius: 4px; background: #e2e2e2; }
+.hp-line.short { width: 60%; }
+.hp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 6px; }
+.hp-grid i { aspect-ratio: 4 / 5; background: var(--red) center / cover; }
+.hp-grid i:nth-child(3n+2) { background-color: var(--yellow); }
+.hp-grid i:nth-child(4n) { background-color: var(--black); }
+.hp-grid i:nth-child(5n) { background-color: #ff8a8a; }
+.float-sticker {
+  position: absolute; z-index: 2; white-space: nowrap;
+  font-weight: 900; text-transform: uppercase; font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  background: var(--yellow); border: var(--stroke); border-radius: 999px; padding: 8px 16px;
+  box-shadow: 4px 4px 0 var(--black);
+  transform: translateY(calc(var(--sy) * var(--k, 1) * 1px)) rotate(var(--r, -6deg));
+}
+.fs-1 { left: -26%; top: 14%; --r: -8deg; --k: -0.12; }
+.fs-2 { right: -22%; top: 38%; --r: 7deg; --k: 0.1; background: var(--white); }
+.fs-3 { left: -18%; top: 62%; --r: 5deg; --k: -0.08; background: var(--white); }
+.fs-4 { right: -16%; bottom: 8%; --r: -5deg; --k: 0.14; background: var(--black); color: var(--yellow); }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+}
+
+/* Angled band joining the hero and the philosophy */
+.band { position: relative; z-index: 2; margin: calc(-1 * var(--section-y) + 8px) -2% clamp(56px, 8vw, 96px); transform: rotate(-2deg); background: var(--yellow); border-block: var(--stroke); overflow: hidden; white-space: nowrap; }
+.band-track { display: inline-flex; align-items: center; gap: 22px; padding: 12px 0; font-weight: 900; text-transform: uppercase; font-size: clamp(1rem, 2vw, 1.5rem); animation: ticker 30s linear infinite; }
+.band-track img { width: 16px; }
+
+/* Philosophy: crossed-out filler */
+.nope { position: relative; }
+.nope-list { display: grid; gap: 6px; margin-bottom: 18px; }
+.nope-list li { font-size: clamp(1rem, 1.6vw, 1.25rem); font-weight: 700; color: #7a7a7a; }
+.nope-list s { text-decoration-color: var(--red); text-decoration-thickness: 3px; }
+.nope-list li:nth-child(even) { padding-left: 1.2em; }
+.nope-stamp { display: inline-block; margin-bottom: 20px; font-weight: 900; text-transform: uppercase; font-size: 0.95rem; background: var(--red); color: var(--white); border: 2px solid var(--white); border-radius: 999px; padding: 8px 16px; transform: rotate(-6deg); }
+.squiggle { background: none; color: var(--white); text-decoration: underline wavy var(--red) 2px; text-underline-offset: 5px; }
+
+/* About: likes as stickers, pill-style story toggle */
+.likes { margin-top: 22px; }
+.story-pill { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; border: var(--stroke); border-radius: 999px; padding: 10px 22px; background: var(--white); transition: background 0.18s ease, transform 0.18s ease; }
+.story-pill:hover { background: var(--yellow); color: var(--black); transform: rotate(-2deg); }
+.story-pill-bolt { width: 14px; }
+.story-pill[aria-expanded="true"] { background: var(--yellow); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .float-sticker { transition: transform 0.15s linear; }
+  .hero-phone { animation: phone-in 0.9s cubic-bezier(.2,1.2,.4,1) 0.3s both; }
+  .float-sticker { animation: fade-up 0.6s ease both; }
+  .fs-1 { animation-delay: 0.7s; } .fs-2 { animation-delay: 0.85s; } .fs-3 { animation-delay: 1s; } .fs-4 { animation-delay: 1.15s; }
+  @keyframes phone-in { from { opacity: 0; transform: translateY(40px) rotate(12deg); } to { opacity: 1; transform: rotate(4deg); } }
+  .nope-stamp { animation: none; }
+  .js .nope-stamp[data-reveal] { transform: scale(1.6) rotate(-6deg); }
+  .js .nope-stamp[data-reveal].is-in { transform: rotate(-6deg); }
+}
+.hero-phone { aspect-ratio: 9 / 17.5; } .hp-grid i:nth-child(7n) { background-color: var(--yellow); }

@@ -65,7 +65,8 @@
   // Tags elements with data-reveal; CSS hides them only when JS runs and motion is allowed.
   var revealGroups = [
     [".head, .statement, .also, .soon, .show-text, .contact-copy, .enquiry, .story-copy, .client-label, .client-note, .explorer, .fine", ""],
-    [".stickers li, .eco-logo, .client-logo, .numlist li", "pop"],
+    [".stickers li, .eco-logo, .client-logo, .numlist li, .nope-list li", "pop"],
+    [".nope-stamp", "stamp"],
     [".journey li, .price-card, .card, .show-media, .slide-visual > *", "slap"],
     [".faq-list details, .slide-copy, .belief", ""]
   ];
@@ -178,6 +179,13 @@
       if (next) { e.preventDefault(); selectTab(next, true); }
     });
   });
+
+  // ---------- Hero stickers drift as you scroll ----------
+  var heroVisual = document.querySelector(".hero-visual");
+  if (heroVisual && !reduceMotion) {
+    var drift = function () { heroVisual.style.setProperty("--sy", Math.min(window.scrollY, 900).toFixed(0)); };
+    window.addEventListener("scroll", function () { window.requestAnimationFrame(drift); }, { passive: true });
+  }
 
   // ---------- Portfolio videos: play only while on screen ----------
   var videos = document.querySelectorAll(".show-media video");
