@@ -1,31 +1,36 @@
 # Pocket Media Co. Website
 
-A small static site for Pocket Media Co. (homepage + Beyond the Feed). It has no build step and no dependencies.
+A small static site for Pocket Media Co. (homepage, Foundation, Beyond the Feed). It has no build step and no dependencies.
 
 ```
 index.html            homepage
-beyond-the-feed.html  second page (philosophy and specialist network)
-styles.css   all styling (brand colours and type at the top)
-script.js    mobile menu, portfolio video playback, enquiry form
-assets/img/  web-ready logo, lightning bolts and favicon
-assets/work/ portfolio images and videos go here
+foundation.html       Social Media Foundation: full journey, stages and pricing
+beyond-the-feed.html  wider marketing picture and specialist support
+styles.css            the single design system for all three pages
+script.js             menu, reveals, story toggle, Foundation explorer, FAQ, enquiry form
+assets/fonts/         Stupid Sans (TRIAL, buy the web licence before launch)
+assets/img/           logo, bolts, favicon, cursor, link-preview image
+assets/logos/         Crio Connect + 23 ecosystem client logos
+assets/work/          Pocket project media goes here
 ```
 
 To preview it locally, run `python3 -m http.server` in this folder and open http://localhost:8000.
 
 ## Structure
 
-**Navigation:** About · What We Do · Work · Foundation · Beyond the Feed · Let's Talk. Foundation is a homepage anchor (#foundation).
+**Navigation:** About · What We Do · Work · Foundation (page) · Beyond the Feed (page) · Let's Talk.
 
-**Homepage:** 01 Hero → 02 About (expandable Crio / Kaun Creative story) → 03 What We Do → 04 Philosophy → 05 Made by Pocket → 06 Social Media Foundation (starting-point explorer + six expandable components) → 07 Monthly management → 08 Who's Pocket for → 09 Good to know → 10 Contact.
+**Homepage:** Hero (philosophy engraved at its base) → About (expandable Crio / Kaun Creative story) → What we do → Made by Pocket → Foundation teaser → Who → Good to know → Contact.
 
-**Beyond the Feed:** specialist support through Kaun Creative and the network, always separately scoped and never part of the standard retainer. Only describe a capability as available once a delivery relationship is in place.
+**Foundation:** journey overview (Talk → Foundation → Monthly) → "Where are we starting from?" explorer → six stages from the Social Media Foundation deck → pricing → CTA.
 
-**Typography:** Stupid Sans (supplied, in `assets/fonts/`) is the primary typeface; Instrument Serif is used for italic accents. The supplied Stupid Sans files are **trial** versions: buy the web licence before launch and replace the files (keep the same names).
+**Beyond the Feed:** specialist support, always separately scoped and never part of the retainer. Only describe a capability once a delivery relationship is in place.
+
+**Design system:** sections blend with long colour gradients (set `--from` on a section to the colour above it). One heading size (`.h2`), one lead (`.lead`), one body (`.body`), one section-head pattern (`.head`).
 
 ## Pricing
 
-No prices appear on the public page. Packages, onboarding fees and add-on rates live in Pocket's internal quotation system; the site sells one offer (done-for-you social media management), with standalone content mentioned in a single line, and one action ("Let's Talk Socials").
+Prices appear only on foundation.html: Foundation ₹25,000 one-time (waived with three months upfront), Pocket Social ₹60,000/month, Pocket Social Plus ₹80,000/month, all + GST, three-month minimum. Deliverable counts stay in the quotation.
 
 ## Before going live
 

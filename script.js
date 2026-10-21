@@ -64,11 +64,10 @@
   // ---------- Scroll reveals ----------
   // Tags elements with data-reveal; CSS hides them only when JS runs and motion is allowed.
   var revealGroups = [
-    [".wide-heading, .svc-kicker, .svc-open .serif-lg, .svc-open .body-lg, .svc-open .brand-line, .svc-also, .fnd-intro, .fnd-start, .fnd-h3, .fnd-close, .monthly .serif-lg, .monthly .body-lg, .who .who-list, .who .serif-md, .who .body-lg, .who-outro, .work-sub, .work-intro, .show-text, .work-soon, .how-intro, .how-close, .btf-big, .btf-not-copy, .party-body, .party-close, .party-line-1, .contact-copy, .enquiry, .story-copy, .client-label", ""],
-    [".eco-logo, .client-logo", "pop"],
-    [".about-who, .show-media, .how-step, .btf-card, .btf-verbs li", "slap"],
-    [".faq-list details, .fnd-step", ""],
-    [".party-line-2, .story-pull", "punch"]
+    [".head, .statement, .also, .soon, .show-text, .contact-copy, .enquiry, .story-copy, .client-label, .client-note, .explorer, .fine", ""],
+    [".stickers li, .eco-logo, .client-logo", "pop"],
+    [".journey li, .price-card, .card, .show-media", "slap"],
+    [".faq-list details, .stage", ""]
   ];
 
   if (!reduceMotion && "IntersectionObserver" in window) {
@@ -85,7 +84,6 @@
         if (g[1] === "slap") el.style.setProperty("--tilt", (i % 2 ? 5 : -5) + "deg");
       });
     });
-    document.querySelectorAll(".party-line-2").forEach(function (el) { el.style.setProperty("--d", "0.35s"); });
 
     var revealIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -117,7 +115,7 @@
 
   // ---------- FAQ: smooth open and close ----------
   if (!reduceMotion && Element.prototype.animate) {
-    document.querySelectorAll(".faq details, .fnd-step").forEach(function (d) {
+    document.querySelectorAll(".faq-list details").forEach(function (d) {
       var summary = d.querySelector("summary");
       var body = d.querySelector(".faq-answer");
       summary.addEventListener("click", function (e) {
@@ -142,7 +140,7 @@
 
   // ---------- Cards tilt toward the mouse (desktop only) ----------
   if (!reduceMotion && window.matchMedia("(pointer: fine)").matches) {
-    document.querySelectorAll(".show-media, .about-who, .work-soon, .btf-card").forEach(function (card) {
+    document.querySelectorAll(".show-media, .journey li, .price-card, .card").forEach(function (card) {
       card.addEventListener("mousemove", function (e) {
         var r = card.getBoundingClientRect();
         var x = (e.clientX - r.left) / r.width - 0.5;
@@ -159,7 +157,7 @@
 
   // ---------- Foundation: "Where are we starting from?" explorer ----------
   // Purely informational: switching tabs shows a different panel, nothing is submitted.
-  var fndTabs = Array.prototype.slice.call(document.querySelectorAll(".fnd-tab"));
+  var fndTabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
   function selectTab(tab, focus) {
     fndTabs.forEach(function (t) {
       var on = t === tab;
@@ -242,7 +240,14 @@
       });
     });
 
-    // A bolt strikes across the form when an enquiry really lands
+    // Links from other pages can pre-select the enquiry type: index.html?want=socials|content|unsure#contact
+  var want = { socials: "Someone to handle our socials", content: "Just some really good content", unsure: "Not sure yet. Let's talk." }[new URLSearchParams(location.search).get("want")];
+  if (want) {
+    var wantRadio = form.querySelector('input[name=looking_for][value="' + want + '"]');
+    if (wantRadio) wantRadio.checked = true;
+  }
+
+  // A bolt strikes across the form when an enquiry really lands
     function strike() {
       if (reduceMotion) return;
       var bolt = document.createElement("img");
