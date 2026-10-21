@@ -608,9 +608,7 @@ main > section { overflow-x: clip; }
 #services-title .accent { display: block; color: var(--black); font-size: 0.8em; margin-top: 0.12em; }
 /* "Veryyyyy" scroll stretch */
 .very-line { white-space: nowrap; display: inline-block; text-align: left; }
-.very { transition: color 0.2s ease; }
+.very { display: inline-block; transform-origin: left bottom; transition: color 0.2s ease; }
 .very.is-stretched { color: var(--red); }
 .very-y span { display: inline-block; transform-origin: 30% 90%; }
-@media (prefers-reduced-motion: no-preference) { .very-y span { animation: y-pop 0.28s cubic-bezier(.3,1.7,.5,1) both; } }
-@keyframes y-pop { from { transform: scale(0.2) translateY(0.2em); opacity: 0; } }
 .very-y span[hidden] { display: none; }

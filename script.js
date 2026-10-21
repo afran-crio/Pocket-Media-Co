@@ -354,54 +354,68 @@
     });
   }
 
-  // ---------- "Veryyyyy": stretches as the heading reaches the middle of the screen, shrinks as it leaves ----------
+  // ---------- "Veryyyyy": a rubber band. Stretches as the heading reaches the middle of the screen, springs back as it leaves ----------
   var very = document.querySelector(".very");
   if (very) {
     var veryLine = very.parentNode;
     var veryY = very.querySelector(".very-y");
     var veryHead = veryLine.parentNode;
-    var MAX_Y = 8, veryMax = 0, veryShown = -1;
+    var MAX_Y = 8, veryMax = 6;
+    var taper = function (i) { return 0.92 - i * 0.07; };
     for (var vi = 0; vi < MAX_Y; vi++) {
       var ys = document.createElement("span");
       ys.textContent = "y";
-      ys.style.fontSize = (0.92 - vi * 0.07) + "em";
       veryY.appendChild(ys);
     }
-    var showY = function (n) {
-      if (n === veryShown) return;
-      veryShown = n;
-      for (var i = 0; i < MAX_Y; i++) veryY.children[i].hidden = i >= n;
-      very.classList.toggle("is-stretched", n > 0);
+    // x is how far the band is stretched, in y's. Each y grows in as x passes it.
+    var paintVery = function (x) {
+      for (var i = 0; i < MAX_Y; i++) {
+        var f = Math.max(0, Math.min(1, x - i));
+        var s = veryY.children[i];
+        s.hidden = f === 0;
+        s.style.fontSize = (taper(i) * f).toFixed(3) + "em";
+      }
+      // Squash a little when it snaps back past rest
+      very.style.transform = x < 0 ? "scaleX(" + (1 + x * 0.25).toFixed(3) + ")" : "";
+      very.classList.toggle("is-stretched", x > 0.3);
     };
-    // How many y's fit on the line without wrapping at this screen width
+    // Size the line so the full stretch still fits on one line
     var measureVery = function () {
-      var room = veryHead.clientWidth;
+      veryMax = window.innerWidth < 700 ? 3 : 6;
+      veryHead.style.fontSize = "";
       veryLine.style.minWidth = "";
-      veryMax = MAX_Y;
-      showY(MAX_Y);
-      while (veryMax > 1 && veryLine.getBoundingClientRect().width > room) showY(--veryMax);
-      // Reserve the full stretched width so "We're" stays put and only the y's grow
+      paintVery(veryMax);
+      var room = veryHead.clientWidth;
+      var w = veryLine.getBoundingClientRect().width;
+      if (w > room) veryHead.style.fontSize = (parseFloat(getComputedStyle(veryHead).fontSize) * room / w * 0.98).toFixed(1) + "px";
+      // Hold the stretched width so "We're" stays put and only the y's grow
       veryLine.style.minWidth = Math.ceil(veryLine.getBoundingClientRect().width) + "px";
-      veryShown = -1;
+      paintVery(veryX);
     };
-    var updateVery = function () {
-      if (reduceMotion) { showY(Math.min(3, veryMax)); return; }
+    var veryTarget = function () {
       var r = veryHead.getBoundingClientRect();
       var vh = window.innerHeight;
       var p = 1 - Math.abs(r.top - vh * 0.3) / (vh * 0.6);
-      p = Math.max(0, Math.min(1, p * 1.5));
-      showY(Math.round(p * veryMax));
+      return Math.max(0, Math.min(1, p * 1.5)) * veryMax;
+    };
+    var veryX = 0, veryV = 0, veryRunning = false;
+    var springVery = function () {
+      var t = veryTarget();
+      veryV = veryV * 0.8 + (t - veryX) * 0.09;
+      veryX += veryV;
+      paintVery(veryX);
+      if (Math.abs(veryV) > 0.002 || Math.abs(t - veryX) > 0.002) requestAnimationFrame(springVery);
+      else { veryX = t; paintVery(veryX); veryRunning = false; }
+    };
+    var kickVery = function () {
+      if (reduceMotion) { paintVery(Math.min(3, veryMax)); return; }
+      if (!veryRunning) { veryRunning = true; requestAnimationFrame(springVery); }
     };
     measureVery();
-    updateVery();
-    var veryTick = false;
-    window.addEventListener("scroll", function () {
-      if (veryTick) return;
-      veryTick = true;
-      requestAnimationFrame(function () { veryTick = false; updateVery(); });
-    }, { passive: true });
-    window.addEventListener("resize", function () { measureVery(); updateVery(); });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { measureVery(); updateVery(); });
+    kickVery();
+    window.addEventListener("scroll", kickVery, { passive: true });
+    window.addEventListener("resize", function () { measureVery(); kickVery(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { measureVery(); kickVery(); });
   }
 
   // ---------- Footer year ----------
