@@ -552,7 +552,7 @@ main > section { overflow-x: clip; }
 .fs-1 { left: -26%; top: 14%; --r: -8deg; --k: -0.12; }
 .fs-2 { right: -22%; top: 38%; --r: 7deg; --k: 0.1; background: var(--white); }
 .fs-3 { left: -18%; top: 62%; --r: 5deg; --k: -0.08; background: var(--white); }
-.fs-4 { right: -16%; bottom: 8%; --r: -5deg; --k: 0.14; background: var(--black); color: var(--yellow); }
+.fs-4 { right: -16%; bottom: 8%; --r: -5deg; --k: 0.14; background: var(--black); color: var(--yellow); border-color: var(--yellow); box-shadow: 4px 4px 0 var(--yellow); }
 @media (max-width: 860px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
