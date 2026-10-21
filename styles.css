@@ -601,3 +601,6 @@ main > section { overflow-x: clip; }
 @media (max-width: 760px) { .belief-copy { padding-top: 20px; } }
 .belief .nope .lead { font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.05; max-width: none; color: var(--white); }
 @media (min-width: 761px) { .nope { display: flex; flex-direction: column; align-items: flex-start; } .nope .lead { margin-top: auto; } }
+/* Philosophy body copy: solid white, medium weight, yellow for the payoff */
+.belief-copy p:not(:first-child) { color: var(--white); font-weight: 500; }
+.belief-copy .hl { background: none; color: var(--yellow); }
