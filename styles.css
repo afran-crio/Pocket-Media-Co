@@ -515,3 +515,4 @@ main > section { overflow-x: clip; }
 .phone-sm { min-width: 0; }
 .phone-tag { max-width: 100%; overflow-wrap: anywhere; }
 @media (max-width: 480px) { .laptop-base { margin: 0 -8px; } }
+.belief--first { margin: 0 auto var(--head-gap); }

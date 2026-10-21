@@ -20,7 +20,7 @@ To preview it locally, run `python3 -m http.server` in this folder and open http
 
 **Navigation:** About · What We Do · Work · Foundation (page) · Beyond the Feed (page) · Let's Talk.
 
-**Homepage:** Hero → About (intro + "The internet has enough content" panel + expandable Crio / Kaun Creative story) → What we do → Made by Pocket → Foundation teaser → Who → Good to know → Contact.
+**Homepage:** Hero → About ("The internet has enough content" panel, then the intro and expandable Crio / Kaun Creative story) → What we do → Made by Pocket → Foundation teaser → Who → Good to know → Contact.
 
 **Foundation:** journey overview (Talk → Foundation → Monthly) → "Where are we starting from?" explorer → seven deck-style slides (review, communication foundation, pillars, mood board, content references, profile set-up, into the monthly plan) → pricing → CTA.
 
