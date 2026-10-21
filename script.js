@@ -64,7 +64,7 @@
   // ---------- Scroll reveals ----------
   // Tags elements with data-reveal; CSS hides them only when JS runs and motion is allowed.
   var revealGroups = [
-    [".wide-heading, .svc-kicker, .svc-card, .svc-also, .work-sub, .work-intro, .show-text, .work-soon, .how-intro, .how-close, .btf-big, .btf-not-copy, .party-body, .party-close, .party-line-1, .contact-copy, .enquiry, .story-copy, .client-label", ""],
+    [".wide-heading, .svc-open .serif-lg, .svc-open .body-lg, .svc-open .brand-line, .svc-also, .work-sub, .work-intro, .show-text, .work-soon, .how-intro, .how-close, .btf-big, .btf-not-copy, .party-body, .party-close, .party-line-1, .contact-copy, .enquiry, .story-copy, .client-label", ""],
     [".eco-logo, .client-logo", "pop"],
     [".about-who, .show-media, .how-step, .btf-card, .btf-verbs li", "slap"],
     [".faq-list details", ""],
@@ -142,7 +142,7 @@
 
   // ---------- Cards tilt toward the mouse (desktop only) ----------
   if (!reduceMotion && window.matchMedia("(pointer: fine)").matches) {
-    document.querySelectorAll(".show-media, .svc-card, .about-who, .work-soon, .btf-card").forEach(function (card) {
+    document.querySelectorAll(".show-media, .about-who, .work-soon, .btf-card").forEach(function (card) {
       card.addEventListener("mousemove", function (e) {
         var r = card.getBoundingClientRect();
         var x = (e.clientX - r.left) / r.width - 0.5;

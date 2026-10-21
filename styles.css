@@ -1673,3 +1673,16 @@ main > section { overflow-x: clip; }
   .btf-not-copy { columns: 2; column-gap: clamp(32px, 6vw, 96px); max-width: none; }
   .btf-not-copy p { break-inside: avoid; }
 }
+
+/* Homepage "Social media is our thing." in the open Beyond-the-Feed style (white, no card) */
+.services { --grain-from: var(--red); background: var(--white); }
+.services .wide-heading { font-size: clamp(2.4rem, 7.4vw, 6.4rem); line-height: 0.92; }
+.svc-open > * + * { margin-top: 20px; }
+.svc-open .serif-lg { max-width: 30ch; margin-inline: auto; }
+.svc-open .btf-verbs { margin-top: 28px; }
+.svc-open .body-lg { max-width: 54ch; margin-inline: auto; color: var(--black); }
+.svc-open .brand-line { margin-top: 32px; }
+.services > .container { max-width: 1100px; }
+.services .wide-heading { font-size: clamp(2.4rem, 6.6vw, 5.6rem); }
+.svc-open .serif-lg { max-width: 40ch; }
+.services .about-who, .services .svc-also { max-width: 760px; margin-inline: auto; }
