@@ -1,8 +1,60 @@
 /* =========================================================
    Pocket Media Co. — A Social Media Studio
    Brand: red #FF0000 · yellow #F4F11F · black · white
-   Type: Archivo Expanded Black (display) · Instrument Serif (statements) · Archivo (text)
+   Type: Stupid Sans (primary: display and text) · Instrument Serif (italic accents)
+   Stupid Sans files are TRIAL versions: buy the web licence before the site goes live.
    ========================================================= */
+
+/* Primary typeface: Stupid Sans (supplied by Pocket) */
+@font-face {
+  font-family: "Stupid Sans";
+  src: url("assets/fonts/stupid-sans-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Stupid Sans";
+  src: url("assets/fonts/stupid-sans-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Stupid Sans";
+  src: url("assets/fonts/stupid-sans-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Stupid Sans";
+  src: url("assets/fonts/stupid-sans-extrabold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Stupid Sans";
+  src: url("assets/fonts/stupid-sans-black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Stupid Sans";
+  src: url("assets/fonts/stupid-sans-extrablack.woff2") format("woff2");
+  font-weight: 1000;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Stupid Sans";
+  src: url("assets/fonts/stupid-sans-blackoblique.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
 
 :root {
   --red: #ff0000;
@@ -13,9 +65,9 @@
   --white: #ffffff;
   --ink-muted: #3d3d3d;
 
-  --font-wide: "Archivo", "Arial Black", sans-serif;
+  --font-wide: "Stupid Sans", "Arial Black", sans-serif;
   --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
-  --font-text: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-text: "Stupid Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --radius: 28px;
   --radius-sm: 16px;
@@ -1686,3 +1738,210 @@ main > section { overflow-x: clip; }
 .services .wide-heading { font-size: clamp(2.4rem, 6.6vw, 5.6rem); }
 .svc-open .serif-lg { max-width: 40ch; }
 .services .about-who, .services .svc-also { max-width: 760px; margin-inline: auto; }
+
+/* =========================================================
+   FINAL STRUCTURE (10 sections)
+   red hero | white about (fade) | yellow what-we-do (fade) |
+   black philosophy | white work | red foundation (fade) |
+   yellow monthly | white who (fade) | yellow good-to-know (fade) |
+   red contact | black footer
+   ========================================================= */
+.about { --grain-from: var(--red); }
+.services { --grain-from: var(--white); background: var(--yellow); }
+.services .svc-kicker { margin: -8px 0 28px; }
+.services .btf-verbs li:nth-child(odd),
+.monthly .btf-verbs li:nth-child(odd) { background: var(--white); }
+.work { background: var(--white); }
+.work .work-sub { color: var(--red-dark); }
+.monthly { background: var(--yellow); padding-block: var(--section-y); }
+.monthly .container > * + * { margin-top: 18px; }
+.monthly .body-lg { color: var(--black); max-width: 54ch; margin-inline: auto; }
+.monthly .btf-verbs { margin-top: 28px; }
+.who { --grain-from: var(--yellow); background: var(--white); }
+.who .who-list { color: var(--red-dark); }
+.who .who-outro span { color: var(--red-dark); }
+
+/* ---------- 06. Social Media Foundation (red, signature section) ---------- */
+.foundation {
+  --grain-from: var(--white);
+  background: var(--red);
+  padding-block: var(--section-y);
+}
+.foundation .kicker { color: var(--black); text-align: center; }
+.fnd-intro { max-width: 760px; margin: 0 auto; text-align: center; }
+.fnd-intro > * + * { margin-top: 16px; }
+.fnd-intro .body-lg { color: var(--black); max-width: 56ch; margin-inline: auto; }
+.fnd-tagline, .fnd-close-title {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.1rem, 2.4vw, 1.8rem);
+  line-height: 1.05;
+  text-wrap: balance;
+  margin-top: 28px !important;
+}
+.fnd-tagline span, .fnd-close-title span {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: 100%;
+  text-transform: none;
+  font-size: 1.3em;
+  color: var(--white);
+}
+.fnd-h3 {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2.6vw, 2rem);
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+/* Starting-point explorer */
+.fnd-start {
+  max-width: 960px;
+  margin: clamp(48px, 7vw, 80px) auto 0;
+  background: var(--white);
+  border: var(--stroke);
+  border-radius: var(--radius);
+  padding: clamp(24px, 4vw, 44px);
+}
+.fnd-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 28px; }
+.fnd-tab {
+  font: inherit;
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(0.72rem, 1.2vw, 0.85rem);
+  letter-spacing: 0.02em;
+  color: var(--black);
+  background: var(--white);
+  border: var(--stroke);
+  border-radius: 999px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.2s cubic-bezier(.3,1.6,.5,1);
+}
+.fnd-tab:hover { background: #fffbd0; }
+.fnd-tab[aria-selected="true"] { background: var(--yellow); transform: rotate(-2deg); }
+.fnd-panel { text-align: center; max-width: 640px; margin: 0 auto; }
+.fnd-panel[hidden] { display: none; }
+.fnd-panel > * + * { margin-top: 12px; }
+.fnd-panel-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.fnd-panel .body-lg { color: var(--black); }
+.fnd-focus {
+  margin-top: 22px !important;
+  background: var(--black);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+.fnd-focus span { display: block; color: var(--yellow); font-weight: 700; margin-bottom: 4px; }
+@media (prefers-reduced-motion: no-preference) {
+  .fnd-panel:not([hidden]) { animation: fade-up 0.4s ease both; }
+}
+
+/* Six Foundation components */
+.fnd-steps-wrap { max-width: 1100px; margin: clamp(48px, 7vw, 80px) auto 0; }
+.fnd-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 16px;
+  align-items: start;
+}
+.fnd-step {
+  background: var(--white);
+  border: var(--stroke);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.fnd-step summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 56px 18px 20px;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.fnd-step summary::-webkit-details-marker { display: none; }
+.fnd-step summary::after {
+  content: "";
+  position: absolute; right: 20px; top: 50%;
+  width: 18px; height: 28px;
+  background: url("assets/img/bolt-3.webp") center / contain no-repeat;
+  transform: translateY(-50%) rotate(-12deg);
+  transition: transform 0.35s cubic-bezier(.3,1.6,.5,1);
+}
+.fnd-step[open] summary { background: var(--yellow); border-bottom: var(--stroke); }
+.fnd-step[open] summary::after { transform: translateY(-50%) rotate(168deg); }
+.fnd-num { font-family: var(--font-serif); font-style: italic; font-size: 1.6rem; line-height: 1; }
+.fnd-step-title {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  line-height: 1.1;
+}
+.fnd-step .faq-answer { padding: 14px 20px 18px; }
+.fnd-step .faq-answer p { font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.3; }
+@media (max-width: 760px) { .fnd-steps { grid-template-columns: 1fr; } }
+
+.fnd-close {
+  max-width: 760px;
+  margin: clamp(48px, 7vw, 80px) auto 0;
+  text-align: center;
+}
+.fnd-close > * + * { margin-top: 14px; }
+.fnd-close .body-lg { color: var(--black); max-width: 56ch; margin-inline: auto; }
+.fnd-close .fnd-close-title { margin-top: 0 !important; }
+.fnd-close .pill { margin-top: 12px; }
+
+/* FAQ links to Beyond the Feed */
+.faq-link { font-family: var(--font-wide); font-stretch: 125%; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; text-decoration: underline wavy var(--red) 2px; text-underline-offset: 6px; }
+.faq-answer p + p { margin-top: 10px; }
+
+/* Honeypot (spam trap) stays off-screen */
+.hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+/* Beyond the Feed: hard cut red after yellow; sign-off line */
+.btf-extra { --grain-from: transparent; }
+.btf-sign { margin-top: 28px !important; font-size: 0.9rem; font-weight: 700; }
+
+/* Six-item navigation stays on one line on desktop */
+@media (min-width: 1001px) {
+  .site-nav ul { gap: clamp(14px, 1.8vw, 28px); flex-wrap: nowrap; }
+  .site-nav a { white-space: nowrap; }
+  .site-nav a:not(.pill) { font-size: clamp(0.7rem, 0.9vw, 0.8rem); }
+  .scroll-bolt { margin-right: clamp(10px, 1.6vw, 28px); }
+}
+
+/* Stupid Sans is narrower than the previous wide face: scale display type up,
+   and keep supporting copy dark enough to read on red/yellow. */
+.wide-heading { font-size: clamp(2.2rem, 6.4vw, 5.6rem); line-height: 0.92; }
+.hero .mega { font-size: clamp(3.2rem, min(12.5vw, 15vh), 12rem); line-height: 0.86; }
+.party-line-1 { font-size: clamp(2.4rem, 7.4vw, 7rem); }
+.btf-big { font-size: clamp(2.4rem, 7vw, 5.6rem); }
+.party-close, .fnd-tagline, .fnd-close-title, .how-close, .who-outro, .svc-also,
+.btf-card-title, .fnd-step-title, .how-title, .about-who-title { letter-spacing: 0.01em; }
+.party-close { font-size: clamp(1.6rem, 4.4vw, 3.8rem); }
+body { font-size: 18px; }
+.body-lg { font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: #1f1f1f; }
+.about .body-lg, .btf-intro .body-lg { color: #2b2b2b; }
+.services .body-lg, .foundation .body-lg, .monthly .body-lg, .who .body-lg, .btf-chosen .body-lg, .btf-plans .body-lg { color: var(--black); }
+.fnd-panel .body-lg { color: var(--black); }

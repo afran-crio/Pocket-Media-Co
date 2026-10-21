@@ -64,10 +64,10 @@
   // ---------- Scroll reveals ----------
   // Tags elements with data-reveal; CSS hides them only when JS runs and motion is allowed.
   var revealGroups = [
-    [".wide-heading, .svc-open .serif-lg, .svc-open .body-lg, .svc-open .brand-line, .svc-also, .work-sub, .work-intro, .show-text, .work-soon, .how-intro, .how-close, .btf-big, .btf-not-copy, .party-body, .party-close, .party-line-1, .contact-copy, .enquiry, .story-copy, .client-label", ""],
+    [".wide-heading, .svc-kicker, .svc-open .serif-lg, .svc-open .body-lg, .svc-open .brand-line, .svc-also, .fnd-intro, .fnd-start, .fnd-h3, .fnd-close, .monthly .serif-lg, .monthly .body-lg, .who .who-list, .who .serif-md, .who .body-lg, .who-outro, .work-sub, .work-intro, .show-text, .work-soon, .how-intro, .how-close, .btf-big, .btf-not-copy, .party-body, .party-close, .party-line-1, .contact-copy, .enquiry, .story-copy, .client-label", ""],
     [".eco-logo, .client-logo", "pop"],
     [".about-who, .show-media, .how-step, .btf-card, .btf-verbs li", "slap"],
-    [".faq-list details", ""],
+    [".faq-list details, .fnd-step", ""],
     [".party-line-2, .story-pull", "punch"]
   ];
 
@@ -117,7 +117,7 @@
 
   // ---------- FAQ: smooth open and close ----------
   if (!reduceMotion && Element.prototype.animate) {
-    document.querySelectorAll(".faq details").forEach(function (d) {
+    document.querySelectorAll(".faq details, .fnd-step").forEach(function (d) {
       var summary = d.querySelector("summary");
       var body = d.querySelector(".faq-answer");
       summary.addEventListener("click", function (e) {
@@ -156,6 +156,30 @@
       });
     });
   }
+
+  // ---------- Foundation: "Where are we starting from?" explorer ----------
+  // Purely informational: switching tabs shows a different panel, nothing is submitted.
+  var fndTabs = Array.prototype.slice.call(document.querySelectorAll(".fnd-tab"));
+  function selectTab(tab, focus) {
+    fndTabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  fndTabs.forEach(function (tab, i) {
+    tab.addEventListener("click", function () { selectTab(tab); });
+    tab.addEventListener("keydown", function (e) {
+      var next = null;
+      if (e.key === "ArrowRight") next = fndTabs[(i + 1) % fndTabs.length];
+      if (e.key === "ArrowLeft") next = fndTabs[(i - 1 + fndTabs.length) % fndTabs.length];
+      if (e.key === "Home") next = fndTabs[0];
+      if (e.key === "End") next = fndTabs[fndTabs.length - 1];
+      if (next) { e.preventDefault(); selectTab(next, true); }
+    });
+  });
 
   // ---------- Portfolio videos: play only while on screen ----------
   var videos = document.querySelectorAll(".show-media video");
@@ -201,7 +225,8 @@
   var form = document.getElementById("enquiry-form");
   if (form) {
     var status = form.querySelector(".form-status");
-    var labels = {
+    var loadedAt = Date.now();
+  var labels = {
       name: "Name",
       business: "Business / Instagram",
       contact: "Email / WhatsApp",
@@ -261,7 +286,14 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      var invalid = validate();
+      // Spam trap: bots fill the hidden field or submit instantly. Show the normal message, send nothing.
+    var trap = form.querySelector("[name=_gotcha]");
+    if ((trap && trap.value) || Date.now() - loadedAt < 3000) {
+      setStatus("And it's in! We'll take a look and get back to you soon.", "success");
+      return;
+    }
+
+    var invalid = validate();
       if (invalid) {
         setStatus("Almost there! We just need your name, where to find you, how to reach you and what you're looking for.", "error");
         invalid.focus();
@@ -294,7 +326,7 @@
       if (email) {
         var lines = [];
         data.forEach(function (value, key) {
-          if (String(value).trim()) lines.push((labels[key] || key) + ": " + value);
+          if (key !== "_gotcha" && String(value).trim()) lines.push((labels[key] || key) + ": " + value);
         });
         var subject = "Website enquiry: " + data.get("business");
         track("generate_lead", { method: "email" });

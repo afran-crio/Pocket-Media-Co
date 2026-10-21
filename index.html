@@ -41,8 +41,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
+  <link rel="preload" href="assets/fonts/stupid-sans-black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/stupid-sans-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -84,11 +86,12 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul>
-          <li><a href="#services">What We Do</a></li>
-          <li><a href="#work">Our Work</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#services">What We Do</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#foundation">Foundation</a></li>
           <li><a href="beyond-the-feed.html">Beyond the Feed</a></li>
-          <li><a class="pill pill-solid" href="#contact" data-track="cta_nav_lets_talk">Let's Talk Socials</a></li>
+          <li><a class="pill pill-solid" href="#contact" data-track="cta_nav_lets_talk">Let's Talk <span aria-hidden="true">↗</span></a></li>
         </ul>
       </nav>
     </div>
@@ -114,230 +117,14 @@
       </div>
     </section>
 
-    <!-- ============ 02. WHAT WE DO ============ -->
-    <!-- One primary offer: done-for-you social media management. Content production is a small secondary mention. -->
-    <section class="services grain-top" id="services" aria-labelledby="services-title">
-      <div class="container narrow center">
-        <h2 id="services-title" class="wide-heading">Social media is our thing.</h2>
-        <div class="svc-open">
-          <p class="serif-lg">Running a business is already a full&#8209;time job. Figuring out what to post every week? Yeah, that shouldn't be another one.</p>
-          <ul class="btf-verbs" aria-label="What Pocket handles">
-            <li>Planning.</li><li>Shooting.</li><li>Editing.</li><li>Publishing.</li><li>Managing.</li>
-          </ul>
-          <p class="serif-md"><em>The whole social media bit.</em></p>
-          <p class="body-lg">We get to know your business, find what makes it interesting, create the content and keep your socials looking good.</p>
-          <p class="brand-line">You do your thing. <em>We'll do your socials.</em></p>
-          <p><a class="pill pill-solid" href="#contact" data-service="Someone to handle our socials" data-track="cta_service_smm">Let's Talk Socials <span aria-hidden="true">↗</span></a></p>
-        </div>
-        <p class="svc-also"><em>Psst.</em> <a href="#contact" data-service="Just some really good content" data-track="cta_service_content">Just need one really good video? We do that too.</a></p>
-
-        <!-- Who it's for -->
-        <div class="about-who">
-          <h3 class="about-who-title">Got a business? Got socials? We should talk.</h3>
-          <p class="who-list">Restaurants, real estate, professionals, products, people.</p>
-          <p class="serif-md">Different businesses. Different stories. Same need to show up well online.</p>
-          <p class="who-outro">Good socials aren't just for <span>the cool kids.</span></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 03. OUR PHILOSOPHY ============ -->
-    <section class="party" id="philosophy" aria-labelledby="party-title">
-      <div class="container">
-        <h2 id="party-title" class="party-title">
-          <span class="party-line-1">The internet</span>
-          <span class="party-line-2">has enough content.</span>
-        </h2>
-
-        <div class="party-body">
-          <p class="party-lead">Seriously. Another random reel? Another post because it's Wednesday? We're good.</p>
-          <div class="party-copy">
-            <p>We think your business has better stories to tell.</p>
-            <p>The people behind it. The little details. The stuff that makes you different from everyone else doing your thing.</p>
-            <p>That's what we look for. Then we turn those stories into content worth watching and keep your socials doing their thing.</p>
-          </div>
-        </div>
-
-        <p class="party-close">Less filler. More feeling. <span>A feed that's actually you.</span></p>
-        <p class="party-cta"><a class="pill pill-solid" href="#contact" data-track="cta_philosophy_lets_talk">Let's Talk Socials <span aria-hidden="true">↗</span></a></p>
-      </div>
-    </section>
-
-    <!-- ============ 04. PROOF / MADE BY POCKET ============ -->
-    <section class="work" id="work" aria-labelledby="work-title">
-      <div class="container">
-        <!-- INTERIM (no Pocket projects yet): eyebrow reads "The proof", the intro line is hidden and a clearly
-             labelled ecosystem logo strip stands in. When the first project launches: eyebrow back to
-             "Made by Pocket", unhide .work-intro, unhide .showcase, remove the logo strip and work-soon panel,
-             and move this section back to straight after the hero. -->
-        <p class="work-sub">The proof</p>
-        <h2 id="work-title" class="wide-heading">Okay, enough talking.</h2>
-        <p class="serif-md center work-intro" hidden>Here's what happens when the ideas leave the group chat and actually get made.<br>A little of what we've been cooking at Pocket.</p>
-
-        <!--
-          SELECTED WORK
-          Only genuine projects produced or managed by Pocket.
-          To launch: put media in assets/work/, fill in each <article> below (media, client, headline,
-          one line on what Pocket delivered), remove the "hidden" attribute from .showcase and delete
-          the "Fresh work dropping soon" panel. Reels work best as 4:5 or 9:16 video.
-        -->
-        <div class="showcase" id="work-grid" hidden>
-          <article class="show">
-            <div class="show-media">
-              <!-- Reel: <video src="assets/work/client-reel.mp4" poster="assets/work/client-reel.jpg" muted loop playsinline preload="metadata"></video>
-                   Still: <img src="assets/work/client.jpg" alt="Describe the image" loading="lazy"> -->
-            </div>
-            <div class="show-text">
-              <p class="show-num">01</p>
-              <p class="show-client">Client name</p>
-              <h3 class="show-title">A punchy project headline.</h3>
-              <p class="show-line">One line on what Pocket delivered.</p>
-            </div>
-          </article>
-          <article class="show show-flip">
-            <div class="show-media">
-              <!-- Reel: <video src="assets/work/client-reel.mp4" poster="assets/work/client-reel.jpg" muted loop playsinline preload="metadata"></video>
-                   Still: <img src="assets/work/client.jpg" alt="Describe the image" loading="lazy"> -->
-            </div>
-            <div class="show-text">
-              <p class="show-num">02</p>
-              <p class="show-client">Client name</p>
-              <h3 class="show-title">A punchy project headline.</h3>
-              <p class="show-line">One line on what Pocket delivered.</p>
-            </div>
-          </article>
-          <article class="show">
-            <div class="show-media">
-              <!-- Reel: <video src="assets/work/client-reel.mp4" poster="assets/work/client-reel.jpg" muted loop playsinline preload="metadata"></video>
-                   Still: <img src="assets/work/client.jpg" alt="Describe the image" loading="lazy"> -->
-            </div>
-            <div class="show-text">
-              <p class="show-num">03</p>
-              <p class="show-client">Client name</p>
-              <h3 class="show-title">A punchy project headline.</h3>
-              <p class="show-line">One line on what Pocket delivered.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="logo-strip">
-          <p class="logo-strip-label">Brands our team has worked with across Kaun Creative</p>
-          <div class="logo-marquee">
-            <ul class="logo-track" aria-label="Brands our team has worked with across the Kaun Creative ecosystem">
-            <li><img src="assets/logos/clients/hilton.webp" alt="Hilton Goa Resort" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/taj-holiday-village.webp" alt="Taj Holiday Village" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/ihcl.webp" alt="IHCL" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/farzi-cafe.webp" alt="Farzi Café" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/baja.webp" alt="Baja" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/cielo-sky-lounge.webp" alt="Cielo Sky Lounge" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/coco-lounge-and-kitchen.webp" alt="Coco Lounge &amp; Kitchen" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/cohiba.webp" alt="Cohiba Bar &amp; Kitchen" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/elephant-and-co.webp" alt="Elephant &amp; Co." loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/feli-tavern.webp" alt="Feli" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/firepit.webp" alt="Firepit Grills &amp; Spirits" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/greggs.webp" alt="Gregg&#x27;s Bar &amp; Tapas" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/hayati.webp" alt="Hayati" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/house-of-nomad.webp" alt="House of Nomad" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/lpk.webp" alt="LPK Waterfront" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/raasta-goa.webp" alt="Raasta Goa" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/saint-cloud.webp" alt="Saint Cloud" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/seven-rivers.webp" alt="Seven Rivers Brewing Co." loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/sochi-beach.webp" alt="Sochi Beach" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/summer-house.webp" alt="Summer House Goa" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/tesouro.webp" alt="Tesouro" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/the-origin.webp" alt="The Origin Bar &amp; Kitchen" loading="lazy" decoding="async"></li>
-            <li><img src="assets/logos/clients/unit-22.webp" alt="Unit 22 Dive Bar" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/hilton.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/taj-holiday-village.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/ihcl.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/farzi-cafe.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/baja.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/cielo-sky-lounge.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/coco-lounge-and-kitchen.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/cohiba.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/elephant-and-co.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/feli-tavern.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/firepit.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/greggs.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/hayati.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/house-of-nomad.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/lpk.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/raasta-goa.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/saint-cloud.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/seven-rivers.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/sochi-beach.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/summer-house.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/tesouro.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/the-origin.webp" alt="" loading="lazy" decoding="async"></li>
-            <li aria-hidden="true"><img src="assets/logos/clients/unit-22.webp" alt="" loading="lazy" decoding="async"></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="work-soon">
-          <p class="work-soon-tag">In the edit</p>
-          <h3 class="work-soon-title">Fresh Pocket work dropping soon.</h3>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ WORKING WITH POCKET ============ -->
-    <!-- Public 4-step version only. The internal stages, Foundation document and timelines stay off the site. -->
-    <section class="how" id="how" aria-labelledby="how-title">
-      <div class="container">
-        <p class="kicker kicker-ink">Working with Pocket</p>
-        <h2 id="how-title" class="wide-heading">So, how does this work?</h2>
-        <p class="how-intro"><em>Glad you asked.</em> We've kept it pretty simple. Because working with a social media studio shouldn't feel like another full-time job.</p>
-        <ol class="how-steps">
-        <li class="how-step">
-          <span class="how-num">01</span>
-          <h3 class="how-title">First, we get to know you.</h3>
-          <p class="how-lead">Your business. Your people. Your ideas. The stuff that makes you, you.</p>
-          <div class="how-more">
-            <p>We'll have a proper chat, understand what you're working towards and get a feel for your brand.</p>
-            <p>New to social media? Totally fine.</p>
-            <p>Already have a page? We'll take a look at what's working and what could use a little love.</p>
-          </div>
-        </li>
-        <li class="how-step">
-          <span class="how-num">02</span>
-          <h3 class="how-title">Then, we get your story straight.</h3>
-          <p class="how-lead">Before we start posting, we need to know what we're talking about.</p>
-          <div class="how-more">
-            <p>We'll figure out your social media voice, who we're speaking to and the stories worth telling.</p>
-            <p>Think of it as getting everyone on the same page. Literally.</p>
-          </div>
-        </li>
-        <li class="how-step">
-          <span class="how-num">03</span>
-          <h3 class="how-title">Time to make some stuff.</h3>
-          <p class="how-lead">Here's where the good ideas come to life.</p>
-          <div class="how-more">
-            <p>We plan the content, get the shoot rolling, work our editing magic and get everything ready for your approval.</p>
-            <p>No random content for the sake of filling a calendar.</p>
-          </div>
-        </li>
-        <li class="how-step">
-          <span class="how-num">04</span>
-          <h3 class="how-title">Your socials? We've got it.</h3>
-          <p class="how-lead">Once we're rolling, we keep things moving.</p>
-          <div class="how-more">
-            <p>Planning, publishing, managing and reviewing what works.</p>
-            <p>You stay in the loop. We handle the moving parts.</p>
-          </div>
-        </li>
-        </ol>
-        <p class="how-close">And just like that, <span>one less thing on your plate.</span></p>
-        <p class="center"><a class="pill pill-solid" href="#contact" data-track="cta_how_lets_talk">Let's Talk Socials <span aria-hidden="true">↗</span></a></p>
-      </div>
-    </section>
-
-    <!-- ============ 05. ABOUT POCKET ============ -->
+    <!-- ============ 02. ABOUT POCKET ============ -->
     <section class="about grain-top" id="about" aria-labelledby="about-title">
       <div class="container narrow center">
         <h2 id="about-title" class="wide-heading">A little about us.</h2>
         <p class="serif-lg">We're Pocket Media Co., a social media studio from the Kaun Creative family.</p>
-        <p class="body-lg">We like good ideas, interesting businesses and content that doesn't feel like content for the sake of content.</p>
+        <p class="body-lg">We like good ideas, interesting businesses and content that actually has something to say.</p>
+        <p class="body-lg">From the first idea to the final post, we make sure your socials are in good hands.</p>
+
         <p class="story-toggle-wrap">
           <button class="story-toggle" type="button" aria-expanded="false" aria-controls="our-story" data-track="about_story_toggle">
             <span class="story-toggle-label">There's more to our story</span> <span class="story-toggle-icon" aria-hidden="true">↓</span>
@@ -357,9 +144,10 @@
             <p class="body-lg">You could create the best experience in town, get people talking and make a moment worth remembering.</p>
             <p class="body-lg">But what happens when everyone goes home?</p>
             <p class="story-pull">The conversation shouldn't end there.</p>
-            <p class="body-lg">We realised that what brands were building offline needed just as much love online. Better communication, good content and a social presence that kept the conversation going.</p>
+            <p class="body-lg">We realised that what brands were building offline needed just as much love online.</p>
+            <p class="body-lg">Better communication. Better content. And a social presence that kept the conversation going.</p>
             <p class="story-enter">Enter Pocket Media Co.</p>
-            <p class="body-lg">A social media studio built to bring that thinking into everyday content and take the social media work off a business's plate.</p>
+            <p class="body-lg">A social media studio built to take that thinking into everyday content and make the whole social media thing a little less complicated.</p>
           </div>
 
           <!-- Family tree -->
@@ -367,7 +155,7 @@
             <h3 class="wide-heading">The family tree. Sort of.</h3>
             <div class="narrow center story-copy">
               <p class="serif-md">Pocket is part of Kaun Creative, a creative ecosystem working across content, communication, culture and experiences.</p>
-              <p class="body-lg">Alongside Pocket are Crio Connect, Off The Menu, Scene Here and Node Experiences, each with its own focus.</p>
+              <p class="body-lg">Alongside Pocket are Crio Connect, Off The Menu, Scene Here and Node Experiences.</p>
               <p class="body-lg">Different worlds. Plenty of shared creative thinking.</p>
             </div>
             <!--
@@ -409,7 +197,7 @@
             <div class="narrow center story-copy">
               <p class="serif-md"><em>And met some pretty cool brands along the way.</em></p>
               <p class="body-lg">Through Crio Connect and the wider Kaun Creative ecosystem, we've worked across brand experiences, culture and creative projects.</p>
-              <p class="body-lg">That experience is part of what shapes our thinking at Pocket today.</p>
+              <p class="body-lg">A lot of that experience shapes how we think about brands today.</p>
             </div>
             <p class="client-label">Experience across the Kaun Creative ecosystem</p>
             <!--
@@ -442,7 +230,7 @@
               <li class="client-logo"><img src="assets/logos/clients/the-origin.webp" alt="The Origin Bar &amp; Kitchen" loading="lazy" decoding="async"></li>
               <li class="client-logo"><img src="assets/logos/clients/unit-22.webp" alt="Unit 22 Dive Bar" loading="lazy" decoding="async"></li>
             </ul>
-            <p class="client-note">This portfolio represents experience across Kaun Creative and its ventures. Work produced directly by Pocket is featured in Made by Pocket.</p>
+            <p class="client-note">These represent experience across the wider Kaun Creative ecosystem. Work produced directly by Pocket appears in Made by Pocket.</p>
           </div>
 
           <p class="story-toggle-wrap center">
@@ -454,42 +242,268 @@
       </div>
     </section>
 
-    <!-- ============ GOOD TO KNOW ============ -->
+    <!-- ============ 03. WHAT WE DO ============ -->
+    <!-- One primary offer: done-for-you social media management. Standalone content is a secondary mention. -->
+    <section class="services grain-top" id="services" aria-labelledby="services-title">
+      <div class="container center">
+        <h2 id="services-title" class="wide-heading">Social media is our thing.</h2>
+        <p class="svc-kicker">The ideas. The shoots. The posts. The whole thing.</p>
+        <div class="svc-open">
+          <p class="serif-lg">Running a business is already a full&#8209;time job.<br>Figuring out what to post every week? Yeah, that shouldn't be another one.</p>
+          <p class="body-lg">We get to know your business, find what makes it interesting, create the content and keep your socials looking good.</p>
+          <ul class="btf-verbs" aria-label="What Pocket handles">
+            <li>Planning.</li><li>Creative direction.</li><li>Shooting.</li><li>Editing.</li><li>Copywriting.</li><li>Publishing.</li><li>Reporting.</li>
+          </ul>
+          <p class="brand-line">You do your thing. <em>We'll do your socials.</em></p>
+          <p><a class="pill pill-solid" href="#contact" data-service="Someone to handle our socials" data-track="cta_service_smm">Let's Talk Socials <span aria-hidden="true">↗</span></a></p>
+        </div>
+        <p class="svc-also"><em>Psst.</em> <a href="#contact" data-service="Just some really good content" data-track="cta_service_content">Just need one really good video? We do that too.</a></p>
+      </div>
+    </section>
+
+    <!-- ============ 04. OUR PHILOSOPHY ============ -->
+    <section class="party" id="philosophy" aria-labelledby="party-title">
+      <div class="container">
+        <h2 id="party-title" class="party-title">
+          <span class="party-line-1">The internet</span>
+          <span class="party-line-2">has enough content.</span>
+        </h2>
+
+        <div class="party-body">
+          <p class="party-lead">Seriously. Another random reel? Another post because it's Wednesday? We're good.</p>
+          <div class="party-copy">
+            <p>We think your business has better stories to tell.</p>
+            <p>The people behind it. The little details. The stuff that makes you different from everyone else doing your thing.</p>
+            <p>That's what we look for. Then we turn those stories into content worth watching and keep your socials doing their thing.</p>
+          </div>
+        </div>
+
+        <p class="party-close">Less filler. More feeling. <span>A feed that's actually you.</span></p>
+      </div>
+    </section>
+
+    <!-- ============ 05. MADE BY POCKET ============ -->
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <p class="work-sub">Made by Pocket</p>
+        <h2 id="work-title" class="wide-heading">Okay, enough talking.</h2>
+        <p class="serif-md center work-intro">Here's what happens when the ideas leave the group chat and actually get made.<br>A little of what we've been cooking at Pocket.</p>
+
+        <!--
+          SELECTED WORK
+          Only genuine projects produced or managed by Pocket, with real client names and media.
+          To launch: put media in assets/work/, fill in each <article> (media, client, headline, one line on what
+          Pocket delivered), remove "hidden" from .showcase and delete the "Fresh work dropping soon" panel.
+          A "See more work" button belongs below once there is a Work page:
+            <p class="center"><a class="pill" href="work.html">See More Work <span aria-hidden="true">↗</span></a></p>
+        -->
+        <div class="showcase" id="work-grid" hidden>
+          <article class="show">
+            <div class="show-media">
+              <!-- Reel: <video src="assets/work/client-reel.mp4" poster="assets/work/client-reel.jpg" muted loop playsinline preload="metadata"></video>
+                   Still: <img src="assets/work/client.jpg" alt="Describe the image" loading="lazy"> -->
+            </div>
+            <div class="show-text">
+              <p class="show-num">01</p>
+              <p class="show-client">Client name</p>
+              <h3 class="show-title">A punchy project headline.</h3>
+              <p class="show-line">One line on what Pocket delivered.</p>
+            </div>
+          </article>
+          <article class="show show-flip">
+            <div class="show-media">
+              <!-- Reel: <video src="assets/work/client-reel.mp4" poster="assets/work/client-reel.jpg" muted loop playsinline preload="metadata"></video>
+                   Still: <img src="assets/work/client.jpg" alt="Describe the image" loading="lazy"> -->
+            </div>
+            <div class="show-text">
+              <p class="show-num">02</p>
+              <p class="show-client">Client name</p>
+              <h3 class="show-title">A punchy project headline.</h3>
+              <p class="show-line">One line on what Pocket delivered.</p>
+            </div>
+          </article>
+          <article class="show">
+            <div class="show-media">
+              <!-- Reel: <video src="assets/work/client-reel.mp4" poster="assets/work/client-reel.jpg" muted loop playsinline preload="metadata"></video>
+                   Still: <img src="assets/work/client.jpg" alt="Describe the image" loading="lazy"> -->
+            </div>
+            <div class="show-text">
+              <p class="show-num">03</p>
+              <p class="show-client">Client name</p>
+              <h3 class="show-title">A punchy project headline.</h3>
+              <p class="show-line">One line on what Pocket delivered.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="work-soon">
+          <p class="work-soon-tag">In the edit</p>
+          <h3 class="work-soon-title">Fresh Pocket work dropping soon.</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06. SOCIAL MEDIA FOUNDATION ============ -->
+    <!-- Signature process. Public outline only: the Foundation is time-bounded social media communication work,
+         not a full brand strategy and not a month of content production. -->
+    <section class="foundation grain-top" id="foundation" aria-labelledby="foundation-title">
+      <div class="container">
+        <p class="kicker kicker-yellow center">Social Media Foundation</p>
+        <h2 id="foundation-title" class="wide-heading">First, we get the story straight.</h2>
+        <div class="fnd-intro">
+          <p class="serif-lg">Before the cameras roll and the posts go live, we need to know what we're actually talking about.</p>
+          <p class="body-lg">That's where your Social Media Foundation comes in.</p>
+          <p class="body-lg">We get to know your business, figure out what your socials need to say and build a creative direction worth following.</p>
+          <p class="fnd-tagline">A little thinking upfront. <span>A lot less guesswork later.</span></p>
+        </div>
+
+        <!-- Starting-point explorer: purely informational, nothing is submitted -->
+        <div class="fnd-start">
+          <h3 class="fnd-h3">Where are we starting from?</h3>
+          <div class="fnd-tabs" role="tablist" aria-label="Where are we starting from?">
+            <button class="fnd-tab" type="button" role="tab" id="fnd-tab-active" aria-controls="fnd-panel-active" aria-selected="true" tabindex="0">Already on social media</button>
+            <button class="fnd-tab" type="button" role="tab" id="fnd-tab-scratch" aria-controls="fnd-panel-scratch" aria-selected="false" tabindex="-1">Starting from scratch</button>
+            <button class="fnd-tab" type="button" role="tab" id="fnd-tab-figuring" aria-controls="fnd-panel-figuring" aria-selected="false" tabindex="-1">Still figuring out the brand</button>
+          </div>
+          <div class="fnd-panel" role="tabpanel" id="fnd-panel-active" aria-labelledby="fnd-tab-active">
+            <h4 class="fnd-panel-title">Already doing your thing?</h4>
+            <p class="body-lg">You've got a brand. You've got socials. Maybe things just need a little shaking up.</p>
+            <p class="body-lg">We'll look at what's working, what's not and where your communication can get better.</p>
+            <p class="fnd-focus"><span>Your Foundation focuses on:</span> Account review, communication voice, storytelling pillars, visual direction and a profile refresh.</p>
+          </div>
+          <div class="fnd-panel" role="tabpanel" id="fnd-panel-scratch" aria-labelledby="fnd-tab-scratch" hidden>
+            <h4 class="fnd-panel-title">Starting from scratch?</h4>
+            <p class="body-lg">New business? First Instagram page? Welcome to the internet.</p>
+            <p class="body-lg">We'll help establish your social presence, find your voice and figure out the stories worth telling.</p>
+            <p class="fnd-focus"><span>Your Foundation focuses on:</span> Communication voice, storytelling pillars, visual references, profile setup and initial launch direction.</p>
+          </div>
+          <div class="fnd-panel" role="tabpanel" id="fnd-panel-figuring" aria-labelledby="fnd-tab-figuring" hidden>
+            <h4 class="fnd-panel-title">Still figuring things out?</h4>
+            <p class="body-lg">Not quite sure what your brand stands for yet?</p>
+            <p class="body-lg">That might take a little more than a content calendar.</p>
+            <p class="body-lg">We'll help identify what needs sorting first and whether a bigger brand strategy conversation is needed.</p>
+            <p class="fnd-focus"><span>Your Foundation focuses on:</span> What needs sorting first, and whether a brand strategy conversation should come before the posting.</p>
+          </div>
+        </div>
+
+        <div class="fnd-steps-wrap">
+          <h3 class="fnd-h3">What goes into your Foundation?</h3>
+          <div class="fnd-steps">
+            <details class="fnd-step">
+              <summary><span class="fnd-num">01</span> <span class="fnd-step-title">Getting to know you.</span></summary>
+              <div class="faq-answer"><p>Your business, your audience, your goals and the things that make you interesting.</p></div>
+            </details>
+            <details class="fnd-step">
+              <summary><span class="fnd-num">02</span> <span class="fnd-step-title">Finding your voice.</span></summary>
+              <div class="faq-answer"><p>How your business should show up, sound and communicate on social media.</p></div>
+            </details>
+            <details class="fnd-step">
+              <summary><span class="fnd-num">03</span> <span class="fnd-step-title">The stories worth telling.</span></summary>
+              <div class="faq-answer"><p>We develop focused content pillars around what people should know, understand and remember about your business.</p></div>
+            </details>
+            <details class="fnd-step">
+              <summary><span class="fnd-num">04</span> <span class="fnd-step-title">Getting the look right.</span></summary>
+              <div class="faq-answer"><p>Visual mood boards, creative references and content formats that give your socials a consistent direction.</p></div>
+            </details>
+            <details class="fnd-step">
+              <summary><span class="fnd-num">05</span> <span class="fnd-step-title">Setting things up.</span></summary>
+              <div class="faq-answer"><p>We review or establish your social media profile essentials, making it easier for people to understand your business and get in touch.</p></div>
+            </details>
+            <details class="fnd-step">
+              <summary><span class="fnd-num">06</span> <span class="fnd-step-title">The first chapter.</span></summary>
+              <div class="faq-answer"><p>We work out the initial editorial priorities so we're ready to move from ideas to actual content.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="fnd-close">
+          <p class="fnd-close-title">Before the posting comes <span>the thinking.</span></p>
+          <p class="body-lg">Your Foundation gives us a direction to work from, rather than figuring things out one random post at a time.</p>
+          <p class="body-lg">It's about how your business communicates on social media. If you need to build or rethink your entire brand, that's a separate conversation.</p>
+          <p><a class="pill pill-solid" href="#contact" data-service="Someone to handle our socials" data-track="cta_foundation_get_started">Let's Get Started <span aria-hidden="true">↗</span></a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07. MONTHLY MANAGEMENT ============ -->
+    <section class="monthly" id="monthly" aria-labelledby="monthly-title">
+      <div class="container narrow center">
+        <p class="kicker kicker-ink">What happens next?</p>
+        <h2 id="monthly-title" class="wide-heading">Now we make it happen.</h2>
+        <p class="serif-lg">We've got the direction. We've got the stories. Time for the good stuff.</p>
+        <p class="body-lg">We take your approved Foundation and turn it into a monthly content plan.</p>
+        <p class="body-lg">Then we plan the shoots, create the content, get your approvals and keep your socials moving.</p>
+        <ul class="btf-verbs" aria-label="Every month">
+          <li>Planning.</li><li>Shooting.</li><li>Editing.</li><li>Publishing.</li><li>Reviewing.</li><li>Repeat.</li>
+        </ul>
+        <p class="serif-md"><em>You stay in the loop. We handle the moving parts.</em></p>
+        <p class="how-close">And just like that, <span>one less thing on your plate.</span></p>
+      </div>
+    </section>
+
+    <!-- ============ 08. WHO'S POCKET FOR ============ -->
+    <section class="who grain-top" id="who" aria-labelledby="who-title">
+      <div class="container narrow center">
+        <h2 id="who-title" class="wide-heading">Got a business?<br> Got socials?<br> We should talk.</h2>
+        <p class="who-list">Restaurants, real estate, professionals, products, people.</p>
+        <p class="serif-md">Different businesses. Different stories. Same need to show up well online.</p>
+        <p class="body-lg">Whether you're building a brand, running a business or doing something people should know about, there's probably a story worth telling.</p>
+        <p class="who-outro">Good socials aren't just for <span>the cool kids.</span></p>
+      </div>
+    </section>
+
+    <!-- ============ 09. GOOD TO KNOW ============ -->
     <section class="faq grain-top" id="faq" aria-labelledby="faq-title">
       <div class="container narrow">
         <h2 id="faq-title" class="wide-heading">Good to know.</h2>
         <div class="faq-list">
           <details>
-            <summary>Will social media bring us customers?</summary>
+            <summary>Can you handle our social media from scratch?</summary>
             <div class="faq-answer">
-              <p>It can! Good social media helps people discover your business, understand what you do and gives them reasons to pay attention.</p>
-              <p>But likes don't automatically turn into bookings, and views don't magically become sales. Your product, customer experience, sales process and wider marketing all play a part.</p>
-              <p>We focus on making your brand worth noticing. What happens next is a team effort.</p>
+              <p>Yep. Whether you're starting fresh or improving an existing page, we'll establish the social media direction before we start creating content.</p>
             </div>
           </details>
           <details>
-            <summary>Do you create content without managing our socials?</summary>
-            <div class="faq-answer"><p>Yep. If you just need a great video or a content shoot, we can help with that too.</p></div>
+            <summary>Do you just create content?</summary>
+            <div class="faq-answer">
+              <p>We can. But our main thing is managing your social media from start to finish.</p>
+              <p>If you need a standalone video or content shoot, we're up for that too.</p>
+            </div>
           </details>
           <details>
-            <summary>How much content do you post every month?</summary>
-            <div class="faq-answer"><p>We build a content plan around your business and the stories worth telling. You'll know exactly what's included before we get started.</p></div>
+            <summary>How much content will you post?</summary>
+            <div class="faq-answer">
+              <p>We recommend a focused content plan based on your business, your goals and the stories worth telling. Your final deliverables are agreed before we begin.</p>
+            </div>
           </details>
           <details>
-            <summary>How do we get started?</summary>
-            <div class="faq-answer"><p>Tell us about your business. We'll understand what you need, share a proposed scope and take it from there.</p></div>
+            <summary>Will social media bring us customers?</summary>
+            <div class="faq-answer">
+              <p>It can help people discover your business, understand what you offer and get curious enough to take the next step.</p>
+              <p>But views don't magically become sales.</p>
+              <p>Your product, customer experience, sales process and wider marketing all play their part.</p>
+              <p><strong>Social media is the invite. Not the whole party.</strong></p>
+              <p><a class="faq-link" href="beyond-the-feed.html">Explore Beyond the Feed ↗</a></p>
+            </div>
+          </details>
+          <details>
+            <summary>What if we need help with more than social media?</summary>
+            <div class="faq-answer">
+              <p>We can explore additional support through specialists and the wider Kaun Creative network.</p>
+              <p><a class="faq-link" href="beyond-the-feed.html">Beyond the Feed ↗</a></p>
+            </div>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- ============ 06. CONTACT ============ -->
+    <!-- ============ 10. CONTACT ============ -->
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="container contact-grid">
         <div class="contact-copy">
           <h2 id="contact-title" class="wide-heading left">Let's get your socials together.</h2>
           <p class="serif-lg">Got a business? Got socials? Got better things to do than figure out what to post next?</p>
-          <p class="body-lg">Sounds like we should talk. Tell us a little about what you're working on.</p>
+          <p class="body-lg">Sounds like we should talk.</p>
         </div>
 
         <!--
@@ -498,6 +512,9 @@
             data-endpoint="https://..."   a form service URL (Formspree, Basin, Google Apps Script, etc.)
                                           that accepts a POST of form fields; success is only shown when it answers OK
             data-email="name@domain.com"  fallback: opens the visitor's email app with the enquiry filled in
+          Spam protection: the hidden "_gotcha" field is a honeypot (Formspree reads it natively) and the script
+          also ignores submissions sent within 3 seconds of the page loading. Add the form service's own
+          spam filter / reCAPTCHA when connecting it.
           Budget, scope and timing are qualified on the first call, not in the form.
         -->
         <form class="enquiry" id="enquiry-form" data-endpoint="" data-email="" novalidate>
@@ -514,8 +531,8 @@
           </div>
 
           <div class="field">
-            <label for="f-contact">Email or WhatsApp</label>
-            <input id="f-contact" name="contact" type="text" placeholder="How do we reach you?" required>
+            <label for="f-contact">Email / WhatsApp</label>
+            <input id="f-contact" name="contact" type="text" placeholder="How can we reach you?" required>
           </div>
 
           <fieldset class="field" id="f-service">
@@ -529,15 +546,24 @@
                 <input type="radio" name="looking_for" value="Just some really good content">
                 <span>Just some really good content</span>
               </label>
+              <label class="choice">
+                <input type="radio" name="looking_for" value="Not sure yet. Let's talk.">
+                <span>Not sure yet. Let's talk.</span>
+              </label>
             </div>
           </fieldset>
 
           <div class="field">
-            <label for="f-about">Anything else we should know? <span class="optional">(optional)</span></label>
+            <label for="f-about">Anything we should know? <span class="optional">(optional)</span></label>
             <textarea id="f-about" name="about" rows="3" placeholder="Tell us what's on your mind."></textarea>
           </div>
 
-          <button class="pill pill-solid pill-block" type="submit">Let's Talk Socials <span aria-hidden="true">↗</span></button>
+          <div class="hp" aria-hidden="true">
+            <label for="f-gotcha">Leave this empty</label>
+            <input id="f-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="pill pill-solid pill-block" type="submit">Let's Talk <span aria-hidden="true">↗</span></button>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -562,11 +588,11 @@
           <p class="footer-small">Made in Goa. Part of Kaun Creative.</p>
         </div>
         <nav class="footer-nav" aria-label="Footer">
-          <a href="#services">What We Do</a>
-          <a href="#work">Our Work</a>
           <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#foundation">Foundation</a>
           <a href="beyond-the-feed.html">Beyond the Feed</a>
-          <a href="#contact">Let's Talk Socials</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
 
