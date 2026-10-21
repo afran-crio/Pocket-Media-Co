@@ -612,3 +612,5 @@ main > section { overflow-x: clip; }
 .very.is-stretched { color: var(--red); }
 .very-y span { display: inline-block; transform-origin: 30% 90%; }
 .very-y span[hidden] { display: none; }
+.statement--big { font-size: clamp(2.2rem, 5.4vw, 4.4rem); line-height: 0.95; }
+.statement--big em { font-size: 0.55em; margin-top: 10px; }
