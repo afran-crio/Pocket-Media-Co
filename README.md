@@ -1,6 +1,6 @@
 # Pocket Media Co. Website
 
-A single-page static site for Pocket Media Co. It has no build step and no dependencies.
+A small static site for Pocket Media Co. (homepage + Beyond the Feed). It has no build step and no dependencies.
 
 ```
 index.html            homepage
