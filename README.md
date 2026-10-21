@@ -12,15 +12,16 @@ assets/work/ portfolio images and videos go here
 
 To preview it locally, run `python3 -m http.server` in this folder and open http://localhost:8000.
 
-## Locked structure
+## Locked structure (work-first)
 
-1. Hero: "Your socials? Sorted."
-2. What we do: "Social media is our thing." (one offer; standalone content is a one-line mention)
-3. Philosophy: "The internet has enough content."
-4. Made by Pocket: "Okay, enough talking." (verified Pocket projects only)
-5. Who's Pocket for: "Got a business? Got socials? We should talk."
-6. About: "A little about us." (Crio origin, Kaun Creative family and collective client logos are inside the expandable story)
-7. Good to know + Contact: "Let's get your socials together."
+1. Hero: "Your socials? Sorted." (See Our Work first, Let's Talk Socials second)
+2. Selected work (Made by Pocket): "Okay, enough talking." Large editorial project rows; hidden until real projects are added (see the comment in index.html)
+3. What we do: "Social media is our thing." (one offer; standalone content is a one-line mention)
+4. Philosophy: "The internet has enough content."
+5. About: "A little about us." with "Got a business? Got socials? We should talk." folded in, and the expandable Crio / Kaun Creative story
+6. Good to know (FAQs) + Contact: "Let's get your socials together."
+
+One button label everywhere: "Let's Talk Socials". Work and "Beyond the Feed" pages wait until there are 3+ projects and the specialist-network content is defined.
 
 ## Pricing
 
@@ -28,7 +29,7 @@ No prices appear on the public page. Packages, onboarding fees and add-on rates 
 
 ## Before going live
 
-1. **Add the portfolio (Made by Pocket).** Until real work is ready, the section shows a "Fresh work dropping soon" panel. To launch it, add 3 real projects: put each reel or image in `assets/work/`, then follow the comment above the panel (delete the panel, uncomment the project grid, fill in the brand name and one honest line on Pocket's role).
+1. **Add the selected work.** Until real work is ready, the section shows a "Fresh work dropping soon" panel. To launch it, put each reel or image in `assets/work/`, fill in the three project rows in `.showcase` (media, client, headline, one line on what Pocket delivered), remove its `hidden` attribute and delete the panel.
 2. **Connect the enquiry form.** Set `data-endpoint` (a form service URL such as Formspree) or `data-email` (opens the visitor's email app) on the `<form>`. Until then, a submitted form shows a "not connected yet" message; the "And it's in!" confirmation only appears when the endpoint answers OK. Fields sent: `name`, `business` (business / Instagram), `contact` (email or WhatsApp), `looking_for` ("Someone to handle our socials" or "Just some really good content"), `about` (optional). Budget, scope and timing are qualified on the first call.
 3. **Ecosystem logos.** Crio Connect and the 23 client logos are in. Kaun Creative, Off The Menu, Scene Here and Node Experiences currently show their names in type. Put the real files in `assets/logos/` (SVG, or WebP around 600px wide) and swap each name for the `<img>` shown in the comment next to it. Only add verified clients to `assets/logos/clients/`.
 4. **Social preview image.** `assets/img/og-image.jpg` is what WhatsApp, Instagram and LinkedIn show when the link is shared. Once the domain is live, make the `og:image` URL in `index.html` absolute (for example `https://yourdomain/assets/img/og-image.jpg`), as some apps ignore relative ones.

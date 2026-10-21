@@ -1228,3 +1228,98 @@ main > section { overflow-x: clip; }
 .party-line-2 { text-wrap: balance; }
 .who-outro span { color: var(--white); -webkit-text-stroke: 0; }
 .who .wide-heading { font-size: clamp(1.5rem, 5.4vw, 3.6rem); }
+
+/* =========================================================
+   Work-first homepage
+   Colour run: red hero | white work (fade) | yellow what-we-do (fade) |
+   black philosophy | white about | yellow good-to-know (fade) |
+   red contact | black footer
+   ========================================================= */
+.work { --grain-from: var(--red); }
+.services { --grain-from: var(--white); }
+.about { padding-top: var(--section-y); }
+
+/* Selected work: big editorial rows (hidden until real projects are added) */
+.showcase {
+  display: grid;
+  gap: clamp(48px, 8vw, 112px);
+  margin-top: clamp(24px, 4vw, 48px);
+}
+.showcase[hidden] { display: none; }
+.show {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(24px, 5vw, 72px);
+  align-items: center;
+}
+.show-flip .show-media { order: 2; }
+.show-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: 78vh;
+  background: var(--black);
+  border: var(--stroke);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.show-media img,
+.show-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.show-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  line-height: 1;
+  margin-bottom: 18px;
+}
+.show-client {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  color: var(--red-dark);
+  margin-bottom: 10px;
+}
+.show-title {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.6rem, 3.6vw, 3.2rem);
+  line-height: 0.98;
+  text-wrap: balance;
+  margin-bottom: 16px;
+}
+.show-line { font-family: var(--font-serif); font-size: clamp(1.2rem, 1.8vw, 1.5rem); line-height: 1.25; max-width: 32ch; }
+@media (max-width: 760px) {
+  .show { grid-template-columns: 1fr; }
+  .show-flip .show-media { order: 0; }
+}
+
+/* About: who it's for, folded in as a red card */
+.about-who {
+  margin: clamp(40px, 6vw, 64px) auto 0;
+  max-width: 760px;
+  background: var(--red);
+  border: var(--stroke);
+  border-radius: var(--radius);
+  padding: clamp(28px, 5vw, 48px);
+  transform: rotate(-1deg);
+}
+.about-who-title {
+  font-family: var(--font-wide);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
+  line-height: 1;
+  text-wrap: balance;
+  margin-bottom: 18px;
+}
+.about-who .who-list { margin-bottom: 14px; }
+.about-who .who-outro { margin-top: 22px; font-size: clamp(0.9rem, 1.6vw, 1.2rem); }
+.about .about-who + .story-toggle-wrap { margin-top: 36px; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .about-who[data-reveal].is-in { transform: rotate(-1deg); }
+}

@@ -64,8 +64,9 @@
   // ---------- Scroll reveals ----------
   // Tags elements with data-reveal; CSS hides them only when JS runs and motion is allowed.
   var revealGroups = [
-    [".wide-heading, .svc-kicker, .svc-card, .svc-also, .work-sub, .work-intro, .who-list, .who-outro, .work-soon, .party-body, .party-close, .party-line-1, .contact-copy, .enquiry, .story-copy, .client-label", ""],
+    [".wide-heading, .svc-kicker, .svc-card, .svc-also, .work-sub, .work-intro, .show-text, .work-soon, .party-body, .party-close, .party-line-1, .contact-copy, .enquiry, .story-copy, .client-label", ""],
     [".eco-logo, .client-logo", "pop"],
+    [".about-who, .show-media", "slap"],
     [".faq-list details", ""],
     [".party-line-2, .story-pull", "punch"]
   ];

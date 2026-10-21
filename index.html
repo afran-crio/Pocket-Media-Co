@@ -83,8 +83,8 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul>
-          <li><a href="#services">What We Do</a></li>
           <li><a href="#work">Our Work</a></li>
+          <li><a href="#services">What We Do</a></li>
           <li><a href="#about">About</a></li>
           <li><a class="pill pill-solid" href="#contact" data-track="cta_nav_lets_talk">Let's Talk Socials</a></li>
         </ul>
@@ -106,22 +106,81 @@
         </h1>
         <p class="hero-lede">Good ideas. Great content. One less thing on your to-do list.<br>We plan, create and manage your social media so you can get back to doing your thing.</p>
         <div class="hero-cta">
-          <a class="pill pill-solid" href="#contact" data-track="cta_hero_lets_talk_socials">Let's Talk Socials <span aria-hidden="true">↗</span></a>
-          <a class="pill" href="#work" data-track="cta_hero_see_work">See Our Work <span aria-hidden="true">↗</span></a>
+          <a class="pill pill-solid" href="#work" data-track="cta_hero_see_work">See Our Work <span aria-hidden="true">↗</span></a>
+          <a class="pill" href="#contact" data-track="cta_hero_lets_talk_socials">Let's Talk Socials <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
 
-    <!-- ============ 02. WHAT WE DO ============ -->
+    <!-- ============ 02. SELECTED WORK (MADE BY POCKET) ============ -->
+    <section class="work grain-top" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <p class="work-sub">Made by Pocket</p>
+        <h2 id="work-title" class="wide-heading">Okay, enough talking.</h2>
+        <p class="serif-md center work-intro">Here's what happens when the ideas leave the group chat and actually get made.<br>A little of what we've been cooking at Pocket.</p>
+
+        <!--
+          SELECTED WORK
+          Only genuine projects produced or managed by Pocket.
+          To launch: put media in assets/work/, fill in each <article> below (media, client, headline,
+          one line on what Pocket delivered), remove the "hidden" attribute from .showcase and delete
+          the "Fresh work dropping soon" panel. Reels work best as 4:5 or 9:16 video.
+        -->
+        <div class="showcase" id="work-grid" hidden>
+          <article class="show">
+            <div class="show-media">
+              <!-- Reel: <video src="assets/work/client-reel.mp4" poster="assets/work/client-reel.jpg" muted loop playsinline preload="metadata"></video>
+                   Still: <img src="assets/work/client.jpg" alt="Describe the image" loading="lazy"> -->
+            </div>
+            <div class="show-text">
+              <p class="show-num">01</p>
+              <p class="show-client">Client name</p>
+              <h3 class="show-title">A punchy project headline.</h3>
+              <p class="show-line">One line on what Pocket delivered.</p>
+            </div>
+          </article>
+          <article class="show show-flip">
+            <div class="show-media">
+              <!-- Reel: <video src="assets/work/client-reel.mp4" poster="assets/work/client-reel.jpg" muted loop playsinline preload="metadata"></video>
+                   Still: <img src="assets/work/client.jpg" alt="Describe the image" loading="lazy"> -->
+            </div>
+            <div class="show-text">
+              <p class="show-num">02</p>
+              <p class="show-client">Client name</p>
+              <h3 class="show-title">A punchy project headline.</h3>
+              <p class="show-line">One line on what Pocket delivered.</p>
+            </div>
+          </article>
+          <article class="show">
+            <div class="show-media">
+              <!-- Reel: <video src="assets/work/client-reel.mp4" poster="assets/work/client-reel.jpg" muted loop playsinline preload="metadata"></video>
+                   Still: <img src="assets/work/client.jpg" alt="Describe the image" loading="lazy"> -->
+            </div>
+            <div class="show-text">
+              <p class="show-num">03</p>
+              <p class="show-client">Client name</p>
+              <h3 class="show-title">A punchy project headline.</h3>
+              <p class="show-line">One line on what Pocket delivered.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="work-soon">
+          <p class="work-soon-tag">In the edit</p>
+          <h3 class="work-soon-title">Fresh work dropping soon.</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03. WHAT WE DO ============ -->
     <!-- One primary offer: done-for-you social media management. Content production is a small secondary mention. -->
-    <section class="services" id="services" aria-labelledby="services-title">
+    <section class="services grain-top" id="services" aria-labelledby="services-title">
       <div class="container narrow center">
         <h2 id="services-title" class="wide-heading">Social media is our thing.</h2>
         <p class="svc-kicker">The ideas. The shoots. The posts. The whole thing.</p>
         <div class="svc-card">
           <p class="serif-md">Running a business is already a full-time job. Figuring out what to post every week? Yeah, that shouldn't be another one.</p>
           <p class="body-lg">We get to know your business, find what makes it interesting, create the content and keep your socials looking good.</p>
-          <p class="body-lg">From planning and production to editing, publishing and reporting, we handle the whole thing.</p>
           <p class="brand-line">You do your thing. <em>We'll do your socials.</em></p>
           <p><a class="pill pill-solid" href="#contact" data-service="Someone to handle our socials" data-track="cta_service_smm">Let's Talk Socials <span aria-hidden="true">↗</span></a></p>
         </div>
@@ -129,7 +188,7 @@
       </div>
     </section>
 
-    <!-- ============ 03. OUR PHILOSOPHY ============ -->
+    <!-- ============ 04. OUR PHILOSOPHY ============ -->
     <section class="party" id="philosophy" aria-labelledby="party-title">
       <div class="container">
         <h2 id="party-title" class="party-title">
@@ -150,77 +209,20 @@
       </div>
     </section>
 
-    <!-- ============ 04. MADE BY POCKET ============ -->
-    <section class="work" id="work" aria-labelledby="work-title">
-      <div class="container">
-        <p class="work-sub">Made by Pocket</p>
-        <h2 id="work-title" class="wide-heading">Okay, enough talking.</h2>
-        <p class="serif-md center work-intro">Here's what happens when the ideas leave the group chat and actually get made.<br>A little of what we've been cooking at Pocket.</p>
-
-        <!--
-          PORTFOLIO
-          Until real Pocket projects are ready, a "Fresh work dropping soon" panel shows instead of the grid.
-          To launch the portfolio: delete the work-soon panel below, then uncomment the grid.
-
-          Launch with 3 genuinely strong projects, reels and photography first. For each project:
-            - put the file in assets/work/
-            - use a <video> for reels (muted, loop, playsinline + a poster image) or an <img> for stills
-            - fill in the genuine client name and one line on what Pocket delivered
-            - optional: wrap the card's <h3> text in <a href="..." target="_blank" rel="noopener"> to link to the live post
-
-          <div class="work-grid" id="work-grid">
-            <article class="project">
-              <div class="project-media">
-                <video src="assets/work/brand-reel.mp4" poster="assets/work/brand-reel.jpg"
-                       muted loop playsinline preload="metadata"></video>
-              </div>
-              <div class="project-body">
-                <h3>Brand Name</h3>
-                <p>Pocket's role: one line on what Pocket actually delivered.</p>
-              </div>
-            </article>
-
-            <article class="project panel-white">
-              <div class="project-media">
-                <img src="assets/work/brand-post.jpg" alt="Describe what's in the image" loading="lazy">
-              </div>
-              <div class="project-body">
-                <h3>Brand Name</h3>
-                <p>Pocket's role: one line on what Pocket actually delivered.</p>
-              </div>
-            </article>
-
-            (third project: copy either block above)
-          </div>
-
-          Only show projects genuinely produced or managed by Pocket.
-        -->
-        <div class="work-soon">
-          <p class="work-soon-tag">In the edit</p>
-          <h3 class="work-soon-title">Fresh work dropping soon.</h3>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 05. WHO'S POCKET FOR ============ -->
-    <section class="who grain-top" id="who" aria-labelledby="who-title">
-      <div class="container narrow center">
-        <h2 id="who-title" class="wide-heading">Got a business?<br> Got socials?<br> We should talk.</h2>
-        <p class="who-list">Restaurants, real estate, professionals, products, people.</p>
-        <p class="serif-md">Different businesses. Different stories. Same need to show up well online.</p>
-        <p class="body-lg">Whether you're building a brand, running a business or doing something people should know about, there's probably a story worth telling.</p>
-        <p class="who-outro">Good socials aren't just for <span>the cool kids.</span></p>
-      </div>
-    </section>
-
-    <!-- ============ 06. ABOUT POCKET ============ -->
-    <section class="about grain-top" id="about" aria-labelledby="about-title">
+    <!-- ============ 05. ABOUT POCKET (incl. who it's for) ============ -->
+    <section class="about" id="about" aria-labelledby="about-title">
       <div class="container narrow center">
         <h2 id="about-title" class="wide-heading">A little about us.</h2>
         <p class="serif-lg">We're Pocket Media Co., a social media studio from the Kaun Creative family.</p>
         <p class="body-lg">We like good ideas, interesting businesses and content that doesn't feel like content for the sake of content.</p>
-        <p class="body-lg">We believe social media should be creative, consistent and a whole lot less complicated for the people running the business.</p>
         <p class="brand-line">Good content. Great social media. <em>Consistently.</em></p>
+
+        <div class="about-who">
+          <h3 class="about-who-title">Got a business? Got socials? We should talk.</h3>
+          <p class="who-list">Restaurants, real estate, professionals, products, people.</p>
+          <p class="serif-md">Different businesses. Different stories. Same need to show up well online.</p>
+          <p class="who-outro">Good socials aren't just for <span>the cool kids.</span></p>
+        </div>
 
         <p class="story-toggle-wrap">
           <button class="story-toggle" type="button" aria-expanded="false" aria-controls="our-story" data-track="about_story_toggle">
@@ -367,7 +369,7 @@
       </div>
     </section>
 
-    <!-- ============ 07. CONTACT ============ -->
+    <!-- ============ 06. CONTACT ============ -->
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="container contact-grid">
         <div class="contact-copy">
@@ -421,7 +423,7 @@
             <textarea id="f-about" name="about" rows="3" placeholder="Tell us what's on your mind."></textarea>
           </div>
 
-          <button class="pill pill-solid pill-block" type="submit">Let's Talk <span aria-hidden="true">↗</span></button>
+          <button class="pill pill-solid pill-block" type="submit">Let's Talk Socials <span aria-hidden="true">↗</span></button>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -446,8 +448,8 @@
           <p class="footer-small">Made in Goa. Part of Kaun Creative.</p>
         </div>
         <nav class="footer-nav" aria-label="Footer">
-          <a href="#services">What We Do</a>
           <a href="#work">Our Work</a>
+          <a href="#services">What We Do</a>
           <a href="#about">About</a>
           <a href="#contact">Let's Talk Socials</a>
         </nav>
