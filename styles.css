@@ -596,7 +596,9 @@ main > section { overflow-x: clip; }
 .belief-copy { display: flex; flex-direction: column; justify-content: space-between; gap: 0; height: 100%; }
 .belief-copy p { font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.5; color: #e2e2e2; padding-block: clamp(14px, 2vw, 22px); }
 .belief-copy p + p { margin-top: 0; }
-.belief-copy p:first-child { padding-top: 0; font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.15; color: var(--white); }
+.belief-copy p:first-child { padding-top: 0; }
+.nope-follow { margin-top: clamp(24px, 3vw, 40px); font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.15; color: var(--yellow); }
+.nope-follow .squiggle { color: var(--yellow); }
 .belief-copy p:last-child { padding-bottom: 0; }
 @media (max-width: 760px) { .belief-copy { padding-top: 20px; } }
 .belief .nope .lead { font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.05; max-width: none; color: var(--white); }
@@ -604,7 +606,7 @@ main > section { overflow-x: clip; }
 .nope .lead .nope-stamp { font-family: var(--sans, "Stupid Sans"), sans-serif; font-size: 0.42em; line-height: 1; vertical-align: 0.35em; margin: 0 0 0 0.2em; white-space: nowrap; }
 .pill .story-toggle-icon, .story-toggle-icon { display: none; }
 /* Philosophy body copy: solid white, medium weight, yellow for the payoff */
-.belief-copy p:not(:first-child) { color: var(--white); font-weight: 500; }
+.belief-copy p { color: var(--white); font-weight: 500; }
 .belief-copy .hl { background: none; color: var(--yellow); }
 .squiggle--yellow { text-decoration-color: var(--yellow); }
 #services-title .accent { display: block; color: var(--black); font-size: 0.8em; margin-top: 0.12em; }
