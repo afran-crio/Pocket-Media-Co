@@ -687,3 +687,17 @@ main > section { overflow-x: clip; }
   .services .boss .services-note, .services .boss .statement { text-align: center; margin-inline: auto; }
   .services .boss .services-note { border-left: 0; padding-left: 0; }
 }
+
+/* What We Do — the stickers drift across the page; the "47 things" become a chat bubble */
+.services .effortless { margin-top: clamp(72px, 9vw, 128px); }
+.services .boss { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 36px; max-width: 760px; }
+.services .boss .services-note { position: relative; border: var(--stroke); border-radius: 28px 28px 28px 6px; padding: 22px 26px; max-width: 22em; text-align: left; background: var(--white); box-shadow: 5px 5px 0 var(--black); }
+.services .boss .services-note::after { content: ""; position: absolute; left: -2px; bottom: -18px; width: 22px; height: 18px; background: var(--black); clip-path: polygon(0 0, 100% 0, 0 100%); }
+.services .boss .statement { text-align: center; }
+@media (max-width: 760px) { .services .boss .services-note { text-align: left; } }
+@media (prefers-reduced-motion: no-preference) {
+  .services .services-cloud { flex-wrap: nowrap; justify-content: flex-start; max-width: none; width: max-content; margin-inline: 0; padding-block: 18px; animation: drift 16s ease-in-out infinite alternate; }
+  .services .services-cloud:hover { animation-play-state: paused; }
+  .services .stickers.sticker-cloud li { font-size: calc(clamp(1rem, 1.9vw, 1.5rem) * var(--s)); }
+  @keyframes drift { from { transform: translateX(4vw); } to { transform: translateX(calc(-100% + 92vw)); } }
+}
