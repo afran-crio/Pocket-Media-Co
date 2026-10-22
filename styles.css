@@ -210,11 +210,6 @@ main > section { overflow-x: clip; }
 @media (max-width: 700px) { .eco-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .eco-grid-lg { grid-template-columns: 1fr; } .client-logo { flex-basis: calc((100% - 24px) / 3); } }
 
 /* ---------- What we do ---------- */
-.services .stickers { max-width: 900px; margin: 0 auto; }
-.services .statement { margin-top: var(--head-gap); text-align: center; }
-.services .btn-row { margin-top: 28px; }
-.also { margin-top: 24px; text-align: center; font-family: var(--serif); font-size: clamp(1.15rem, 1.8vw, 1.4rem); }
-.also a { text-decoration: underline wavy var(--red) 1.5px; text-underline-offset: 6px; }
 
 /* ---------- Work ---------- */
 .showcase { display: grid; gap: clamp(20px, 3vw, 32px); }
@@ -404,8 +399,6 @@ main > section { overflow-x: clip; }
 .belief-copy p { font-size: var(--fs-body); line-height: 1.6; color: #d4d4d4; }
 .belief-copy p + p { margin-top: 14px; }
 @media (max-width: 760px) { .belief-body { grid-template-columns: 1fr; } }
-.services-note { max-width: 32em; margin: var(--head-gap) auto 0; text-align: center; }
-.services .services-note + .statement { margin-top: 32px; }
 
 /* =========================================================
    Foundation slides (deck-style: title, red rule, visual + copy)
@@ -609,15 +602,12 @@ main > section { overflow-x: clip; }
 .belief-copy p { color: var(--white); font-weight: 500; }
 .belief-copy .hl { background: none; color: var(--yellow); }
 .squiggle--yellow { text-decoration-color: var(--yellow); }
-#services-title .accent { display: block; color: var(--black); font-size: 0.8em; margin-top: 0.12em; }
 /* "Veryyyyy" scroll stretch */
 .very-line { white-space: nowrap; display: inline-block; text-align: left; }
 .very { display: inline-block; transform-origin: left bottom; transition: color 0.2s ease; }
 .very.is-stretched { color: var(--red); }
 .very-y span { display: inline-block; transform-origin: 30% 90%; }
 .very-y span[hidden] { display: none; }
-.statement--big { font-size: clamp(2.2rem, 5.4vw, 4.4rem); line-height: 0.95; }
-.statement--big em { font-size: 0.55em; margin-top: 10px; }
 
 /* ==========================================================================
    About intro + What We Do: editorial spacing and sticker clouds
@@ -641,17 +631,7 @@ main > section { overflow-x: clip; }
 .sticker-cloud { align-items: center; gap: clamp(12px, 1.8vw, 20px) clamp(8px, 1.4vw, 16px); max-width: 980px; margin-inline: auto; }
 .stickers.sticker-cloud li { --s: 1; transform: none; rotate: var(--r, 0deg); translate: 0 var(--y, 0px); font-size: calc(clamp(0.9rem, 1.5vw, 1.15rem) * var(--s)); padding: 0.55em 1.15em; box-shadow: 4px 4px 0 var(--black); cursor: default; position: relative; transition: rotate 0.3s cubic-bezier(.3,1.7,.5,1), scale 0.3s cubic-bezier(.3,1.7,.5,1), box-shadow 0.2s ease; }
 .stickers.sticker-cloud li:hover { rotate: 0deg; scale: 1.1; box-shadow: 7px 7px 0 var(--black); z-index: 1; }
-.sticker-cloud .is-black, .services-cloud li:nth-child(2), .services-cloud li:nth-child(7), .likes li:nth-child(2) { background: var(--black); color: var(--yellow); }
-.services-cloud li:nth-child(3), .services-cloud li:nth-child(6), .likes li:nth-child(3) { background: var(--red); color: var(--white); }
-.services-cloud li:nth-child(1), .services-cloud li:nth-child(5), .likes li:nth-child(1) { background: var(--yellow); color: var(--black); }
-.services-cloud li:nth-child(4) { background: var(--white); color: var(--black); }
-.services-cloud li:nth-child(1) { --s: 1.15; --r: -6deg; --y: 8px; }
-.services-cloud li:nth-child(2) { --s: 1.4; --r: 3deg; --y: -12px; }
-.services-cloud li:nth-child(3) { --s: 1; --r: 8deg; --y: 14px; }
-.services-cloud li:nth-child(4) { --s: 1.2; --r: -4deg; --y: -4px; }
-.services-cloud li:nth-child(5) { --s: 0.95; --r: 5deg; --y: 12px; }
-.services-cloud li:nth-child(6) { --s: 1.3; --r: -3deg; --y: -10px; }
-.services-cloud li:nth-child(7) { --s: 1.05; --r: 7deg; --y: 6px; }
+.sticker-cloud .is-black, .likes li:nth-child(2) { background: var(--black); color: var(--yellow); }
 .likes li:nth-child(1) { --s: 1.1; --r: -5deg; --y: 4px; }
 .likes li:nth-child(2) { --s: 1.25; --r: 3deg; --y: -8px; }
 .likes li:nth-child(3) { --s: 1; --r: -2deg; --y: 10px; }
@@ -660,30 +640,61 @@ main > section { overflow-x: clip; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .js .stickers.sticker-cloud li[data-reveal].is-in, .js .stickers.sticker-cloud li[data-reveal].is-in:nth-child(n) { transform: none; }
-  .services-cloud li:nth-child(odd) { animation: bob 5s ease-in-out infinite; }
-  .services-cloud li:nth-child(3n) { animation-duration: 6.5s; animation-delay: -2s; }
-  .services-cloud li:hover { animation-play-state: paused; }
   @keyframes bob { 50% { translate: 0 calc(var(--y, 0px) - 5px); } }
 }
 
-/* "The Whole Social Media Bit?" leads into the stickers */
-.bit { margin: clamp(56px, 8vw, 104px) auto clamp(28px, 4vw, 44px); text-align: center; }
-.bit-q { display: inline-block; font-weight: 900; text-transform: uppercase; font-size: clamp(1.5rem, 3.6vw, 2.8rem); line-height: 1; background: var(--black); color: var(--white); padding: 0.3em 0.55em; rotate: -2deg; }
-.bit-a { margin-top: 14px; font-family: var(--serif); font-style: italic; font-size: clamp(1.4rem, 2.6vw, 2.1rem); color: var(--red); rotate: 2deg; translate: clamp(20px, 6vw, 90px) 0; }
-.bit-bolt { display: inline-block; width: 0.7em; vertical-align: -0.1em; rotate: 160deg; }
 
-/* "Effortless" gets the stage to itself */
-.effortless { margin: clamp(88px, 12vw, 160px) auto; max-width: 16em; text-align: center; font-family: var(--serif); font-style: italic; font-size: clamp(2.1rem, 5.6vw, 4.6rem); line-height: 1.02; text-wrap: balance; }
-.effortless mark { background: linear-gradient(transparent 52%, var(--yellow) 52%, var(--yellow) 86%, transparent 86%); color: inherit; padding: 0 0.12em 0 0.04em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 
-/* Closing: the "47 things" aside on the left, the payoff on the right */
-.boss { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; max-width: 1040px; margin-inline: auto; }
-.services .boss .services-note { margin: 0; max-width: 17em; text-align: left; font-size: clamp(1.3rem, 2.3vw, 1.9rem); line-height: 1.2; padding-left: clamp(16px, 2vw, 24px); border-left: 4px solid var(--yellow); }
-.services .boss .statement { margin: 0; text-align: right; }
-.services .boss .statement em { color: var(--red); }
-.services .also { margin-top: clamp(48px, 7vw, 88px); }
+
+/* ==========================================================================
+   What We Do: one editorial story on a shared 1040px column
+   ========================================================================== */
+.wwd { --wwd-gap: clamp(64px, 8vw, 112px); max-width: 1040px; margin-inline: auto; }
+.wwd > * + * { margin-top: var(--wwd-gap); }
+
+/* 01 Opening: type only */
+.wwd-open { text-align: left; text-wrap: initial; }
+.wwd-open .accent { display: block; color: var(--black); font-size: 0.72em; margin-top: 0.14em; }
+
+/* 02 The thinking: statement left, aside right */
+.wwd-think { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: end; }
+.wwd-think-title { font-family: var(--serif); font-style: italic; font-size: clamp(2rem, 4.6vw, 3.9rem); line-height: 1.02; text-wrap: balance; }
+.wwd-think-title mark { background: linear-gradient(transparent 50%, var(--yellow) 50%, var(--yellow) 82%, transparent 82%); color: inherit; padding: 0 0.1em 0 0.02em; }
+.wwd-think-body { max-width: 24em; font-size: var(--fs-body); line-height: 1.6; padding-bottom: 0.4em; }
+
+/* 03 What we do: clean heading, art-directed pills */
+.wwd-do-title { font-weight: 900; text-transform: uppercase; font-size: clamp(1.7rem, 3.4vw, 2.75rem); line-height: 1; }
+.wwd-do-yep { display: inline-block; margin-left: 0.3em; font-family: var(--serif); font-weight: 400; font-style: italic; text-transform: none; color: var(--red); font-size: 0.82em; }
+.wwd-pills { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 10px; max-width: 900px; margin-top: clamp(24px, 3vw, 36px); }
+.wwd-pills li { font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; font-size: clamp(0.82rem, 1.2vw, 0.95rem); line-height: 1; padding: 0.8em 1.25em; border: 2px solid var(--black); border-radius: 999px; background: var(--white); transition: translate 0.2s ease, background-color 0.2s ease, color 0.2s ease; }
+.wwd-pills li:nth-child(3), .wwd-pills li:nth-child(6) { font-size: clamp(0.92rem, 1.4vw, 1.08rem); }
+.wwd-pills li:nth-child(even) { translate: 0 6px; }
+.wwd-pills li:nth-child(4) { rotate: -2deg; }
+.wwd-pills li.is-black { background: var(--black); color: var(--white); }
+.wwd-pills li.is-red { background: var(--red); color: var(--white); }
+.wwd-pills li.is-yellow { background: var(--yellow); }
+.wwd-pills li:hover { translate: 0 -3px; background: var(--yellow); color: var(--black); }
+.wwd-pills li:nth-child(even):hover { translate: 0 3px; }
+.wwd-pills li.is-yellow:hover { background: var(--black); color: var(--yellow); }
+
+/* 04 Problem and payoff */
+.wwd-boss { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+.wwd-note { max-width: 19em; font-family: var(--serif); font-size: clamp(1.25rem, 1.9vw, 1.55rem); line-height: 1.3; }
+.wwd-note strong { display: block; margin-top: 0.6em; font-family: var(--sans); font-weight: 800; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.02em; }
+.wwd-boss-title { font-weight: 900; text-transform: uppercase; font-size: clamp(2.6rem, 6.6vw, 5.4rem); line-height: 0.92; }
+.wwd-boss-promise { margin-top: 12px; font-family: var(--serif); font-style: italic; color: var(--red); font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.15; }
+
+/* 05 The little extra */
+.wwd-psst { margin-top: clamp(28px, 4vw, 44px); font-family: var(--serif); font-size: 1.05rem; color: #555; }
+.wwd-psst a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: #bbb; transition: color 0.2s ease, text-decoration-color 0.2s ease; }
+.wwd-psst a:hover { color: var(--red); text-decoration-color: var(--red); }
+
 @media (max-width: 760px) {
-  .boss { grid-template-columns: 1fr; }
-  .services .boss .services-note, .services .boss .statement { text-align: center; margin-inline: auto; }
-  .services .boss .services-note { border-left: 0; padding-left: 0; }
+  .wwd { --wwd-gap: 56px; }
+  .wwd-think, .wwd-boss { grid-template-columns: 1fr; gap: 18px; }
+  .wwd-do-yep { display: block; margin: 8px 0 0; }
+  .wwd-pills { gap: 10px 8px; }
+  .wwd-pills li:nth-child(even) { translate: 0 3px; }
+  .wwd-boss-title { font-size: clamp(2rem, 9vw, 2.6rem); }
 }
+@media (min-width: 641px) { .br-narrow { display: none; } }
