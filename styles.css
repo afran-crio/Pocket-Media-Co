@@ -753,3 +753,14 @@ main > section { overflow-x: clip; }
   .beats span + span::before { display: none; }
 }
 .services .container > .head { align-self: stretch; }
+
+/* Red sections: yellow "wwww" waves drifting behind the content */
+.s--red { isolation: isolate; }
+.s--red::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0.3;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='56' viewBox='0 0 120 56'%3E%3Cpath d='M0 28 Q15 8 30 28 T60 28 T90 28 T120 28' fill='none' stroke='%23F4F11F' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") repeat 0 0 / 120px 56px; }
+/* Fade the waves in where a red section blends out of the one above */
+.s--red[style*="--from"]::before { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 var(--blend)); mask-image: linear-gradient(to bottom, transparent 0, #000 var(--blend)); }
+@media (prefers-reduced-motion: no-preference) {
+  .s--red::before { animation: waves 6s linear infinite; }
+  @keyframes waves { to { background-position: 120px 0; } }
+}
