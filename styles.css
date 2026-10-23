@@ -724,3 +724,32 @@ main > section { overflow-x: clip; }
   .checklist li:nth-child(even) { translate: 0 0; }
   .checklist li:last-child { justify-self: start; }
 }
+
+/* What We Do opening: punchier subtitle and four "beats" */
+.services #services-title .accent { display: inline-block; margin-top: 0.22em; font-size: 0.86em; color: var(--black); text-decoration: underline wavy var(--red) 0.06em; text-decoration-skip-ink: none; text-underline-offset: 0.16em; rotate: -2deg; }
+.beats { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 0; margin-top: clamp(26px, 3.5vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; font-size: clamp(0.95rem, 1.6vw, 1.3rem); }
+.beats span { display: inline-flex; align-items: center; }
+.beats span:nth-child(odd) { rotate: -2deg; }
+.beats span:nth-child(even) { rotate: 2deg; }
+.beats span + span::before { content: ""; width: 0.42em; height: 0.42em; margin: 0 0.9em; border-radius: 50%; background: var(--red); }
+.beats span:nth-child(3)::before { background: var(--yellow); outline: 2px solid var(--black); }
+@media (max-width: 480px) { .beats span + span::before { margin: 0 0.55em; } }
+
+/* What We Do — one continuous story: shared centre line, one spacing rhythm */
+.services .container { --g: clamp(44px, 5.5vw, 72px); display: flex; flex-direction: column; align-items: center; text-align: center; }
+.services .container > * { margin: 0 !important; }
+.services .container > * + * { margin-top: var(--g) !important; }
+.services .head { margin-bottom: 0; }
+.services .bit { max-width: 900px; }
+.services .bit-q { font-size: clamp(1.6rem, 3.6vw, 3rem); }
+.services .bit-a { translate: 0 0; margin-top: 6px; font-size: clamp(1.4rem, 2.4vw, 2rem); }
+.services .container > .checklist { margin-top: clamp(24px, 3vw, 36px) !important; text-align: left; }
+.services .checklist li { font-size: clamp(1.25rem, 2.3vw, 1.95rem); }
+.services .effortless { max-width: 15em; font-size: clamp(2rem, 4.8vw, 4rem); }
+.services .boss { gap: 28px; }
+.services .container > .also { margin-top: clamp(24px, 3vw, 36px) !important; }
+@media (max-width: 480px) {
+  .beats { display: grid; grid-template-columns: repeat(2, max-content); justify-content: center; gap: 10px 22px; }
+  .beats span + span::before { display: none; }
+}
+.services .container > .head { align-self: stretch; }
