@@ -697,24 +697,30 @@ main > section { overflow-x: clip; }
 @media (max-width: 760px) { .services .boss .services-note { text-align: left; } }
 
 
-/* What We Do — "the whole bit": heading left, services right */
-.do-panel { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 4vw, 56px); align-items: center; margin-top: clamp(56px, 7vw, 88px); max-width: 1040px; margin-inline: auto; }
-.do-panel .bit { margin: 0; text-align: left; }
-.do-panel .bit-q { font-size: clamp(1.7rem, 3.4vw, 2.9rem); line-height: 1.02; }
-.do-panel .bit-a { translate: 0 0; rotate: -2deg; margin-top: 18px; font-size: clamp(1.4rem, 2.4vw, 2rem); }
-.do-panel .services-cloud { display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); justify-content: center; gap: 16px 14px; max-width: none; margin: 0; }
-.do-panel .stickers.sticker-cloud li { --s: 1; translate: 0 0; text-align: center; white-space: nowrap; font-size: clamp(0.95rem, 1.5vw, 1.15rem); }
-.do-panel .services-cloud li:nth-child(1) { --r: -4deg; }
-.do-panel .services-cloud li:nth-child(5) { --r: 3deg; }
-.do-panel .services-cloud li:nth-child(2) { --r: 3deg; }
-.do-panel .services-cloud li:nth-child(3) { --r: -3deg; }
-.do-panel .services-cloud li:nth-child(4) { --r: 4deg; }
-.do-panel .services-cloud li:nth-child(6) { --r: -4deg; }
-.do-panel .services-cloud li:nth-child(7) { --r: 2deg; grid-column: 1 / -1; justify-self: center; }
-@media (max-width: 760px) {
-  .do-panel { grid-template-columns: 1fr; }
-  .do-panel .bit { text-align: center; }
-  .do-panel .bit-q { font-size: clamp(1.4rem, 6.4vw, 1.9rem); }
-  .do-panel .services-cloud { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 10px; }
-  .do-panel .stickers.sticker-cloud li { font-size: 0.85rem; white-space: nowrap; }
+
+/* What We Do — "Yep, we do all of it." as a ticked checklist */
+.services .bit { margin: clamp(64px, 8vw, 104px) auto 0; text-align: center; }
+.services .bit-q { display: block; background: none; color: var(--black); padding: 0; rotate: 0deg; font-size: clamp(2rem, 5.2vw, 4.4rem); line-height: 0.95; text-wrap: balance; }
+.services .bit-a { display: inline-block; margin-top: 10px; translate: clamp(20px, 8vw, 140px) 0; rotate: -3deg; font-size: clamp(1.5rem, 2.8vw, 2.3rem); }
+.checklist { display: grid; grid-template-columns: repeat(2, max-content); justify-content: center; gap: clamp(14px, 2vw, 22px) clamp(48px, 7vw, 120px); margin: clamp(40px, 5vw, 64px) auto 0; }
+.checklist li { position: relative; padding-left: 1.65em; font-weight: 900; text-transform: uppercase; font-size: clamp(1.35rem, 2.7vw, 2.3rem); line-height: 1.1; cursor: default; transition: color 0.2s ease; }
+.checklist li:nth-child(odd) { rotate: -1deg; }
+.checklist li:nth-child(even) { rotate: 1deg; translate: 0 6px; }
+.checklist li::before { content: ""; position: absolute; left: 0; top: 0.02em; width: 1.05em; height: 1.05em; border: 3px solid var(--black); border-radius: 0.22em; background: var(--white); rotate: -5deg; transition: rotate 0.25s cubic-bezier(.3,1.7,.5,1), background-color 0.2s ease; }
+.checklist li:nth-child(3n)::before { background: var(--yellow); }
+.checklist li::after { content: ""; position: absolute; left: 0.08em; top: -0.32em; width: 1.3em; height: 1.3em; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 12.5l5.5 6L22 3' fill='none' stroke='%23ff0000' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain; }
+.checklist li:hover { color: var(--red); }
+.checklist li:hover::before { rotate: 8deg; }
+.checklist li:last-child { grid-column: 1 / -1; justify-self: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .checklist li[data-reveal]::after { clip-path: inset(0 100% 0 0); transition: clip-path 0.45s ease calc(var(--d, 0s) + 0.35s); }
+  .js .checklist li[data-reveal].is-in::after { clip-path: inset(0 0 0 0); }
+  .js .checklist li[data-reveal].is-in:nth-child(odd) { transform: none; }
+}
+@media (max-width: 640px) {
+  .services .bit-a { translate: 0 0; }
+  .checklist { grid-template-columns: max-content; gap: 14px; }
+  .checklist li { font-size: 1.45rem; }
+  .checklist li:nth-child(even) { translate: 0 0; }
+  .checklist li:last-child { justify-self: start; }
 }
