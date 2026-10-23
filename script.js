@@ -97,22 +97,6 @@
     document.querySelectorAll("[data-reveal]").forEach(function (el) { revealIO.observe(el); });
   }
 
-  // ---------- Scroll-progress bolt in the header ----------
-  var boltFill = document.querySelector(".scroll-bolt-fill");
-  if (boltFill) {
-    var ticking = false;
-    var paintProgress = function () {
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      var pct = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
-      boltFill.style.setProperty("--progress", pct.toFixed(1) + "%");
-      ticking = false;
-    };
-    window.addEventListener("scroll", function () {
-      if (!ticking) { ticking = true; window.requestAnimationFrame(paintProgress); }
-    }, { passive: true });
-    window.addEventListener("resize", paintProgress);
-    paintProgress();
-  }
 
   // ---------- FAQ: smooth open and close ----------
   if (!reduceMotion && Element.prototype.animate) {
@@ -179,13 +163,6 @@
       if (next) { e.preventDefault(); selectTab(next, true); }
     });
   });
-
-  // ---------- Hero stickers drift as you scroll ----------
-  var heroVisual = document.querySelector(".hero-visual");
-  if (heroVisual && !reduceMotion) {
-    var drift = function () { heroVisual.style.setProperty("--sy", Math.min(window.scrollY, 900).toFixed(0)); };
-    window.addEventListener("scroll", function () { window.requestAnimationFrame(drift); }, { passive: true });
-  }
 
   // ---------- Portfolio videos: play only while on screen ----------
   var videos = document.querySelectorAll(".show-media video");

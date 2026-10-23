@@ -120,10 +120,6 @@ main > section { overflow-x: clip; }
 .stickers--small li { font-size: 0.78rem; padding: 6px 14px; }
 
 /* ---------- Ticker ---------- */
-.ticker { background: var(--black); color: var(--white); overflow: hidden; white-space: nowrap; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-.ticker-track { display: inline-flex; align-items: center; gap: 18px; padding: 8px 0; animation: ticker 44s linear infinite; }
-.ticker-track img { width: 10px; }
-.ticker:hover .ticker-track { animation-play-state: paused; }
 @keyframes ticker { to { transform: translateX(-50%); } }
 
 /* ---------- Header ---------- */
@@ -131,10 +127,6 @@ main > section { overflow-x: clip; }
 .header-inner { display: flex; align-items: center; height: var(--header-h); }
 .brand { position: relative; display: inline-block; margin-right: auto; }
 .brand img { height: 42px; width: auto; }
-.brand-note { position: absolute; left: 100%; top: 50%; margin-left: 10px; white-space: nowrap; font-family: var(--serif); font-style: italic; font-size: 1.05rem; background: var(--yellow); border: 2px solid var(--black); border-radius: 999px; padding: 2px 12px; opacity: 0; transform: translate(-6px, -50%) rotate(-4deg); transition: opacity 0.2s ease, transform 0.25s cubic-bezier(.3,1.6,.5,1); pointer-events: none; }
-.brand:hover .brand-note, .brand:focus-visible .brand-note { opacity: 1; transform: translate(0, -50%) rotate(-4deg); }
-.scroll-bolt { width: 20px; height: 32px; flex: none; margin-right: clamp(12px, 2vw, 28px); filter: drop-shadow(1.5px 1.5px 0 var(--black)); }
-.scroll-bolt-fill { display: block; width: 100%; height: 100%; background: linear-gradient(to top, var(--yellow) var(--progress, 0%), #e3e3e3 var(--progress, 0%)); -webkit-mask: url("assets/img/bolt-3.webp") center / contain no-repeat; mask: url("assets/img/bolt-3.webp") center / contain no-repeat; }
 .site-nav ul { display: flex; align-items: center; gap: clamp(14px, 1.8vw, 28px); }
 .site-nav a { white-space: nowrap; }
 .site-nav a:not(.pill) { font-weight: 800; text-transform: uppercase; font-size: clamp(0.72rem, 0.9vw, 0.82rem); letter-spacing: 0.04em; text-decoration: none; }
@@ -152,7 +144,6 @@ main > section { overflow-x: clip; }
 @media (max-width: 1000px) {
   :root { --header-h: 60px; }
   .brand img { height: 36px; }
-  .brand-note { display: none; }
   .nav-toggle { display: block; }
   .site-nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: var(--stroke); padding: 8px var(--gutter) 24px; display: none; }
   .site-nav.is-open { display: block; }
@@ -354,11 +345,6 @@ main > section { overflow-x: clip; }
 /* =========================================================
    Motion (all off under prefers-reduced-motion)
    ========================================================= */
-@media (pointer: fine) {
-  body { cursor: url("assets/img/cursor-bolt.png") 15 1, auto; }
-  a, button, summary, label, .tab { cursor: pointer; }
-  input[type="text"], textarea { cursor: text; }
-}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -387,7 +373,7 @@ main > section { overflow-x: clip; }
   .h2 { transition: rotate 0.25s cubic-bezier(.3,1.6,.5,1), scale 0.25s cubic-bezier(.3,1.6,.5,1); }
   .h2:hover { rotate: -1deg; scale: 1.015; }
   @keyframes zap-shake { 0%, 100% { translate: 0 0; rotate: 0deg; } 20% { translate: -2px 1px; rotate: -8deg; } 40% { translate: 2px -1px; rotate: 7deg; } 60% { translate: -1px 0; rotate: -5deg; } 80% { translate: 1px 0; rotate: 3deg; } }
-  .hero:has(.btn-row a:hover) .bolt-hero, .hero:has(.btn-row a:hover) .bolt-hero-m, .site-footer:hover .footer-bolt, body:has(.pill:hover) .scroll-bolt { animation: zap-shake 0.45s ease; }
+  .hero:has(.btn-row a:hover) .bolt-hero, .hero:has(.btn-row a:hover) .bolt-hero-m, .site-footer:hover .footer-bolt { animation: zap-shake 0.45s ease; }
   .panel:not([hidden]) { animation: fade-up 0.4s ease both; }
 }
 
@@ -405,7 +391,6 @@ main > section { overflow-x: clip; }
    ========================================================= */
 .slides { display: grid; gap: clamp(28px, 4vw, 48px); max-width: 1120px; margin: 0 auto; }
 .slide { position: relative; background: var(--white); border: var(--stroke); border-radius: var(--radius); padding: clamp(24px, 4vw, 56px); overflow: hidden; }
-.slide::after { content: ""; position: absolute; top: clamp(18px, 3vw, 32px); right: clamp(18px, 3vw, 32px); width: 34px; height: 48px; background: url("assets/img/bolt-3.webp") center / contain no-repeat; transform: rotate(14deg); }
 .slide-head { display: flex; align-items: baseline; gap: 18px; padding-bottom: 18px; border-bottom: 3px solid var(--red); margin-bottom: clamp(24px, 4vw, 44px); padding-right: 48px; }
 .slide-num { font-family: var(--serif); font-style: italic; font-size: clamp(2.6rem, 5vw, 4rem); line-height: 0.8; color: var(--red); }
 .slide-title { font-weight: 900; text-transform: uppercase; font-size: clamp(1.4rem, 3vw, 2.4rem); line-height: 1; text-wrap: balance; }
@@ -535,17 +520,6 @@ main > section { overflow-x: clip; }
 .hp-grid i:nth-child(3n+2) { background-color: var(--yellow); }
 .hp-grid i:nth-child(4n) { background-color: var(--black); }
 .hp-grid i:nth-child(5n) { background-color: #ff8a8a; }
-.float-sticker {
-  position: absolute; z-index: 2; white-space: nowrap;
-  font-weight: 900; text-transform: uppercase; font-size: clamp(0.85rem, 1.3vw, 1.05rem);
-  background: var(--yellow); border: var(--stroke); border-radius: 999px; padding: 8px 16px;
-  box-shadow: 4px 4px 0 var(--black);
-  transform: translateY(calc(var(--sy) * var(--k, 1) * 1px)) rotate(var(--r, -6deg));
-}
-.fs-1 { left: -26%; top: 14%; --r: -8deg; --k: -0.12; }
-.fs-2 { right: -22%; top: 38%; --r: 7deg; --k: 0.1; background: var(--white); }
-.fs-3 { left: -18%; top: 62%; --r: 5deg; --k: -0.08; background: var(--white); }
-.fs-4 { right: -16%; bottom: 8%; --r: -5deg; --k: 0.14; background: var(--black); color: var(--yellow); border-color: var(--yellow); box-shadow: 4px 4px 0 var(--yellow); }
 @media (max-width: 860px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
@@ -573,10 +547,7 @@ main > section { overflow-x: clip; }
 .story-pill[aria-expanded="true"] { background: var(--yellow); }
 
 @media (prefers-reduced-motion: no-preference) {
-  .float-sticker { transition: transform 0.15s linear; }
   .hero-phone { animation: phone-in 0.9s cubic-bezier(.2,1.2,.4,1) 0.3s both; }
-  .float-sticker { animation: fade-up 0.6s ease both; }
-  .fs-1 { animation-delay: 0.7s; } .fs-2 { animation-delay: 0.85s; } .fs-3 { animation-delay: 1s; } .fs-4 { animation-delay: 1.15s; }
   @keyframes phone-in { from { opacity: 0; transform: translateY(40px) rotate(12deg); } to { opacity: 1; transform: rotate(4deg); } }
   .nope-stamp { animation: none; }
   .js .nope-stamp[data-reveal] { transform: scale(1.6) rotate(-6deg); }

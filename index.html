@@ -48,32 +48,12 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============ TICKER ============ -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>A Social Media Studio</span><img src="assets/img/bolt-3.webp" alt="">
-      <span>Your Socials? Sorted.</span><img src="assets/img/bolt-3.webp" alt="">
-      <span>The Internet Has Enough Content</span><img src="assets/img/bolt-3.webp" alt="">
-      <span>Made by Pocket</span><img src="assets/img/bolt-3.webp" alt="">
-      <span>Made in Goa</span><img src="assets/img/bolt-3.webp" alt="">
-      <span>Part of Kaun Creative</span><img src="assets/img/bolt-3.webp" alt="">
-      <span>A Social Media Studio</span><img src="assets/img/bolt-3.webp" alt="">
-      <span>Your Socials? Sorted.</span><img src="assets/img/bolt-3.webp" alt="">
-      <span>The Internet Has Enough Content</span><img src="assets/img/bolt-3.webp" alt="">
-      <span>Made by Pocket</span><img src="assets/img/bolt-3.webp" alt="">
-      <span>Made in Goa</span><img src="assets/img/bolt-3.webp" alt="">
-      <span>Part of Kaun Creative</span><img src="assets/img/bolt-3.webp" alt="">
-    </div>
-  </div>
-
   <!-- ============ HEADER / NAV ============ -->
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="Pocket Media Co. home">
         <img src="assets/img/logo.webp" alt="Pocket Media Co." width="1200" height="468">
-        <span class="brand-note" aria-hidden="true">Psst. That's us.</span>
       </a>
-      <span class="scroll-bolt" aria-hidden="true"><span class="scroll-bolt-fill"></span></span>
       <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
         <span class="nav-toggle-bar"></span>
         <span class="visually-hidden">Menu</span>
@@ -82,7 +62,6 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#services">What We Do</a></li>
-          <li><a href="#work">Work</a></li>
           <li><a href="foundation.html">Foundation</a></li>
           <li><a href="beyond-the-feed.html">Beyond the Feed</a></li>
           <li><a class="pill pill-solid" href="#contact" data-track="cta_nav_lets_talk">Let's Talk</a></li>
@@ -98,7 +77,6 @@
       <img class="bolt bolt-hero-m" src="assets/img/bolt-3.webp" alt="" aria-hidden="true">
       <div class="container hero-grid">
         <div class="hero-text">
-        <p class="eyebrow">Pocket Media Co. · A Social Media Studio</p>
         <h1 id="hero-title" class="h1">
           <span class="hl">Your socials?</span><br>
           <span class="hl"><em class="accent">Sorted.</em></span>
@@ -106,7 +84,6 @@
         <p class="lead">We plan, create and manage your socials.</p>
         <div class="btn-row">
           <a class="pill pill-solid" href="#contact" data-track="cta_hero_lets_talk_socials">Let's Talk Socials</a>
-          <a class="pill" href="#work" data-track="cta_hero_see_work">See Our Work</a>
         </div>
         </div>
 
@@ -119,10 +96,6 @@
             <span class="hp-line"></span><span class="hp-line short"></span>
             <div class="hp-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
           </div>
-          <span class="float-sticker fs-1">Reels.</span>
-          <span class="float-sticker fs-2">Shoots.</span>
-          <span class="float-sticker fs-3">Posts.</span>
-          <span class="float-sticker fs-4">No filler.</span>
         </div>
       </div>
     </section>
@@ -265,8 +238,10 @@
       </div>
     </section>
 
-    <!-- 04 MADE BY POCKET -->
-    <section class="s s--flush" id="work" aria-labelledby="work-title">
+    <!-- 04 MADE BY POCKET: hidden until there are real Pocket projects to show.
+         To launch: fill in .showcase below, remove "hidden" from it and from this section,
+         delete .soon, and add "Work" back to the nav, footer and hero ("See Our Work"). -->
+    <section class="s s--flush" id="work" aria-labelledby="work-title" hidden>
       <div class="container">
         <div class="head">
           <p class="eyebrow">Made by Pocket</p>
@@ -437,7 +412,6 @@
         </div>
         <nav class="footer-nav" aria-label="Footer">
           <a href="#about">About</a>
-          <a href="#work">Work</a>
           <a href="foundation.html">Foundation</a>
           <a href="beyond-the-feed.html">Beyond the Feed</a>
           <a href="#contact">Contact</a>
