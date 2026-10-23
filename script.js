@@ -68,7 +68,7 @@
     [".stickers li, .eco-logo, .client-logo, .numlist li, .nope-list li", "pop"],
     [".nope-stamp", "stamp"],
     [".journey li, .price-card, .card, .show-media, .slide-visual > *", "slap"],
-    [".faq-list details, .slide-copy, .belief, .checklist li", ""]
+    [".faq-list details, .slide-copy, .belief, .note", ""]
   ];
 
   if (!reduceMotion && "IntersectionObserver" in window) {

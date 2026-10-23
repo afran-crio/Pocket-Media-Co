@@ -210,11 +210,6 @@ main > section { overflow-x: clip; }
 @media (max-width: 700px) { .eco-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .eco-grid-lg { grid-template-columns: 1fr; } .client-logo { flex-basis: calc((100% - 24px) / 3); } }
 
 /* ---------- What we do ---------- */
-.services .stickers { max-width: 900px; margin: 0 auto; }
-.services .statement { margin-top: var(--head-gap); text-align: center; }
-.services .btn-row { margin-top: 28px; }
-.also { margin-top: 24px; text-align: center; font-family: var(--serif); font-size: clamp(1.15rem, 1.8vw, 1.4rem); }
-.also a { text-decoration: underline wavy var(--red) 1.5px; text-underline-offset: 6px; }
 
 /* ---------- Work ---------- */
 .showcase { display: grid; gap: clamp(20px, 3vw, 32px); }
@@ -404,8 +399,6 @@ main > section { overflow-x: clip; }
 .belief-copy p { font-size: var(--fs-body); line-height: 1.6; color: #d4d4d4; }
 .belief-copy p + p { margin-top: 14px; }
 @media (max-width: 760px) { .belief-body { grid-template-columns: 1fr; } }
-.services-note { max-width: 32em; margin: var(--head-gap) auto 0; text-align: center; }
-.services .services-note + .statement { margin-top: 32px; }
 
 /* =========================================================
    Foundation slides (deck-style: title, red rule, visual + copy)
@@ -609,18 +602,15 @@ main > section { overflow-x: clip; }
 .belief-copy p { color: var(--white); font-weight: 500; }
 .belief-copy .hl { background: none; color: var(--yellow); }
 .squiggle--yellow { text-decoration-color: var(--yellow); }
-#services-title .accent { display: block; color: var(--black); font-size: 0.8em; margin-top: 0.12em; }
 /* "Veryyyyy" scroll stretch */
 .very-line { white-space: nowrap; display: inline-block; text-align: left; }
 .very { display: inline-block; transform-origin: left bottom; transition: color 0.2s ease; }
 .very.is-stretched { color: var(--red); }
 .very-y span { display: inline-block; transform-origin: 30% 90%; }
 .very-y span[hidden] { display: none; }
-.statement--big { font-size: clamp(2.2rem, 5.4vw, 4.4rem); line-height: 0.95; }
-.statement--big em { font-size: 0.55em; margin-top: 10px; }
 
 /* ==========================================================================
-   About intro + What We Do: editorial spacing and sticker clouds
+   About intro: editorial spacing and sticker clouds
    ========================================================================== */
 .about-head .about-intro { margin-top: 22px; max-width: none; font-size: clamp(1.35rem, 2.6vw, 2.1rem); line-height: 1.2; }
 .about-hands { margin: clamp(36px, 5vw, 56px) auto 0; max-width: 26em; font-family: var(--serif); font-style: italic; font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.25; text-wrap: balance; }
@@ -641,17 +631,7 @@ main > section { overflow-x: clip; }
 .sticker-cloud { align-items: center; gap: clamp(12px, 1.8vw, 20px) clamp(8px, 1.4vw, 16px); max-width: 980px; margin-inline: auto; }
 .stickers.sticker-cloud li { --s: 1; transform: none; rotate: var(--r, 0deg); translate: 0 var(--y, 0px); font-size: calc(clamp(0.9rem, 1.5vw, 1.15rem) * var(--s)); padding: 0.55em 1.15em; box-shadow: 4px 4px 0 var(--black); cursor: default; position: relative; transition: rotate 0.3s cubic-bezier(.3,1.7,.5,1), scale 0.3s cubic-bezier(.3,1.7,.5,1), box-shadow 0.2s ease; }
 .stickers.sticker-cloud li:hover { rotate: 0deg; scale: 1.1; box-shadow: 7px 7px 0 var(--black); z-index: 1; }
-.sticker-cloud .is-black, .services-cloud li:nth-child(2), .services-cloud li:nth-child(7), .likes li:nth-child(2) { background: var(--black); color: var(--yellow); }
-.services-cloud li:nth-child(3), .services-cloud li:nth-child(6), .likes li:nth-child(3) { background: var(--red); color: var(--white); }
-.services-cloud li:nth-child(1), .services-cloud li:nth-child(5), .likes li:nth-child(1) { background: var(--yellow); color: var(--black); }
-.services-cloud li:nth-child(4) { background: var(--white); color: var(--black); }
-.services-cloud li:nth-child(1) { --s: 1.15; --r: -6deg; --y: 8px; }
-.services-cloud li:nth-child(2) { --s: 1.4; --r: 3deg; --y: -12px; }
-.services-cloud li:nth-child(3) { --s: 1; --r: 8deg; --y: 14px; }
-.services-cloud li:nth-child(4) { --s: 1.2; --r: -4deg; --y: -4px; }
-.services-cloud li:nth-child(5) { --s: 0.95; --r: 5deg; --y: 12px; }
-.services-cloud li:nth-child(6) { --s: 1.3; --r: -3deg; --y: -10px; }
-.services-cloud li:nth-child(7) { --s: 1.05; --r: 7deg; --y: 6px; }
+.likes li:nth-child(2) { background: var(--black); color: var(--yellow); }
 .likes li:nth-child(1) { --s: 1.1; --r: -5deg; --y: 4px; }
 .likes li:nth-child(2) { --s: 1.25; --r: 3deg; --y: -8px; }
 .likes li:nth-child(3) { --s: 1; --r: -2deg; --y: 10px; }
@@ -660,105 +640,12 @@ main > section { overflow-x: clip; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .js .stickers.sticker-cloud li[data-reveal].is-in, .js .stickers.sticker-cloud li[data-reveal].is-in:nth-child(n) { transform: none; }
-  .services-cloud li:nth-child(odd) { animation: bob 5s ease-in-out infinite; }
-  .services-cloud li:nth-child(3n) { animation-duration: 6.5s; animation-delay: -2s; }
-  .services-cloud li:hover { animation-play-state: paused; }
-  @keyframes bob { 50% { translate: 0 calc(var(--y, 0px) - 5px); } }
 }
-
-/* "The Whole Social Media Bit?" leads into the stickers */
-.bit { margin: clamp(56px, 8vw, 104px) auto clamp(28px, 4vw, 44px); text-align: center; }
-.bit-q { display: inline-block; font-weight: 900; text-transform: uppercase; font-size: clamp(1.5rem, 3.6vw, 2.8rem); line-height: 1; background: var(--black); color: var(--white); padding: 0.3em 0.55em; rotate: -2deg; }
-.bit-a { margin-top: 14px; font-family: var(--serif); font-style: italic; font-size: clamp(1.4rem, 2.6vw, 2.1rem); color: var(--red); rotate: 2deg; translate: clamp(20px, 6vw, 90px) 0; }
-.bit-bolt { display: inline-block; width: 0.7em; vertical-align: -0.1em; rotate: 160deg; }
-
-/* "Effortless" gets the stage to itself */
-.effortless { margin: clamp(88px, 12vw, 160px) auto; max-width: 16em; text-align: center; font-family: var(--serif); font-style: italic; font-size: clamp(2.1rem, 5.6vw, 4.6rem); line-height: 1.02; text-wrap: balance; }
-.effortless mark { background: linear-gradient(transparent 52%, var(--yellow) 52%, var(--yellow) 86%, transparent 86%); color: inherit; padding: 0 0.12em 0 0.04em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-
-/* Closing: the "47 things" aside on the left, the payoff on the right */
-.boss { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; max-width: 1040px; margin-inline: auto; }
-.services .boss .services-note { margin: 0; max-width: 17em; text-align: left; font-size: clamp(1.3rem, 2.3vw, 1.9rem); line-height: 1.2; padding-left: clamp(16px, 2vw, 24px); border-left: 4px solid var(--yellow); }
-.services .boss .statement { margin: 0; text-align: right; }
-.services .boss .statement em { color: var(--red); }
-.services .also { margin-top: clamp(48px, 7vw, 88px); }
-@media (max-width: 760px) {
-  .boss { grid-template-columns: 1fr; }
-  .services .boss .services-note, .services .boss .statement { text-align: center; margin-inline: auto; }
-  .services .boss .services-note { border-left: 0; padding-left: 0; }
-}
-
-/* What We Do — the stickers drift across the page; the "47 things" become a chat bubble */
-.services .effortless { margin-top: clamp(72px, 9vw, 128px); }
-.services .boss { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 36px; max-width: 760px; }
-.services .boss .services-note { position: relative; border: var(--stroke); border-radius: 28px 28px 28px 6px; padding: 22px 26px; max-width: 22em; text-align: left; background: var(--white); box-shadow: 5px 5px 0 var(--black); }
-.services .boss .services-note::after { content: ""; position: absolute; left: -2px; bottom: -18px; width: 22px; height: 18px; background: var(--black); clip-path: polygon(0 0, 100% 0, 0 100%); }
-.services .boss .statement { text-align: center; }
-@media (max-width: 760px) { .services .boss .services-note { text-align: left; } }
-
-
-
-/* What We Do — "Yep, we do all of it." as a ticked checklist */
-.services .bit { margin: clamp(64px, 8vw, 104px) auto 0; text-align: center; }
-.services .bit-q { display: block; background: none; color: var(--black); padding: 0; rotate: 0deg; font-size: clamp(2rem, 5.2vw, 4.4rem); line-height: 0.95; text-wrap: balance; }
-.services .bit-a { display: inline-block; margin-top: 10px; translate: clamp(20px, 8vw, 140px) 0; rotate: -3deg; font-size: clamp(1.5rem, 2.8vw, 2.3rem); }
-.checklist { display: grid; grid-template-columns: repeat(2, max-content); justify-content: center; gap: clamp(14px, 2vw, 22px) clamp(48px, 7vw, 120px); margin: clamp(40px, 5vw, 64px) auto 0; }
-.checklist li { position: relative; padding-left: 1.65em; font-weight: 900; text-transform: uppercase; font-size: clamp(1.35rem, 2.7vw, 2.3rem); line-height: 1.1; cursor: default; transition: color 0.2s ease; }
-.checklist li:nth-child(odd) { rotate: -1deg; }
-.checklist li:nth-child(even) { rotate: 1deg; translate: 0 6px; }
-.checklist li::before { content: ""; position: absolute; left: 0; top: 0.02em; width: 1.05em; height: 1.05em; border: 3px solid var(--black); border-radius: 0.22em; background: var(--white); rotate: -5deg; transition: rotate 0.25s cubic-bezier(.3,1.7,.5,1), background-color 0.2s ease; }
-.checklist li:nth-child(3n)::before { background: var(--yellow); }
-.checklist li::after { content: ""; position: absolute; left: 0.08em; top: -0.32em; width: 1.3em; height: 1.3em; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 12.5l5.5 6L22 3' fill='none' stroke='%23ff0000' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain; }
-.checklist li:hover { color: var(--red); }
-.checklist li:hover::before { rotate: 8deg; }
-.checklist li:last-child { grid-column: 1 / -1; justify-self: center; }
-@media (prefers-reduced-motion: no-preference) {
-  .js .checklist li[data-reveal]::after { clip-path: inset(0 100% 0 0); transition: clip-path 0.45s ease calc(var(--d, 0s) + 0.35s); }
-  .js .checklist li[data-reveal].is-in::after { clip-path: inset(0 0 0 0); }
-  .js .checklist li[data-reveal].is-in:nth-child(odd) { transform: none; }
-}
-@media (max-width: 640px) {
-  .services .bit-a { translate: 0 0; }
-  .checklist { grid-template-columns: max-content; gap: 14px; }
-  .checklist li { font-size: 1.45rem; }
-  .checklist li:nth-child(even) { translate: 0 0; }
-  .checklist li:last-child { justify-self: start; }
-}
-
-/* What We Do opening: punchier subtitle and four "beats" */
-.services #services-title .accent { display: inline-block; margin-top: 0.22em; font-size: 0.86em; color: var(--black); text-decoration: underline wavy var(--red) 0.06em; text-decoration-skip-ink: none; text-underline-offset: 0.16em; rotate: -2deg; }
-.beats { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 0; margin-top: clamp(26px, 3.5vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; font-size: clamp(0.95rem, 1.6vw, 1.3rem); }
-.beats span { display: inline-flex; align-items: center; }
-.beats span:nth-child(odd) { rotate: -2deg; }
-.beats span:nth-child(even) { rotate: 2deg; }
-.beats span + span::before { content: ""; width: 0.42em; height: 0.42em; margin: 0 0.9em; border-radius: 50%; background: var(--red); }
-.beats span:nth-child(3)::before { background: var(--yellow); outline: 2px solid var(--black); }
-@media (max-width: 480px) { .beats span + span::before { margin: 0 0.55em; } }
-
-/* What We Do — one continuous story: shared centre line, one spacing rhythm */
-.services .container { --g: clamp(44px, 5.5vw, 72px); display: flex; flex-direction: column; align-items: center; text-align: center; }
-.services .container > * { margin: 0 !important; }
-.services .container > * + * { margin-top: var(--g) !important; }
-.services .head { margin-bottom: 0; }
-.services .bit { max-width: 900px; }
-.services .bit-q { font-size: clamp(1.6rem, 3.6vw, 3rem); }
-.services .bit-a { translate: 0 0; margin-top: 6px; font-size: clamp(1.4rem, 2.4vw, 2rem); }
-.services .container > .checklist { margin-top: clamp(24px, 3vw, 36px) !important; text-align: left; }
-.services .checklist li { font-size: clamp(1.25rem, 2.3vw, 1.95rem); }
-.services .effortless { max-width: 15em; font-size: clamp(2rem, 4.8vw, 4rem); }
-.services .boss { gap: 28px; }
-.services .container > .also { margin-top: clamp(24px, 3vw, 36px) !important; }
-@media (max-width: 480px) {
-  .beats { display: grid; grid-template-columns: repeat(2, max-content); justify-content: center; gap: 10px 22px; }
-  .beats span + span::before { display: none; }
-}
-.services .container > .head { align-self: stretch; }
 
 /* Red sections: yellow "wwww" waves drifting behind the content */
 .s--red { isolation: isolate; }
 .s--red::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0.3;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='56' viewBox='0 0 120 56'%3E%3Cpath d='M0 28 Q15 8 30 28 T60 28 T90 28 T120 28' fill='none' stroke='%23F4F11F' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") repeat 0 0 / 120px 56px; }
-/* Fade the waves in where a red section blends out of the one above */
 @media (prefers-reduced-motion: no-preference) {
   .s--red::before { animation: waves 6s linear infinite; }
   @keyframes waves { to { background-position: 120px 0; } }
@@ -768,3 +655,41 @@ main > section { overflow-x: clip; }
 .s, .s--red, .s--yellow, .s--black { background: var(--bg); }
 .site-footer { position: relative; background: var(--black); }
 
+
+/* ==========================================================================
+   What We Do: "very online" copy beside a stack of Pocket notifications
+   ========================================================================== */
+.wwd-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 470px); gap: clamp(40px, 7vw, 96px); align-items: center; max-width: 1104px; }
+.wwd-title { font-size: clamp(3rem, 6.4vw, 5.2rem); line-height: 0.9; }
+.wwd-title .very-line { display: inline-block; }
+.wwd-reply { margin-top: 10px; font-family: var(--serif); font-style: italic; font-size: clamp(1.4rem, 2.4vw, 2rem); }
+.wwd-beats { text-wrap: balance; margin-top: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem; color: #555; }
+.wwd-bit { text-wrap: balance; margin-top: clamp(36px, 5vw, 56px); font-weight: 900; text-transform: uppercase; font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 1; }
+.wwd-yep { margin-top: 6px; font-family: var(--serif); font-style: italic; color: var(--red); font-size: clamp(1.3rem, 2.2vw, 1.8rem); rotate: -2deg; transform-origin: left; display: inline-block; }
+.wwd-eff { margin-top: clamp(32px, 4.5vw, 52px); font-family: var(--serif); font-style: italic; font-size: clamp(1.8rem, 3.4vw, 2.6rem); line-height: 1.05; max-width: 13em; }
+.wwd-eff mark { background: linear-gradient(transparent 52%, var(--yellow) 52%, var(--yellow) 86%, transparent 86%); color: inherit; }
+
+.wwd-notes { display: grid; gap: 12px; }
+.note { display: grid; grid-template-columns: 34px 1fr auto; gap: 12px; align-items: center; background: var(--white); border: 2px solid var(--black); border-radius: 18px; padding: 13px 16px; box-shadow: 5px 5px 0 var(--black); transition: rotate 0.25s cubic-bezier(.3,1.7,.5,1), translate 0.25s cubic-bezier(.3,1.7,.5,1); }
+.note i { width: 34px; height: 34px; border-radius: 9px; border: 2px solid var(--black); background: var(--yellow); }
+.note:nth-child(3n+2) i { background: var(--black); }
+.note:nth-child(3n) { background: var(--yellow); }
+.note:nth-child(3n) i { background: var(--white); }
+.note b { display: block; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.02em; }
+.note span { display: block; font-family: var(--serif); font-size: 1.1rem; line-height: 1.2; }
+.note time { align-self: start; font-size: 0.75rem; color: #777; }
+.note:nth-child(odd) { rotate: -1.5deg; translate: -10px 0; }
+.note:nth-child(even) { rotate: 1.2deg; translate: 14px 0; }
+.note:hover { rotate: 0deg; }
+
+@media (max-width: 860px) {
+  .wwd-grid { grid-template-columns: 1fr; }
+  .wwd-copy { text-align: center; }
+  .wwd-yep { transform-origin: center; }
+  .wwd-eff { margin-inline: auto; }
+  .note:nth-child(n) { translate: 0 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js .note[data-reveal] { transform: translateY(18px) scale(0.96); }
+  .js .note[data-reveal].is-in { transform: none; }
+}
