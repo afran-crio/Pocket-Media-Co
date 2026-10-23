@@ -693,3 +693,22 @@ main > section { overflow-x: clip; }
   .js .note[data-reveal] { transform: translateY(18px) scale(0.96); }
   .js .note[data-reveal].is-in { transform: none; }
 }
+
+/* ==========================================================================
+   Poster Pop system: every outlined card gets the same hard shadow
+   ========================================================================== */
+:root { --shadow: 6px 6px 0 var(--black); --shadow-sm: 4px 4px 0 var(--black); }
+.soon, .journey li, .enquiry, .explorer, .price-card, .card, .slide { box-shadow: var(--shadow); }
+.faq-list details, .eco-logo, .tab { box-shadow: var(--shadow-sm); }
+.tab[aria-selected="true"] { box-shadow: none; translate: 2px 2px; }
+.s--black .card, .s--black .journey li { box-shadow: 6px 6px 0 var(--yellow); }
+/* A little tilt, never on everything */
+.soon { rotate: -1deg; }
+.journey li:nth-child(2) { rotate: -1.2deg; }
+.cards .card:nth-child(odd) { rotate: -0.8deg; }
+.cards .card:nth-child(even) { rotate: 0.8deg; }
+/* Who: its own black moment between yellow Foundation and the FAQ */
+#who .h2 { color: var(--white); }
+#who .statement { color: var(--white); }
+#who .statement em { color: var(--yellow); }
+#who .who-list { color: var(--red); }
