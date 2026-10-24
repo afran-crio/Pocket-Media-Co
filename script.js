@@ -62,7 +62,7 @@
   // ---------- Scroll reveals ----------
   // Tags elements with data-reveal; CSS hides them only when JS runs and motion is allowed.
   var revealGroups = [
-    [".head, .statement, .soon, .show-text, .contact-copy, .enquiry, .story-copy, .client-label, .client-note, .explorer, .fine", ""],
+    [".head, .statement, .soon, .show-text, .contact-copy, .enquiry, .story-copy, .client-label, .client-note, .explorer, .fine, .plan-compare", ""],
     [".stickers li, .eco-logo, .client-logo, .numlist li", "pop"],
     [".journey li, .price-card, .card, .show-media, .slide-visual > *", "slap"],
     [".faq-list details, .slide-copy, .note", ""]
@@ -211,23 +211,44 @@
       business: "Business / Instagram",
       contact: "Email / WhatsApp",
       looking_for: "Looking for",
+      plan: "Plan",
       about: "Anything else"
     };
+
+    // The plan question only matters to people who want their socials handled
+    var planField = document.getElementById("f-plan");
+    function syncPlan() {
+      var on = !!form.querySelector('input[name=looking_for][value="Someone to handle our socials"]:checked');
+      planField.hidden = !on;
+      if (!on) form.querySelectorAll("input[name=plan]").forEach(function (r) { r.checked = false; });
+    }
+    form.addEventListener("change", function (e) {
+      if (e.target.name === "looking_for") syncPlan();
+    });
 
     // "Psst" link and the main CTA pre-select what the visitor is after
     document.querySelectorAll("[data-service]").forEach(function (link) {
       link.addEventListener("click", function () {
         var radio = form.querySelector('input[name=looking_for][value="' + link.dataset.service + '"]');
         if (radio) radio.checked = true;
+        syncPlan();
       });
     });
 
-    // Links from other pages can pre-select the enquiry type: index.html?want=socials|content|unsure#contact
-  var want = { socials: "Someone to handle our socials", content: "Just some really good content", unsure: "Not sure yet. Let's talk." }[new URLSearchParams(location.search).get("want")];
-  if (want) {
-    var wantRadio = form.querySelector('input[name=looking_for][value="' + want + '"]');
-    if (wantRadio) wantRadio.checked = true;
-  }
+    // Links from other pages can pre-select the enquiry type and plan:
+    // index.html?want=socials|content|unsure&plan=social|plus#contact
+    var params = new URLSearchParams(location.search);
+    var want = { socials: "Someone to handle our socials", content: "Just some really good content", unsure: "Not sure yet. Let's talk." }[params.get("want")];
+    if (want) {
+      var wantRadio = form.querySelector('input[name=looking_for][value="' + want + '"]');
+      if (wantRadio) wantRadio.checked = true;
+    }
+    syncPlan();
+    var plan = { social: "Pocket Social", plus: "Pocket Social Plus" }[params.get("plan")];
+    if (plan && !planField.hidden) {
+      var planRadio = form.querySelector('input[name=plan][value="' + plan + '"]');
+      if (planRadio) planRadio.checked = true;
+    }
 
   // A bolt strikes across the form when an enquiry really lands
     function strike() {
@@ -299,6 +320,7 @@
           .then(function (res) {
             if (!res.ok) throw new Error(res.status);
             form.reset();
+            syncPlan();
             track("generate_lead", { method: "form" });
             setStatus("And it's in! We'll take a look and get back to you soon.", "success");
             strike();

@@ -386,6 +386,16 @@
               <label class="choice"><input type="radio" name="looking_for" value="Not sure yet. Let's talk."><span>Not sure yet. Let's talk.</span></label>
             </div>
           </fieldset>
+          <!-- Shown only when "Someone to handle our socials" is picked. Plans and prices: foundation.html#pricing -->
+          <fieldset class="field" id="f-plan" hidden>
+            <legend>Which plan are you leaning towards? <span class="optional">(optional)</span></legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="plan" value="Pocket Social"><span>Pocket Social</span></label>
+              <label class="choice"><input type="radio" name="plan" value="Pocket Social Plus"><span>Pocket Social Plus</span></label>
+              <label class="choice"><input type="radio" name="plan" value="Help me choose"><span>Help me choose</span></label>
+            </div>
+            <p class="field-note">Compare them on the <a href="foundation.html#plans">Foundation page</a>.</p>
+          </fieldset>
           <div class="field"><label for="f-about">Anything we should know? <span class="optional">(optional)</span></label><textarea id="f-about" name="about" rows="3" placeholder="Tell us what's on your mind."></textarea></div>
           <div class="hp" aria-hidden="true"><label for="f-gotcha">Leave this empty</label><input id="f-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
           <button class="pill pill-solid pill-block" type="submit">Let's Talk</button>
