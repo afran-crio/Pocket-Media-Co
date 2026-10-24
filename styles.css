@@ -217,7 +217,7 @@ main > section { overflow-x: clip; }
 .band-track img { width: 16px; }
 
 /* About */
-.about-head .about-intro { margin-top: 22px; max-width: none; font-size: clamp(1.35rem, 2.6vw, 2.1rem); line-height: 1.2; }
+.about-head .about-intro { margin-top: 22px; max-width: none; }
 .likes.sticker-cloud { margin-top: clamp(36px, 5vw, 56px); }
 .likes li:nth-child(1) { --s: 1.1; --r: -5deg; --y: 4px; }
 .likes li:nth-child(2) { --s: 1.25; --r: 3deg; --y: -8px; background: var(--black); color: var(--yellow); }
@@ -263,13 +263,13 @@ main > section { overflow-x: clip; }
 
 /* What We Do: "very online" copy beside a stack of Pocket notifications */
 .wwd-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 470px); gap: clamp(40px, 7vw, 96px); align-items: center; }
-.wwd-title { font-size: clamp(3rem, 6.4vw, 5.2rem); line-height: 0.9; }
+.wwd-title { line-height: 0.9; }
 .very-line { white-space: nowrap; display: inline-block; text-align: left; }
 .very { display: inline-block; transform-origin: left bottom; transition: color 0.2s ease; }
 .very.is-stretched { color: var(--red); }
 .very-y span { display: inline-block; transform-origin: 30% 90%; }
 .very-y span[hidden] { display: none; }
-.wwd-reply { margin-top: 10px; font-family: var(--serif); font-style: italic; font-size: clamp(1.4rem, 2.4vw, 2rem); }
+.wwd-reply { margin-top: 10px; font-family: var(--serif); font-style: italic; font-size: var(--fs-lead); line-height: 1.15; }
 .wwd-beats { text-wrap: balance; margin-top: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem; color: #555; }
 .wwd-bit { text-wrap: balance; margin-top: clamp(36px, 5vw, 56px); font-weight: 900; text-transform: uppercase; font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 1; }
 .wwd-yep { margin-top: 6px; font-family: var(--serif); font-style: italic; color: var(--red); font-size: clamp(1.3rem, 2.2vw, 1.8rem); rotate: -2deg; transform-origin: left; display: inline-block; }
@@ -284,8 +284,8 @@ main > section { overflow-x: clip; }
 .note b { display: block; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.02em; }
 .note span { display: block; font-family: var(--serif); font-size: 1.1rem; line-height: 1.2; }
 .note time { align-self: start; font-size: 0.75rem; color: #777; }
-.note:nth-child(odd) { rotate: -1.5deg; translate: -10px 0; }
-.note:nth-child(even) { rotate: 1.2deg; translate: 14px 0; }
+.note:nth-child(odd) { rotate: -1deg; translate: -6px 0; }
+.note:nth-child(even) { rotate: 1deg; translate: 6px 0; }
 .note:hover { rotate: 0deg; }
 @media (max-width: 860px) {
   .wwd-grid { grid-template-columns: 1fr; }
@@ -314,7 +314,7 @@ main > section { overflow-x: clip; }
 /* Journey: three steps (homepage teaser + Foundation overview) */
 .journey { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0 auto; }
 .journey li { background: var(--white); border: var(--stroke); border-radius: var(--radius); padding: clamp(22px, 3vw, 34px); display: flex; flex-direction: column; gap: 10px; text-align: left; box-shadow: var(--shadow); }
-.journey li:nth-child(2) { background: var(--black); color: var(--white); rotate: -1.2deg; }
+.journey li:nth-child(2) { background: var(--black); color: var(--white); }
 .j-num { font-family: var(--serif); font-style: italic; font-size: 2.4rem; line-height: 1; }
 .journey li:nth-child(2) .j-num { color: var(--yellow); }
 .journey p { font-size: var(--fs-small); line-height: 1.5; }
@@ -324,6 +324,7 @@ main > section { overflow-x: clip; }
 @media (max-width: 760px) { .journey { grid-template-columns: 1fr; } }
 
 /* ---------- 6. Home: Who, FAQ, contact ---------- */
+.who-list + .statement { margin-top: clamp(28px, 4vw, 44px); }
 .who-list { font-weight: 900; text-transform: uppercase; font-size: clamp(1.1rem, 2.6vw, 1.9rem); line-height: 1.1; text-wrap: balance; color: var(--red); }
 
 .faq-list { max-width: var(--narrow); margin: 0 auto; display: grid; gap: 12px; }
