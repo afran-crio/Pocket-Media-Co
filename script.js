@@ -26,12 +26,10 @@
   var story = document.getElementById("our-story");
   var storyToggle = document.querySelector(".story-toggle[aria-expanded]");
   var storyLabel = storyToggle && storyToggle.querySelector(".story-toggle-label");
-  var storyIcon = storyToggle && storyToggle.querySelector(".story-toggle-icon");
 
   function setStory(open) {
     storyToggle.setAttribute("aria-expanded", String(open));
     storyLabel.textContent = open ? "Show less" : "There's more to our story";
-    storyIcon.textContent = open ? "↑" : "↓";
     story.classList.toggle("is-open", open);
     if (open) story.removeAttribute("inert");
     else story.setAttribute("inert", "");
@@ -64,11 +62,10 @@
   // ---------- Scroll reveals ----------
   // Tags elements with data-reveal; CSS hides them only when JS runs and motion is allowed.
   var revealGroups = [
-    [".head, .statement, .also, .soon, .show-text, .contact-copy, .enquiry, .story-copy, .client-label, .client-note, .explorer, .fine", ""],
-    [".stickers li, .eco-logo, .client-logo, .numlist li, .nope-list li", "pop"],
-    [".nope-stamp", "stamp"],
+    [".head, .statement, .soon, .show-text, .contact-copy, .enquiry, .story-copy, .client-label, .client-note, .explorer, .fine", ""],
+    [".stickers li, .eco-logo, .client-logo, .numlist li", "pop"],
     [".journey li, .price-card, .card, .show-media, .slide-visual > *", "slap"],
-    [".faq-list details, .slide-copy, .belief, .note", ""]
+    [".faq-list details, .slide-copy, .note", ""]
   ];
 
   if (!reduceMotion && "IntersectionObserver" in window) {
