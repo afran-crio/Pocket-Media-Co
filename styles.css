@@ -86,9 +86,10 @@ main > section { overflow-x: clip; }
 .s--yellow { --bg: var(--yellow); }
 .s--black { --bg: var(--black); color: var(--white); }
 .s--flush { padding-top: 0; }
-/* Red sections: yellow "wwww" waves drifting behind the content */
+/* Red sections: yellow "wwww" waves drifting behind the content.
+   Fixed to the viewport so back-to-back red sections join without a seam. */
 .s--red::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0.3;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='56' viewBox='0 0 120 56'%3E%3Cpath d='M0 28 Q15 8 30 28 T60 28 T90 28 T120 28' fill='none' stroke='%23F4F11F' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") repeat 0 0 / 120px 56px; }
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='56' viewBox='0 0 120 56'%3E%3Cpath d='M0 28 Q15 8 30 28 T60 28 T90 28 T120 28' fill='none' stroke='%23F4F11F' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") repeat 0 0 / 120px 56px fixed; }
 
 /* ---------- 3. Type & components ---------- */
 .eyebrow { font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; font-size: var(--fs-eyebrow); margin-bottom: 18px; }
@@ -102,6 +103,7 @@ main > section { overflow-x: clip; }
 .body { font-size: var(--fs-body); line-height: 1.6; color: var(--ink-soft); text-wrap: pretty; }
 .s--black .body { color: #d4d4d4; }
 .s--red .body, .s--yellow .body { color: var(--black); }
+.s--red .body, .s--red .fine { font-weight: 600; }
 .small { font-size: var(--fs-small); }
 
 /* Centred section head: heading, then lead, then body */
@@ -172,7 +174,7 @@ main > section { overflow-x: clip; }
 /* ---------- 5. Home: hero → Foundation ---------- */
 
 /* Hero */
-.hero { --bg: var(--red); min-height: calc(100svh - 36px - var(--header-h)); display: flex; flex-direction: column; justify-content: center; padding-block: clamp(40px, 6vh, 80px); overflow: hidden; }
+.hero { --bg: var(--red); min-height: calc(100svh - var(--header-h)); display: flex; flex-direction: column; justify-content: center; padding-block: clamp(40px, 6vh, 80px); overflow: hidden; }
 .hero > .container { width: 100%; }
 .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(24px, 4vw, 64px); align-items: center; }
 .hero-text { min-width: 0; }
@@ -204,7 +206,7 @@ main > section { overflow-x: clip; }
   .hero-visual { display: none; }
 }
 @media (max-width: 800px) {
-  .hero { min-height: calc(92svh - 36px - var(--header-h)); }
+  .hero { min-height: 0; padding-block: clamp(72px, 16vw, 112px); }
   .bolt-hero-m { display: block; width: 48px; right: 7%; top: 28%; transform: rotate(14deg); }
 }
 
@@ -260,7 +262,7 @@ main > section { overflow-x: clip; }
 @media (max-width: 700px) { .eco-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .eco-grid-lg { grid-template-columns: 1fr; } .client-logo { flex-basis: calc((100% - 24px) / 3); } }
 
 /* What We Do: "very online" copy beside a stack of Pocket notifications */
-.wwd-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 470px); gap: clamp(40px, 7vw, 96px); align-items: center; max-width: 1104px; }
+.wwd-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 470px); gap: clamp(40px, 7vw, 96px); align-items: center; }
 .wwd-title { font-size: clamp(3rem, 6.4vw, 5.2rem); line-height: 0.9; }
 .very-line { white-space: nowrap; display: inline-block; text-align: left; }
 .very { display: inline-block; transform-origin: left bottom; transition: color 0.2s ease; }
@@ -406,7 +408,7 @@ main > section { overflow-x: clip; }
 /* Deck slides: title, red rule, then visual + copy */
 .slides { display: grid; gap: clamp(28px, 4vw, 48px); max-width: 1120px; margin: 0 auto; }
 .slide { position: relative; background: var(--white); border: var(--stroke); border-radius: var(--radius); padding: clamp(24px, 4vw, 56px); overflow: hidden; box-shadow: var(--shadow); }
-.slide-head { display: flex; align-items: baseline; gap: 18px; padding-bottom: 18px; border-bottom: 3px solid var(--red); margin-bottom: clamp(24px, 4vw, 44px); padding-right: 48px; }
+.slide-head { display: flex; align-items: baseline; gap: 18px; padding-bottom: 18px; border-bottom: 3px solid var(--red); margin-bottom: clamp(24px, 4vw, 44px); }
 .slide-num { font-family: var(--serif); font-style: italic; font-size: clamp(2.6rem, 5vw, 4rem); line-height: 0.8; color: var(--red); }
 .slide-title { font-weight: 900; text-transform: uppercase; font-size: clamp(1.4rem, 3vw, 2.4rem); line-height: 1; text-wrap: balance; }
 .slide-body { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 64px); align-items: center; }
