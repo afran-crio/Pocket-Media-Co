@@ -522,6 +522,7 @@ main > section { overflow-x: clip; }
 .price-kind { font-size: var(--fs-eyebrow); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red-deep); }
 .price-card .price-amount { font-weight: 1000; font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1; }
 .price-card .price-amount span { display: block; margin-top: 6px; font-family: var(--serif); font-weight: 400; font-style: italic; font-size: 1.15rem; }
+.price-card .price-amount--quote { font-size: clamp(1.9rem, 3.6vw, 2.8rem); }
 .price-card p { font-size: var(--fs-small); line-height: 1.5; }
 .price-card ul { margin-top: auto; padding-top: 14px; border-top: 2px solid var(--black); display: grid; gap: 6px; font-size: var(--fs-small); }
 .price-card ul li::before { content: "✓  "; font-weight: 900; }

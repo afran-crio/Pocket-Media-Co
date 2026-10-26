@@ -30,7 +30,7 @@ To preview it locally, run `python3 -m http.server` in this folder and open http
 
 ## Pricing
 
-Prices appear only on foundation.html: Foundation ₹25,000 one-time (waived with three months upfront), Pocket Social ₹60,000/month, Pocket Social Plus ₹80,000/month, all + GST, three-month minimum. Deliverable counts stay in the quotation.
+The only price shown anywhere is the Foundation: ₹25,000 one-time (waived with three months upfront) + GST, on foundation.html. Monthly plans (Pocket Social, Pocket Social Plus) show "priced to your scope" and are quoted per client; three-month minimum. Deliverable counts stay in the quotation.
 
 ## Before going live
 
